@@ -1,112 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thumbnail Row — Base BNTS DS</title>
-  <link rel="stylesheet" href="../../build/css/core.css">
-  <link rel="stylesheet" href="../../build/css/semantic.css">
-  <link rel="stylesheet" href="../../build/css/base.css">
-  <link rel="stylesheet" href="thumbnail-row.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thumbnail Row — Design System</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="thumbnail-row.css" />
   <style>
-    body { font-family: sans-serif; background: var(--ds-surface-page); padding: 2rem; color: var(--ds-content-text-primary); }
-    h2 { font-size: 0.75rem; font-weight: 600; margin: 2rem 0 0.5rem; color: var(--ds-content-text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
-    .placeholder { background: #d0d5e0; display: flex; align-items: center; justify-content: center; color: #8892a4; font-size: 11px; width: 100%; height: 100%; }
+    .demo-section { margin-bottom: 2.5rem; }
+    .demo-label { font-size: 0.75rem; color: var(--ds-content-text-secondary); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    hr { border: none; border-top: var(--ds-border-default-width, 1px) solid var(--ds-border-default-color); margin: 2rem 0; }
+
+    /* Placeholder fills for demo */
+    .fill {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
   </style>
 </head>
-<body>
-  <h1 style="font-size:1.5rem;font-weight:700;margin-bottom:0.25rem">Thumbnail Row — base design system</h1>
-  <p style="color:var(--ds-content-text-secondary);font-size:0.875rem;margin-top:0">Scrollable row of selectable thumbnails with size, shape, and state variants.</p>
+<body style="background: var(--ds-surface-page); color: var(--ds-content-text-primary); font-family: sans-serif; padding: 2rem;">
 
-  <h2>Small (64px) — product gallery</h2>
-  <div class="ds-thumbnail-row ds-thumbnail-row--sm">
-    <div class="ds-thumbnail-row__item ds-thumbnail-row__item--selected" role="option" aria-selected="true" tabindex="0">
-      <div class="placeholder">1</div>
-      <span class="ds-thumbnail-row__check">✓</span>
-    </div>
-    <div class="ds-thumbnail-row__item" role="option" aria-selected="false" tabindex="0">
-      <div class="placeholder">2</div>
-      <span class="ds-thumbnail-row__check">✓</span>
-    </div>
-    <div class="ds-thumbnail-row__item" role="option" aria-selected="false" tabindex="0">
-      <div class="placeholder">3</div>
-      <span class="ds-thumbnail-row__check">✓</span>
-    </div>
-    <div class="ds-thumbnail-row__item" role="option" aria-selected="false" tabindex="0">
-      <div class="placeholder">4</div>
-      <span class="ds-thumbnail-row__check">✓</span>
-    </div>
-    <div class="ds-thumbnail-row__item" role="option" aria-selected="false" tabindex="0">
-      <div class="placeholder">5</div>
-      <span class="ds-thumbnail-row__check">✓</span>
-    </div>
-    <div class="ds-thumbnail-row__item" role="option" aria-disabled="true" tabindex="-1">
-      <div class="placeholder">✕</div>
+  <h1 style="margin-bottom: 2rem;">Thumbnail Row Component</h1>
+
+  <!-- Default (md) — 6 items, 3rd active -->
+  <div class="demo-section">
+    <div class="demo-label">Default — 6 items, 3rd active</div>
+    <div class="ds-thumbnail-row ds-thumbnail-row--md" role="listbox" aria-label="Product images">
+
+      <div class="ds-thumbnail-row__item" role="option" aria-selected="false" tabindex="0" aria-label="Image 1">
+        <div class="fill" style="background: var(--ds-surface-input, #dbeafe);">🌊</div>
+      </div>
+
+      <div class="ds-thumbnail-row__item" role="option" aria-selected="false" tabindex="0" aria-label="Image 2">
+        <div class="fill" style="background: var(--ds-surface-input, #d1fae5);">🌲</div>
+      </div>
+
+      <div class="ds-thumbnail-row__item ds-thumbnail-row__item--active" role="option" aria-selected="true" tabindex="0" aria-label="Image 3 (selected)">
+        <div class="fill" style="background: var(--ds-surface-input, #fce7f3);">🌺</div>
+      </div>
+
+      <div class="ds-thumbnail-row__item" role="option" aria-selected="false" tabindex="0" aria-label="Image 4">
+        <div class="fill" style="background: var(--ds-surface-input, #fef3c7);">🌻</div>
+      </div>
+
+      <div class="ds-thumbnail-row__item" role="option" aria-selected="false" tabindex="0" aria-label="Image 5">
+        <div class="fill" style="background: var(--ds-surface-input, #e0e7ff);">🦜</div>
+      </div>
+
+      <div class="ds-thumbnail-row__item" role="option" aria-selected="false" tabindex="0" aria-label="Image 6">
+        <div class="fill" style="background: var(--ds-surface-input, #fecaca);">🦩</div>
+      </div>
+
     </div>
   </div>
 
-  <h2>Medium (80px) — with scroll arrows</h2>
-  <div class="ds-thumbnail-row-wrapper">
-    <button class="ds-thumbnail-row__arrow" aria-label="Previous" disabled>‹</button>
-    <div class="ds-thumbnail-row ds-thumbnail-row--md" style="max-width:480px">
-      <div class="ds-thumbnail-row__item" role="option" tabindex="0"><div class="placeholder">1</div><span class="ds-thumbnail-row__check">✓</span></div>
-      <div class="ds-thumbnail-row__item ds-thumbnail-row__item--selected" role="option" aria-selected="true" tabindex="0"><div class="placeholder">2</div><span class="ds-thumbnail-row__check">✓</span></div>
-      <div class="ds-thumbnail-row__item" role="option" tabindex="0"><div class="placeholder">3</div><span class="ds-thumbnail-row__check">✓</span></div>
-      <div class="ds-thumbnail-row__item" role="option" tabindex="0"><div class="placeholder">4</div><span class="ds-thumbnail-row__check">✓</span></div>
-      <div class="ds-thumbnail-row__item" role="option" tabindex="0"><div class="placeholder">5</div><span class="ds-thumbnail-row__check">✓</span></div>
-      <div class="ds-thumbnail-row__item" role="option" tabindex="0"><div class="placeholder">6</div><span class="ds-thumbnail-row__check">✓</span></div>
-      <div class="ds-thumbnail-row__item" role="option" tabindex="0"><div class="placeholder">7</div><span class="ds-thumbnail-row__check">✓</span></div>
-    </div>
-    <button class="ds-thumbnail-row__arrow" aria-label="Next">›</button>
-  </div>
+  <hr />
 
-  <h2>Large (120px) — with captions</h2>
-  <div class="ds-thumbnail-row ds-thumbnail-row--lg">
-    <div class="ds-thumbnail-row__item" role="option" tabindex="0">
-      <div class="placeholder">Front</div>
-      <span class="ds-thumbnail-row__caption">Front view</span>
-    </div>
-    <div class="ds-thumbnail-row__item ds-thumbnail-row__item--selected" role="option" aria-selected="true" tabindex="0">
-      <div class="placeholder">Side</div>
-      <span class="ds-thumbnail-row__caption">Side view</span>
-      <span class="ds-thumbnail-row__check">✓</span>
-    </div>
-    <div class="ds-thumbnail-row__item" role="option" tabindex="0">
-      <div class="placeholder">Back</div>
-      <span class="ds-thumbnail-row__caption">Back view</span>
-    </div>
-    <div class="ds-thumbnail-row__item" role="option" tabindex="0">
-      <div class="placeholder">Detail</div>
-      <span class="ds-thumbnail-row__caption">Detail</span>
+  <!-- Size variants: SM -->
+  <div class="demo-section">
+    <div class="demo-label">Small (SM)</div>
+    <div class="ds-thumbnail-row ds-thumbnail-row--sm" role="listbox" aria-label="Small thumbnails">
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #dbeafe);">🏔️</div></div>
+      <div class="ds-thumbnail-row__item ds-thumbnail-row__item--active" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #dcfce7);">🌅</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #fce7f3);">🌸</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #fef3c7);">🌼</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #e0e7ff);">🦋</div></div>
     </div>
   </div>
 
-  <h2>Circle avatars (48px)</h2>
-  <div class="ds-thumbnail-row ds-thumbnail-row--xs ds-thumbnail-row--circle">
-    <div class="ds-thumbnail-row__item ds-thumbnail-row__item--selected" role="option" aria-selected="true" tabindex="0">
-      <div class="placeholder">AS</div>
-      <span class="ds-thumbnail-row__check">✓</span>
+  <!-- Size variants: MD -->
+  <div class="demo-section">
+    <div class="demo-label">Medium (MD — default)</div>
+    <div class="ds-thumbnail-row ds-thumbnail-row--md" role="listbox" aria-label="Medium thumbnails">
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #dbeafe);">🏔️</div></div>
+      <div class="ds-thumbnail-row__item ds-thumbnail-row__item--active" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #dcfce7);">🌅</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #fce7f3);">🌸</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #fef3c7);">🌼</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #e0e7ff);">🦋</div></div>
     </div>
-    <div class="ds-thumbnail-row__item" role="option" tabindex="0"><div class="placeholder">JD</div></div>
-    <div class="ds-thumbnail-row__item" role="option" tabindex="0"><div class="placeholder">MK</div></div>
-    <div class="ds-thumbnail-row__item" role="option" tabindex="0"><div class="placeholder">SL</div></div>
   </div>
 
-  <h2>Video row — with play overlay on hover</h2>
-  <div class="ds-thumbnail-row ds-thumbnail-row--lg">
-    <div class="ds-thumbnail-row__item" role="option" tabindex="0">
-      <div class="placeholder" style="background:#c0c8d8">▶ 0:32</div>
-      <div class="ds-thumbnail-row__play">▶</div>
-    </div>
-    <div class="ds-thumbnail-row__item ds-thumbnail-row__item--selected" role="option" aria-selected="true" tabindex="0">
-      <div class="placeholder" style="background:#b8c4d4">▶ 1:14</div>
-      <div class="ds-thumbnail-row__play">▶</div>
-      <span class="ds-thumbnail-row__check">✓</span>
-    </div>
-    <div class="ds-thumbnail-row__item" role="option" tabindex="0">
-      <div class="placeholder" style="background:#adbdd0">▶ 2:07</div>
-      <div class="ds-thumbnail-row__play">▶</div>
+  <!-- Size variants: LG -->
+  <div class="demo-section">
+    <div class="demo-label">Large (LG)</div>
+    <div class="ds-thumbnail-row ds-thumbnail-row--lg" role="listbox" aria-label="Large thumbnails">
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #dbeafe);">🏔️</div></div>
+      <div class="ds-thumbnail-row__item ds-thumbnail-row__item--active" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #dcfce7);">🌅</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #fce7f3);">🌸</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #fef3c7);">🌼</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #e0e7ff);">🦋</div></div>
     </div>
   </div>
+
+  <hr />
+
+  <!-- With add button at end -->
+  <div class="demo-section">
+    <div class="demo-label">With add button</div>
+    <div class="ds-thumbnail-row ds-thumbnail-row--md" role="listbox" aria-label="Image gallery">
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #dbeafe);">🌊</div></div>
+      <div class="ds-thumbnail-row__item ds-thumbnail-row__item--active" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #d1fae5);">🌲</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #fce7f3);">🌺</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #fef3c7);">🌻</div></div>
+
+      <button class="ds-thumbnail-row__add-btn" aria-label="Add image">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Filmstrip variant -->
+  <div class="demo-section">
+    <div class="demo-label">Filmstrip variant — taller portrait items</div>
+    <div class="ds-thumbnail-row ds-thumbnail-row--filmstrip" role="listbox" aria-label="Video filmstrip">
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #0f172a); color: #64748b; font-size: 1rem;">🎞️</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #1e293b); color: #64748b; font-size: 1rem;">🎞️</div></div>
+      <div class="ds-thumbnail-row__item ds-thumbnail-row__item--active" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #1e3a5f); color: #7dd3fc; font-size: 1rem;">🎬</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #0f172a); color: #64748b; font-size: 1rem;">🎞️</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #1e293b); color: #64748b; font-size: 1rem;">🎞️</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #0f172a); color: #64748b; font-size: 1rem;">🎞️</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #1e293b); color: #64748b; font-size: 1rem;">🎞️</div></div>
+      <div class="ds-thumbnail-row__item" tabindex="0"><div class="fill" style="background: var(--ds-surface-input, #0f172a); color: #64748b; font-size: 1rem;">🎞️</div></div>
+
+      <button class="ds-thumbnail-row__add-btn" aria-label="Add clip">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
 </body>
 </html>
