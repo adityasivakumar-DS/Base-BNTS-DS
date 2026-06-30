@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Breadcrumb — Component Demo</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="breadcrumb.css" />
+  <style>
+    body {
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    .demo-section {
+      margin-bottom: 2.5rem;
+    }
+    .demo-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ds-content-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Default breadcrumb with slash separator -->
+  <div class="demo-section">
+    <p class="demo-label">Default — slash separator</p>
+    <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+      <ol class="ds-breadcrumb__list">
+        <li class="ds-breadcrumb__item">
+          <a href="#" class="ds-breadcrumb__link">Home</a>
+        </li>
+        <li class="ds-breadcrumb__item" aria-hidden="true">
+          <span class="ds-breadcrumb__separator">/</span>
+        </li>
+        <li class="ds-breadcrumb__item">
+          <a href="#" class="ds-breadcrumb__link">Category</a>
+        </li>
+        <li class="ds-breadcrumb__item" aria-hidden="true">
+          <span class="ds-breadcrumb__separator">/</span>
+        </li>
+        <li class="ds-breadcrumb__item">
+          <span class="ds-breadcrumb__current" aria-current="page">Current Page</span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Breadcrumb with chevron separator -->
+  <div class="demo-section">
+    <p class="demo-label">Chevron separator</p>
+    <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+      <ol class="ds-breadcrumb__list">
+        <li class="ds-breadcrumb__item">
+          <a href="#" class="ds-breadcrumb__link">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:0.25rem;">
+              <path d="M1.5 5.5L7 2L12.5 5.5V12.5H9V9H5V12.5H1.5V5.5Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/>
+            </svg>
+            Home
+          </a>
+        </li>
+        <li class="ds-breadcrumb__item" aria-hidden="true">
+          <span class="ds-breadcrumb__separator">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 2L8 6L4 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </li>
+        <li class="ds-breadcrumb__item">
+          <a href="#" class="ds-breadcrumb__link">Category</a>
+        </li>
+        <li class="ds-breadcrumb__item" aria-hidden="true">
+          <span class="ds-breadcrumb__separator">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 2L8 6L4 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </li>
+        <li class="ds-breadcrumb__item">
+          <span class="ds-breadcrumb__current" aria-current="page">Current Page</span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Small variant -->
+  <div class="demo-section">
+    <p class="demo-label">Small variant</p>
+    <nav class="ds-breadcrumb ds-breadcrumb--sm" aria-label="Breadcrumb">
+      <ol class="ds-breadcrumb__list">
+        <li class="ds-breadcrumb__item">
+          <a href="#" class="ds-breadcrumb__link">Home</a>
+        </li>
+        <li class="ds-breadcrumb__item" aria-hidden="true">
+          <span class="ds-breadcrumb__separator">/</span>
+        </li>
+        <li class="ds-breadcrumb__item">
+          <a href="#" class="ds-breadcrumb__link">Category</a>
+        </li>
+        <li class="ds-breadcrumb__item" aria-hidden="true">
+          <span class="ds-breadcrumb__separator">/</span>
+        </li>
+        <li class="ds-breadcrumb__item">
+          <span class="ds-breadcrumb__current" aria-current="page">Current Page</span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Large variant -->
+  <div class="demo-section">
+    <p class="demo-label">Large variant</p>
+    <nav class="ds-breadcrumb ds-breadcrumb--lg" aria-label="Breadcrumb">
+      <ol class="ds-breadcrumb__list">
+        <li class="ds-breadcrumb__item">
+          <a href="#" class="ds-breadcrumb__link">Home</a>
+        </li>
+        <li class="ds-breadcrumb__item" aria-hidden="true">
+          <span class="ds-breadcrumb__separator">/</span>
+        </li>
+        <li class="ds-breadcrumb__item">
+          <a href="#" class="ds-breadcrumb__link">Category</a>
+        </li>
+        <li class="ds-breadcrumb__item" aria-hidden="true">
+          <span class="ds-breadcrumb__separator">/</span>
+        </li>
+        <li class="ds-breadcrumb__item">
+          <span class="ds-breadcrumb__current" aria-current="page">Current Page</span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+</body>
+</html>

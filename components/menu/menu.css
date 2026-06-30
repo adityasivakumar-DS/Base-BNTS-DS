@@ -1,0 +1,123 @@
+/* Menu — headless component. All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes. */
+
+/* Menu container */
+.ds-menu {
+  position: absolute;
+  background: var(--ds-surface-overlay, var(--ds-surface-page));
+  border: var(--ds-border-default-width) solid var(--ds-border-default-color);
+  border-radius: var(--ds-action-primary-radius);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  min-width: 180px;
+  z-index: 500;
+  padding: calc(var(--ds-action-primary-padding-y-md, 0.5rem) * 0.5) 0;
+  outline: none;
+}
+
+.ds-menu:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+/* Menu item */
+.ds-menu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-action-primary-icon-gap, 0.5rem);
+  width: 100%;
+  padding: calc(var(--ds-action-primary-padding-y-md, 0.5rem) * 0.75) var(--ds-action-primary-padding-x-md);
+  font-size: var(--ds-action-primary-font-size-md);
+  color: var(--ds-content-text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+  transition: background var(--ds-action-primary-transition-duration, 0.15s) ease,
+              color var(--ds-action-primary-transition-duration, 0.15s) ease;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+.ds-menu__item:hover {
+  background: var(--ds-action-ghost-bg-hover);
+}
+
+.ds-menu__item:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: calc(var(--ds-focus-ring-offset, 2px) * -1);
+}
+
+/* Destructive item */
+.ds-menu__item--destructive {
+  color: var(--ds-action-destructive-bg);
+}
+
+.ds-menu__item--destructive:hover {
+  background: var(--ds-action-destructive-bg);
+  color: var(--ds-action-primary-text);
+}
+
+.ds-menu__item--destructive:hover .ds-menu__icon {
+  color: var(--ds-action-primary-text);
+}
+
+/* Disabled item */
+.ds-menu__item[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Separator */
+.ds-menu__separator {
+  height: 1px;
+  background: var(--ds-border-default-color);
+  margin: calc(var(--ds-action-primary-padding-y-md, 0.5rem) * 0.5) 0;
+  border: none;
+}
+
+/* Group label */
+.ds-menu__label {
+  display: block;
+  padding: calc(var(--ds-action-primary-padding-y-md, 0.5rem) * 0.5) var(--ds-action-primary-padding-x-md);
+  font-size: var(--ds-action-primary-font-size-sm);
+  color: var(--ds-content-text-secondary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Icon */
+.ds-menu__icon {
+  flex-shrink: 0;
+  color: var(--ds-content-text-secondary);
+  display: flex;
+  align-items: center;
+  transition: color var(--ds-action-primary-transition-duration, 0.15s) ease;
+}
+
+.ds-menu__item:hover .ds-menu__icon {
+  color: var(--ds-content-text-primary);
+}
+
+/* Keyboard shortcut */
+.ds-menu__shortcut {
+  margin-left: auto;
+  font-size: var(--ds-action-primary-font-size-sm);
+  color: var(--ds-content-text-secondary);
+  flex-shrink: 0;
+  padding-left: 1.5rem;
+}
+
+/* Small variant */
+.ds-menu--sm .ds-menu__item {
+  padding: calc(var(--ds-action-primary-padding-y-md, 0.5rem) * 0.5) calc(var(--ds-action-primary-padding-x-md, 0.75rem) * 0.85);
+  font-size: var(--ds-action-primary-font-size-sm);
+}
+
+.ds-menu--sm .ds-menu__label {
+  padding: calc(var(--ds-action-primary-padding-y-md, 0.5rem) * 0.35) calc(var(--ds-action-primary-padding-x-md, 0.75rem) * 0.85);
+  font-size: calc(var(--ds-action-primary-font-size-sm, 0.875rem) * 0.9);
+}

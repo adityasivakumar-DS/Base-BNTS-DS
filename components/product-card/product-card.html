@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Card — Design System</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="../rating/rating.css" />
+  <link rel="stylesheet" href="../product-price/product-price.css" />
+  <link rel="stylesheet" href="product-card.css" />
+  <style>
+    .demo-section { margin-bottom: 3rem; }
+    .demo-label { font-size: 0.75rem; color: var(--ds-content-text-secondary); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .demo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 900px; }
+    .demo-stack { display: flex; flex-direction: column; gap: 1.5rem; max-width: 560px; }
+
+    /* Inline button styles using DS vars for demo CTAs */
+    .ds-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: var(--ds-action-primary-padding-y-sm, 0.5rem) var(--ds-action-primary-padding-x-md, 1rem);
+      background: var(--ds-action-primary-bg);
+      color: var(--ds-action-primary-text);
+      border: none;
+      border-radius: var(--ds-action-primary-radius, 0.375rem);
+      font-size: var(--ds-action-primary-font-size-sm, 0.875rem);
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity var(--ds-action-primary-transition-duration, 0.15s) ease;
+    }
+    .ds-btn-primary:hover { opacity: 0.88; }
+    .ds-btn-primary:focus-visible {
+      outline: var(--ds-focus-ring-width, 2px) solid var(--ds-focus-ring-color, var(--ds-action-primary-bg));
+      outline-offset: var(--ds-focus-ring-offset, 2px);
+    }
+    .ds-btn-primary:disabled {
+      background: var(--ds-action-primary-bg-disabled);
+      color: var(--ds-action-primary-text-disabled);
+      cursor: not-allowed;
+      opacity: 1;
+    }
+
+    /* Simple badge */
+    .ds-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      line-height: 1.4;
+      background: var(--ds-action-destructive-bg);
+      color: var(--ds-action-primary-text, #fff);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .ds-badge--success {
+      background: var(--ds-status-success, var(--ds-action-primary-bg));
+    }
+
+    /* Image placeholder */
+    .img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body style="background: var(--ds-surface-page); color: var(--ds-content-text-primary); font-family: sans-serif; padding: 2rem;">
+
+  <h1 style="margin-bottom: 2rem;">Product Card Component</h1>
+
+  <!-- 3 product cards in a grid -->
+  <div class="demo-section">
+    <div class="demo-label">Default — 3-column grid</div>
+    <div class="demo-grid">
+
+      <!-- Card 1: Sale item -->
+      <article class="ds-product-card">
+        <div class="ds-product-card__media-wrapper">
+          <div class="img-placeholder" style="background: var(--ds-surface-input, #e5e7eb);">👟</div>
+          <span class="ds-product-card__badge">
+            <span class="ds-badge">Sale</span>
+          </span>
+          <button class="ds-product-card__wishlist" aria-label="Add to wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="ds-product-card__body">
+          <p class="ds-product-card__brand">Nike</p>
+          <h3 class="ds-product-card__name">Air Max 270 React Running Shoes</h3>
+          <div class="ds-product-card__rating">
+            <div class="ds-rating ds-rating--sm ds-rating--readonly" aria-label="4 out of 5 stars">
+              <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+              <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+              <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+              <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+              <span class="ds-rating__star" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+            </div>
+            <span style="font-size: 0.75rem; color: var(--ds-content-text-secondary);">(248)</span>
+          </div>
+          <div class="ds-product-card__price-row">
+            <span class="ds-product-price ds-product-price--sale">
+              <span class="ds-product-price__current">£79.99</span>
+              <span class="ds-product-price__original">£119.99</span>
+              <span class="ds-product-price__discount">33% off</span>
+            </span>
+          </div>
+        </div>
+        <div class="ds-product-card__footer">
+          <button class="ds-btn-primary">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- Card 2: New arrival -->
+      <article class="ds-product-card">
+        <div class="ds-product-card__media-wrapper">
+          <div class="img-placeholder" style="background: var(--ds-surface-input, #dbeafe);">👜</div>
+          <span class="ds-product-card__badge">
+            <span class="ds-badge ds-badge--success">New</span>
+          </span>
+          <button class="ds-product-card__wishlist" aria-label="Add to wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="ds-product-card__body">
+          <p class="ds-product-card__brand">Coach</p>
+          <h3 class="ds-product-card__name">Leather Crossbody Shoulder Bag with Adjustable Strap</h3>
+          <div class="ds-product-card__rating">
+            <div class="ds-rating ds-rating--sm ds-rating--readonly" aria-label="5 out of 5 stars">
+              <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+              <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+              <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+              <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+              <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+            </div>
+            <span style="font-size: 0.75rem; color: var(--ds-content-text-secondary);">(12)</span>
+          </div>
+          <div class="ds-product-card__price-row">
+            <span class="ds-product-price">
+              <span class="ds-product-price__current">£195.00</span>
+            </span>
+          </div>
+        </div>
+        <div class="ds-product-card__footer">
+          <button class="ds-btn-primary">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- Card 3: Out of stock -->
+      <article class="ds-product-card ds-product-card--out-of-stock">
+        <div class="ds-product-card__media-wrapper">
+          <div class="img-placeholder" style="background: var(--ds-surface-input, #fce7f3);">🕶️</div>
+          <button class="ds-product-card__wishlist" aria-label="Add to wishlist" style="pointer-events: none; opacity: 0.5;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="ds-product-card__body">
+          <p class="ds-product-card__brand">Ray-Ban</p>
+          <h3 class="ds-product-card__name">Classic Wayfarer Sunglasses UV400</h3>
+          <div class="ds-product-card__rating">
+            <div class="ds-rating ds-rating--sm ds-rating--readonly" aria-label="3 out of 5 stars">
+              <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+              <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+              <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+              <span class="ds-rating__star" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+              <span class="ds-rating__star" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+            </div>
+            <span style="font-size: 0.75rem; color: var(--ds-content-text-secondary);">(76)</span>
+          </div>
+          <div class="ds-product-card__price-row">
+            <span class="ds-product-price">
+              <span class="ds-product-price__current">£149.00</span>
+            </span>
+          </div>
+        </div>
+        <div class="ds-product-card__footer">
+          <button class="ds-btn-primary" disabled>Out of Stock</button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- Horizontal variant -->
+  <div class="demo-section">
+    <div class="demo-label">Horizontal variant</div>
+    <div class="demo-stack">
+
+      <article class="ds-product-card ds-product-card--horizontal">
+        <div class="ds-product-card__media-wrapper">
+          <div class="img-placeholder" style="background: var(--ds-surface-input, #d1fae5);">🎧</div>
+          <span class="ds-product-card__badge">
+            <span class="ds-badge">Sale</span>
+          </span>
+        </div>
+        <div style="display: flex; flex-direction: column; flex: 1;">
+          <div class="ds-product-card__body">
+            <p class="ds-product-card__brand">Sony</p>
+            <h3 class="ds-product-card__name">WH-1000XM5 Wireless Noise Cancelling Headphones</h3>
+            <div class="ds-product-card__rating">
+              <div class="ds-rating ds-rating--sm ds-rating--readonly" aria-label="5 out of 5 stars">
+                <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+                <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+                <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+                <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+                <span class="ds-rating__star ds-rating__star--filled" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+              </div>
+              <span style="font-size: 0.75rem; color: var(--ds-content-text-secondary);">(1,042)</span>
+            </div>
+            <div class="ds-product-card__price-row">
+              <span class="ds-product-price ds-product-price--sale">
+                <span class="ds-product-price__current">£279.00</span>
+                <span class="ds-product-price__original">£349.00</span>
+              </span>
+            </div>
+          </div>
+          <div class="ds-product-card__footer">
+            <button class="ds-btn-primary">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accordion — Component Demo</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="accordion.css" />
+  <style>
+    body {
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-family: sans-serif;
+      padding: 2rem;
+      max-width: 680px;
+    }
+    .demo-section {
+      margin-bottom: 3rem;
+    }
+    .demo-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ds-content-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Default accordion, first item expanded -->
+  <div class="demo-section">
+    <p class="demo-label">Default Accordion</p>
+    <div class="ds-accordion" id="accordion-default">
+
+      <div class="ds-accordion__item">
+        <button
+          class="ds-accordion__trigger"
+          id="acc1-trigger"
+          aria-expanded="true"
+          aria-controls="acc1-content"
+        >
+          What is a design system?
+          <span class="ds-accordion__icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ds-accordion__content"
+          id="acc1-content"
+          role="region"
+          aria-labelledby="acc1-trigger"
+          aria-hidden="false"
+        >
+          <div class="ds-accordion__content-inner">
+            <div class="ds-accordion__body">
+              A design system is a collection of reusable components, guided by clear standards, that can be assembled together to build any number of applications. It bridges the gap between design and development, enabling teams to ship consistent, high-quality experiences faster.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-accordion__item">
+        <button
+          class="ds-accordion__trigger"
+          id="acc2-trigger"
+          aria-expanded="false"
+          aria-controls="acc2-content"
+        >
+          Why use semantic tokens?
+          <span class="ds-accordion__icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ds-accordion__content"
+          id="acc2-content"
+          role="region"
+          aria-labelledby="acc2-trigger"
+          aria-hidden="true"
+        >
+          <div class="ds-accordion__content-inner">
+            <div class="ds-accordion__body">
+              Semantic tokens decouple the meaning of a value from its raw value. Instead of referencing <code>blue-500</code> directly, components use tokens like <code>--ds-action-primary-bg</code>. This means themes, modes, and brand changes can be applied globally by updating tokens — no component code changes required.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-accordion__item">
+        <button
+          class="ds-accordion__trigger"
+          id="acc3-trigger"
+          aria-expanded="false"
+          aria-controls="acc3-content"
+        >
+          How does headless styling work?
+          <span class="ds-accordion__icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ds-accordion__content"
+          id="acc3-content"
+          role="region"
+          aria-labelledby="acc3-trigger"
+          aria-hidden="true"
+        >
+          <div class="ds-accordion__content-inner">
+            <div class="ds-accordion__body">
+              Headless components contain no hardcoded visual opinions. Every color, size, radius, and spacing value is sourced from CSS custom properties. Consumers override the tokens to apply their own brand without touching component markup or styles.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Flush variant -->
+  <div class="demo-section">
+    <p class="demo-label">Flush Variant</p>
+    <div class="ds-accordion ds-accordion--flush" id="accordion-flush">
+
+      <div class="ds-accordion__item">
+        <button
+          class="ds-accordion__trigger"
+          id="flush1-trigger"
+          aria-expanded="false"
+          aria-controls="flush1-content"
+        >
+          Is this accessible?
+          <span class="ds-accordion__icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ds-accordion__content"
+          id="flush1-content"
+          role="region"
+          aria-labelledby="flush1-trigger"
+          aria-hidden="true"
+        >
+          <div class="ds-accordion__content-inner">
+            <div class="ds-accordion__body">
+              Yes. Each trigger uses a native <code>&lt;button&gt;</code> element, manages <code>aria-expanded</code>, and the content region uses <code>role="region"</code> with <code>aria-labelledby</code>. Focus-visible rings are provided for keyboard navigation.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-accordion__item">
+        <button
+          class="ds-accordion__trigger"
+          id="flush2-trigger"
+          aria-expanded="false"
+          aria-controls="flush2-content"
+        >
+          Can multiple items be open at once?
+          <span class="ds-accordion__icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ds-accordion__content"
+          id="flush2-content"
+          role="region"
+          aria-labelledby="flush2-trigger"
+          aria-hidden="true"
+        >
+          <div class="ds-accordion__content-inner">
+            <div class="ds-accordion__body">
+              That depends on the interaction model you choose. The headless component supports both single-open (exclusive) and multi-open modes — controlled by the JavaScript layer consuming the component, not by the CSS.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Minimal accordion toggle for demo
+    document.querySelectorAll('.ds-accordion__trigger').forEach(function(trigger) {
+      trigger.addEventListener('click', function() {
+        var expanded = trigger.getAttribute('aria-expanded') === 'true';
+        var contentId = trigger.getAttribute('aria-controls');
+        var content = document.getElementById(contentId);
+
+        // Single-open within accordion group
+        var accordion = trigger.closest('.ds-accordion');
+        accordion.querySelectorAll('.ds-accordion__trigger').forEach(function(t) {
+          t.setAttribute('aria-expanded', 'false');
+        });
+        accordion.querySelectorAll('.ds-accordion__content').forEach(function(c) {
+          c.setAttribute('aria-hidden', 'true');
+        });
+
+        if (!expanded) {
+          trigger.setAttribute('aria-expanded', 'true');
+          if (content) content.setAttribute('aria-hidden', 'false');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

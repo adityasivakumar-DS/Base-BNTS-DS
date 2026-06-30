@@ -1,0 +1,140 @@
+/* Tabs — headless component. All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes. */
+
+.ds-tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tab list */
+.ds-tabs__list {
+  display: flex;
+  border-bottom: var(--ds-border-default-width) solid var(--ds-border-default-color);
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.ds-tabs__list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tab trigger (button) */
+.ds-tabs__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+  font-size: var(--ds-action-primary-font-size-md);
+  color: var(--ds-content-text-secondary);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color var(--ds-action-primary-transition-duration) ease,
+              border-color var(--ds-action-primary-transition-duration) ease;
+  outline: none;
+  white-space: nowrap;
+  position: relative;
+  bottom: calc(-1 * var(--ds-border-default-width));
+  font-family: inherit;
+}
+
+.ds-tabs__trigger:hover:not(:disabled) {
+  color: var(--ds-content-text-primary);
+  border-bottom-color: var(--ds-border-default-color);
+}
+
+.ds-tabs__trigger:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+  border-radius: var(--ds-action-primary-radius) var(--ds-action-primary-radius) 0 0;
+}
+
+.ds-tabs__trigger[aria-selected="true"] {
+  color: var(--ds-action-primary-bg);
+  border-bottom-color: var(--ds-action-primary-bg);
+  font-weight: 500;
+}
+
+.ds-tabs__trigger:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Badge inside trigger */
+.ds-tabs__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.3rem;
+  border-radius: 999px;
+  font-size: var(--ds-action-primary-font-size-sm);
+  font-weight: 600;
+  background: var(--ds-action-primary-bg);
+  color: var(--ds-action-primary-text);
+  line-height: 1;
+}
+
+.ds-tabs__trigger:not([aria-selected="true"]) .ds-tabs__badge {
+  background: var(--ds-border-default-color);
+  color: var(--ds-content-text-secondary);
+}
+
+/* Panel */
+.ds-tabs__panel {
+  padding-top: var(--ds-action-primary-padding-y-md);
+  outline: none;
+}
+
+.ds-tabs__panel[hidden] {
+  display: none;
+}
+
+/* Pills variant */
+.ds-tabs--pills .ds-tabs__list {
+  border-bottom: none;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  background: var(--ds-action-secondary-bg);
+  border-radius: var(--ds-action-primary-radius);
+  width: fit-content;
+}
+
+.ds-tabs--pills .ds-tabs__trigger {
+  border-bottom: none;
+  border-radius: var(--ds-action-primary-radius);
+  bottom: 0;
+  color: var(--ds-content-text-secondary);
+}
+
+.ds-tabs--pills .ds-tabs__trigger:hover:not(:disabled) {
+  background: var(--ds-action-ghost-bg);
+  color: var(--ds-action-ghost-text);
+  border-bottom-color: transparent;
+}
+
+.ds-tabs--pills .ds-tabs__trigger[aria-selected="true"] {
+  background: var(--ds-action-primary-bg);
+  color: var(--ds-action-primary-text);
+  border-bottom-color: transparent;
+}
+
+.ds-tabs--pills .ds-tabs__trigger:focus-visible {
+  border-radius: var(--ds-action-primary-radius);
+}
+
+/* Size modifiers */
+.ds-tabs--sm .ds-tabs__trigger {
+  font-size: var(--ds-action-primary-font-size-sm);
+  padding: calc(var(--ds-action-primary-padding-y-md) * 0.75) var(--ds-action-primary-padding-x-md);
+}
+
+.ds-tabs--lg .ds-tabs__trigger {
+  font-size: calc(var(--ds-action-primary-font-size-md) * 1.125);
+  padding: calc(var(--ds-action-primary-padding-y-md) * 1.25) var(--ds-action-primary-padding-x-md);
+}

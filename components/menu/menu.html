@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu Component — Design System</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="menu.css" />
+  <style>
+    body {
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    .demo-section {
+      margin-bottom: 3rem;
+    }
+    .demo-label {
+      font-size: var(--ds-action-primary-font-size-sm);
+      color: var(--ds-content-text-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+    /* Anchor the menus relative for demo */
+    .menu-anchor {
+      position: relative;
+    }
+    .menu-anchor .ds-menu {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+    }
+    /* SVG icon helpers */
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Default menu with icons and shortcuts -->
+  <div class="demo-section">
+    <p class="demo-label">Context Menu — icons, keyboard shortcuts, groups, destructive item</p>
+    <div class="demo-row">
+      <div class="menu-anchor">
+        <ul
+          class="ds-menu"
+          role="menu"
+          aria-label="File actions"
+        >
+          <!-- Group: Clipboard -->
+          <li role="none">
+            <span class="ds-menu__label" role="presentation">Clipboard</span>
+          </li>
+          <li role="none">
+            <button class="ds-menu__item" type="button" role="menuitem">
+              <span class="ds-menu__icon" aria-hidden="true">
+                <!-- Copy icon -->
+                <svg class="icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="5" y="5" width="8" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M3 11V3a1 1 0 0 1 1-1h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+              Copy
+              <span class="ds-menu__shortcut" aria-label="Keyboard shortcut: Command C">⌘C</span>
+            </button>
+          </li>
+          <li role="none">
+            <button class="ds-menu__item" type="button" role="menuitem">
+              <span class="ds-menu__icon" aria-hidden="true">
+                <!-- Paste icon -->
+                <svg class="icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="5" width="10" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M6 5V3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5V5" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </span>
+              Paste
+              <span class="ds-menu__shortcut" aria-label="Keyboard shortcut: Command V">⌘V</span>
+            </button>
+          </li>
+
+          <li role="none">
+            <hr class="ds-menu__separator" />
+          </li>
+
+          <!-- Group: File actions -->
+          <li role="none">
+            <span class="ds-menu__label" role="presentation">File</span>
+          </li>
+          <li role="none">
+            <button class="ds-menu__item" type="button" role="menuitem">
+              <span class="ds-menu__icon" aria-hidden="true">
+                <!-- Rename/edit icon -->
+                <svg class="icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.5 2.5a1.414 1.414 0 0 1 2 2L5 13H3v-2L11.5 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Rename
+              <span class="ds-menu__shortcut" aria-label="Keyboard shortcut: F2">F2</span>
+            </button>
+          </li>
+          <li role="none">
+            <button class="ds-menu__item" type="button" role="menuitem" aria-disabled="true">
+              <span class="ds-menu__icon" aria-hidden="true">
+                <!-- Move icon -->
+                <svg class="icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 3v10M5 10l3 3 3-3M3 8H13M10 5l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Move to…
+              <span class="ds-menu__shortcut" aria-label="Keyboard shortcut: Command Shift M">⌘⇧M</span>
+            </button>
+          </li>
+
+          <li role="none">
+            <hr class="ds-menu__separator" />
+          </li>
+
+          <!-- Destructive -->
+          <li role="none">
+            <button class="ds-menu__item ds-menu__item--destructive" type="button" role="menuitem">
+              <span class="ds-menu__icon" aria-hidden="true">
+                <!-- Trash icon -->
+                <svg class="icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 5h10M6 5V3h4v2M5 5l.5 8h5L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Delete
+              <span class="ds-menu__shortcut" aria-label="Keyboard shortcut: Delete">⌫</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Small variant menu -->
+      <div class="menu-anchor">
+        <p style="font-size: var(--ds-action-primary-font-size-sm); color: var(--ds-content-text-secondary); margin: 0 0 0.5rem; font-weight: 600;">Small variant (ds-menu--sm)</p>
+        <ul
+          class="ds-menu ds-menu--sm"
+          role="menu"
+          aria-label="Quick actions"
+        >
+          <li role="none">
+            <button class="ds-menu__item" type="button" role="menuitem">
+              <span class="ds-menu__icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="5" y="5" width="8" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M3 11V3a1 1 0 0 1 1-1h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+              Copy
+              <span class="ds-menu__shortcut">⌘C</span>
+            </button>
+          </li>
+          <li role="none">
+            <button class="ds-menu__item" type="button" role="menuitem">
+              <span class="ds-menu__icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="5" width="10" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M6 5V3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5V5" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </span>
+              Paste
+              <span class="ds-menu__shortcut">⌘V</span>
+            </button>
+          </li>
+          <li role="none">
+            <hr class="ds-menu__separator" />
+          </li>
+          <li role="none">
+            <button class="ds-menu__item ds-menu__item--destructive" type="button" role="menuitem">
+              <span class="ds-menu__icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 5h10M6 5V3h4v2M5 5l.5 8h5L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Delete
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pagination — Component Demo</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="pagination.css" />
+  <style>
+    body {
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    .demo-section {
+      margin-bottom: 2.5rem;
+    }
+    .demo-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ds-content-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Default pagination, page 3 active, prev/1/2/3/.../8/9/next -->
+  <div class="demo-section">
+    <p class="demo-label">Default — Page 3 active</p>
+    <nav aria-label="Pagination">
+      <ul class="ds-pagination">
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link ds-pagination__link--prev" aria-label="Previous page">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Prev
+          </a>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link" aria-label="Page 1">1</a>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link" aria-label="Page 2">2</a>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link" aria-label="Page 3" aria-current="page">3</a>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link" aria-label="Page 4">4</a>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link" aria-label="Page 5">5</a>
+        </li>
+
+        <li class="ds-pagination__item" aria-hidden="true">
+          <span class="ds-pagination__ellipsis" role="presentation">&hellip;</span>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link" aria-label="Page 8">8</a>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link" aria-label="Page 9">9</a>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link ds-pagination__link--next" aria-label="Next page">
+            Next
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+
+  <!-- First page — Prev disabled -->
+  <div class="demo-section">
+    <p class="demo-label">First page — Prev disabled</p>
+    <nav aria-label="Pagination first page">
+      <ul class="ds-pagination">
+
+        <li class="ds-pagination__item">
+          <span class="ds-pagination__link ds-pagination__link--prev" aria-label="Previous page" aria-disabled="true" role="link">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Prev
+          </span>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link" aria-label="Page 1" aria-current="page">1</a>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link" aria-label="Page 2">2</a>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link" aria-label="Page 3">3</a>
+        </li>
+
+        <li class="ds-pagination__item" aria-hidden="true">
+          <span class="ds-pagination__ellipsis" role="presentation">&hellip;</span>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link" aria-label="Page 9">9</a>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link ds-pagination__link--next" aria-label="Next page">
+            Next
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Small variant -->
+  <div class="demo-section">
+    <p class="demo-label">Small variant</p>
+    <nav aria-label="Pagination small">
+      <ul class="ds-pagination ds-pagination--sm">
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link ds-pagination__link--prev" aria-label="Previous page">
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link" aria-label="Page 1">1</a>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link" aria-label="Page 2">2</a>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link" aria-label="Page 3" aria-current="page">3</a>
+        </li>
+
+        <li class="ds-pagination__item" aria-hidden="true">
+          <span class="ds-pagination__ellipsis" role="presentation">&hellip;</span>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link" aria-label="Page 9">9</a>
+        </li>
+
+        <li class="ds-pagination__item">
+          <a href="#" class="ds-pagination__link ds-pagination__link--next" aria-label="Next page">
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+
+</body>
+</html>

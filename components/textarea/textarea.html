@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Textarea — Base BNTS DS</title>
+  <link rel="stylesheet" href="../../build/css/core.css">
+  <link rel="stylesheet" href="../../build/css/semantic.css">
+  <link rel="stylesheet" href="../../build/css/base.css">
+  <link rel="stylesheet" href="textarea.css">
+  <style>
+    body { font-family: sans-serif; background: var(--ds-surface-page); padding: 2rem; color: var(--ds-content-text-primary); max-width: 480px; }
+    h2 { font-size: 1rem; font-weight: 600; margin: 2rem 0 0.5rem; color: var(--ds-content-text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+    .stack { display: flex; flex-direction: column; gap: 1rem; }
+  </style>
+</head>
+<body>
+  <h1 style="font-size:1.5rem;font-weight:700;margin-bottom:0.25rem">Textarea — base design system</h1>
+  <p style="color:var(--ds-content-text-secondary);font-size:0.875rem;margin-top:0">All values resolved from CSS variables.</p>
+
+  <h2>Default</h2>
+  <div class="stack">
+    <div class="ds-textarea-wrapper">
+      <label class="ds-textarea-label" for="ta-default">Message</label>
+      <textarea id="ta-default" class="ds-textarea" placeholder="Enter your message…" rows="4"></textarea>
+      <span class="ds-textarea-hint">Up to 500 characters.</span>
+    </div>
+  </div>
+
+  <h2>Error</h2>
+  <div class="ds-textarea-wrapper">
+    <label class="ds-textarea-label" for="ta-error">Description</label>
+    <textarea id="ta-error" class="ds-textarea ds-textarea--error" rows="3">Too short</textarea>
+    <span class="ds-textarea-hint ds-textarea-hint--error">Description must be at least 50 characters.</span>
+  </div>
+
+  <h2>Disabled</h2>
+  <div class="ds-textarea-wrapper">
+    <label class="ds-textarea-label" for="ta-disabled">Locked content</label>
+    <textarea id="ta-disabled" class="ds-textarea" disabled rows="3">This content is read-only.</textarea>
+  </div>
+
+  <h2>No resize</h2>
+  <div class="ds-textarea-wrapper">
+    <label class="ds-textarea-label" for="ta-noresize">Fixed height</label>
+    <textarea id="ta-noresize" class="ds-textarea ds-textarea--no-resize" rows="3" placeholder="Cannot be resized"></textarea>
+  </div>
+</body>
+</html>

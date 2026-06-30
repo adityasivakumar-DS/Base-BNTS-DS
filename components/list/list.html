@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>List Component — Design System</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="list.css" />
+  <style>
+    body {
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    .demo-section {
+      margin-bottom: 3rem;
+      max-width: 600px;
+    }
+    .demo-label {
+      font-size: var(--ds-action-primary-font-size-sm);
+      color: var(--ds-content-text-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+    /* Avatar placeholder */
+    .avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: var(--ds-action-primary-radius);
+      background: var(--ds-action-secondary-bg, #e5e7eb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--ds-action-primary-font-size-sm);
+      font-weight: 600;
+      color: var(--ds-content-text-secondary);
+      flex-shrink: 0;
+    }
+    .avatar--round {
+      border-radius: 50%;
+    }
+    /* Small badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: var(--ds-action-primary-font-size-sm);
+      background: var(--ds-action-secondary-bg);
+      color: var(--ds-content-text-secondary);
+      font-weight: 500;
+    }
+    /* Inline icon button */
+    .icon-btn {
+      background: none;
+      border: none;
+      padding: 0.25rem;
+      cursor: pointer;
+      color: var(--ds-content-text-secondary);
+      border-radius: var(--ds-action-primary-radius);
+      display: flex;
+      align-items: center;
+    }
+    .icon-btn:hover {
+      background: var(--ds-action-ghost-bg-hover);
+      color: var(--ds-content-text-primary);
+    }
+    .icon-btn:focus-visible {
+      outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+      outline-offset: var(--ds-focus-ring-offset);
+    }
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Basic flat list -->
+  <div class="demo-section">
+    <p class="demo-label">Basic List — unordered plain items</p>
+    <ul class="ds-list" aria-label="Recent files">
+      <li class="ds-list__item">Project brief.pdf</li>
+      <li class="ds-list__item">Design system tokens.json</li>
+      <li class="ds-list__item">Component inventory.xlsx</li>
+      <li class="ds-list__item">User research synthesis.pptx</li>
+      <li class="ds-list__item">Roadmap Q3 2026.docx</li>
+    </ul>
+  </div>
+
+  <!-- Bordered interactive list with avatars, title, subtitle, action -->
+  <div class="demo-section">
+    <p class="demo-label">Bordered Interactive List — avatars, title, subtitle, action</p>
+    <ul class="ds-list ds-list--bordered" role="listbox" aria-label="Team members" aria-multiselectable="false">
+      <li
+        class="ds-list__item ds-list__item--interactive ds-list__item--selected"
+        role="option"
+        aria-selected="true"
+        tabindex="0"
+      >
+        <div class="avatar avatar--round" aria-hidden="true">JD</div>
+        <div class="ds-list__item-content">
+          <span class="ds-list__item-title">Jane Doe</span>
+          <span class="ds-list__item-subtitle">Product Designer · Austin, TX</span>
+        </div>
+        <div class="ds-list__item-action">
+          <span class="badge">Admin</span>
+        </div>
+      </li>
+      <li
+        class="ds-list__item ds-list__item--interactive"
+        role="option"
+        aria-selected="false"
+        tabindex="0"
+      >
+        <div class="avatar avatar--round" aria-hidden="true">MS</div>
+        <div class="ds-list__item-content">
+          <span class="ds-list__item-title">Marcus Silva</span>
+          <span class="ds-list__item-subtitle">Frontend Engineer · Remote</span>
+        </div>
+        <div class="ds-list__item-action">
+          <button class="icon-btn" type="button" aria-label="More options for Marcus Silva">
+            <svg class="icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="8" cy="3" r="1.25" fill="currentColor"/>
+              <circle cx="8" cy="8" r="1.25" fill="currentColor"/>
+              <circle cx="8" cy="13" r="1.25" fill="currentColor"/>
+            </svg>
+          </button>
+        </div>
+      </li>
+      <li
+        class="ds-list__item ds-list__item--interactive"
+        role="option"
+        aria-selected="false"
+        tabindex="0"
+      >
+        <div class="avatar avatar--round" aria-hidden="true">AL</div>
+        <div class="ds-list__item-content">
+          <span class="ds-list__item-title">Aisha Lim</span>
+          <span class="ds-list__item-subtitle">Product Manager · Singapore</span>
+        </div>
+        <div class="ds-list__item-action">
+          <button class="icon-btn" type="button" aria-label="More options for Aisha Lim">
+            <svg class="icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="8" cy="3" r="1.25" fill="currentColor"/>
+              <circle cx="8" cy="8" r="1.25" fill="currentColor"/>
+              <circle cx="8" cy="13" r="1.25" fill="currentColor"/>
+            </svg>
+          </button>
+        </div>
+      </li>
+      <!-- Disabled item -->
+      <li
+        class="ds-list__item ds-list__item--interactive ds-list__item--disabled"
+        role="option"
+        aria-selected="false"
+        aria-disabled="true"
+        tabindex="-1"
+      >
+        <div class="avatar avatar--round" aria-hidden="true">TK</div>
+        <div class="ds-list__item-content">
+          <span class="ds-list__item-title">Tomasz Kowal</span>
+          <span class="ds-list__item-subtitle">Account suspended</span>
+        </div>
+        <div class="ds-list__item-action">
+          <span class="badge">Suspended</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Small variant list -->
+  <div class="demo-section">
+    <p class="demo-label">Small Bordered List — <code>ds-list--sm</code></p>
+    <ul class="ds-list ds-list--bordered ds-list--sm" aria-label="Notifications">
+      <li class="ds-list__item ds-list__item--interactive" tabindex="0">
+        <div class="ds-list__item-content">
+          <span class="ds-list__item-title">PR #204 merged into main</span>
+          <span class="ds-list__item-subtitle">2 minutes ago</span>
+        </div>
+        <div class="ds-list__item-action">
+          <span class="badge">CI</span>
+        </div>
+      </li>
+      <li class="ds-list__item ds-list__item--interactive" tabindex="0">
+        <div class="ds-list__item-content">
+          <span class="ds-list__item-title">New comment on "Tokens RFC"</span>
+          <span class="ds-list__item-subtitle">15 minutes ago</span>
+        </div>
+      </li>
+      <li class="ds-list__item ds-list__item--interactive" tabindex="0">
+        <div class="ds-list__item-content">
+          <span class="ds-list__item-title">Deploy to production succeeded</span>
+          <span class="ds-list__item-subtitle">1 hour ago</span>
+        </div>
+        <div class="ds-list__item-action">
+          <span class="badge">Deploy</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Striped list -->
+  <div class="demo-section">
+    <p class="demo-label">Striped List — <code>ds-list--striped</code></p>
+    <ul class="ds-list ds-list--bordered ds-list--striped" aria-label="Log entries">
+      <li class="ds-list__item ds-list__item--interactive" tabindex="0">
+        <div class="ds-list__item-content">
+          <span class="ds-list__item-title">User login</span>
+          <span class="ds-list__item-subtitle">jane@example.com · 09:01 AM</span>
+        </div>
+      </li>
+      <li class="ds-list__item ds-list__item--interactive" tabindex="0">
+        <div class="ds-list__item-content">
+          <span class="ds-list__item-title">Project created</span>
+          <span class="ds-list__item-subtitle">Project Alpha · 09:05 AM</span>
+        </div>
+      </li>
+      <li class="ds-list__item ds-list__item--interactive" tabindex="0">
+        <div class="ds-list__item-content">
+          <span class="ds-list__item-title">File uploaded</span>
+          <span class="ds-list__item-subtitle">design-tokens.json · 09:12 AM</span>
+        </div>
+      </li>
+      <li class="ds-list__item ds-list__item--interactive" tabindex="0">
+        <div class="ds-list__item-content">
+          <span class="ds-list__item-title">Collaborator invited</span>
+          <span class="ds-list__item-subtitle">marcus@example.com · 09:18 AM</span>
+        </div>
+      </li>
+      <li class="ds-list__item ds-list__item--interactive" tabindex="0">
+        <div class="ds-list__item-content">
+          <span class="ds-list__item-title">Export completed</span>
+          <span class="ds-list__item-subtitle">report-q3.pdf · 09:45 AM</span>
+        </div>
+      </li>
+      <li class="ds-list__item ds-list__item--interactive" tabindex="0">
+        <div class="ds-list__item-content">
+          <span class="ds-list__item-title">User logout</span>
+          <span class="ds-list__item-subtitle">jane@example.com · 05:30 PM</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navigation Menu — Component Demo</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="navigation-menu.css" />
+  <style>
+    body {
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    .demo-section {
+      margin-bottom: 3rem;
+    }
+    .demo-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ds-content-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    .demo-surface {
+      background: var(--ds-surface-overlay, var(--ds-surface-page));
+      border: var(--ds-border-default-width) solid var(--ds-border-default-color);
+      border-radius: var(--ds-action-primary-radius);
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Horizontal Nav with active link and open dropdown -->
+  <div class="demo-section">
+    <p class="demo-label">Horizontal Navigation — with active link and open dropdown</p>
+    <div class="demo-surface">
+      <nav class="ds-nav-menu" aria-label="Main navigation">
+        <ul class="ds-nav-menu__list" role="menubar">
+          <li class="ds-nav-menu__item" role="none">
+            <a href="#" class="ds-nav-menu__link" role="menuitem">Home</a>
+          </li>
+          <li class="ds-nav-menu__item" role="none">
+            <a href="#" class="ds-nav-menu__link ds-nav-menu__link--active" role="menuitem" aria-current="page">Products</a>
+          </li>
+          <li class="ds-nav-menu__item ds-nav-menu__item--open" role="none">
+            <button
+              class="ds-nav-menu__link"
+              role="menuitem"
+              aria-haspopup="true"
+              aria-expanded="true"
+              aria-controls="solutions-menu"
+            >
+              Solutions
+              <span class="ds-nav-menu__chevron" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </button>
+            <!-- Dropdown shown open for demo -->
+            <ul class="ds-nav-menu__dropdown" id="solutions-menu" role="menu" aria-label="Solutions submenu">
+              <li role="none">
+                <a href="#" class="ds-nav-menu__dropdown-link" role="menuitem">Analytics</a>
+              </li>
+              <li role="none">
+                <a href="#" class="ds-nav-menu__dropdown-link" role="menuitem">Commerce</a>
+              </li>
+              <li role="none">
+                <a href="#" class="ds-nav-menu__dropdown-link" role="menuitem">CMS Platform</a>
+              </li>
+              <li role="none">
+                <a href="#" class="ds-nav-menu__dropdown-link" role="menuitem">Developer Tools</a>
+              </li>
+            </ul>
+          </li>
+          <li class="ds-nav-menu__item" role="none">
+            <a href="#" class="ds-nav-menu__link ds-nav-menu__link--current" role="menuitem" aria-current="true">Docs</a>
+          </li>
+          <li class="ds-nav-menu__item" role="none">
+            <a href="#" class="ds-nav-menu__link" role="menuitem">Pricing</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Vertical Nav variant -->
+  <div class="demo-section">
+    <p class="demo-label">Vertical Navigation</p>
+    <div class="demo-surface" style="max-width: 240px;">
+      <nav class="ds-nav-menu ds-nav-menu--vertical" aria-label="Sidebar navigation">
+        <ul class="ds-nav-menu__list" role="menu">
+          <li class="ds-nav-menu__item" role="none">
+            <a href="#" class="ds-nav-menu__link" role="menuitem">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 6L8 2L14 6V14H10V10H6V14H2V6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+              Home
+            </a>
+          </li>
+          <li class="ds-nav-menu__item" role="none">
+            <a href="#" class="ds-nav-menu__link ds-nav-menu__link--active" role="menuitem" aria-current="page">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="9" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="2" y="9" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="9" y="9" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              Dashboard
+            </a>
+          </li>
+          <li class="ds-nav-menu__item" role="none">
+            <a href="#" class="ds-nav-menu__link ds-nav-menu__link--current" role="menuitem" aria-current="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 1L10 6H15L11 9.5L12.5 14.5L8 11.5L3.5 14.5L5 9.5L1 6H6L8 1Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+              Analytics
+            </a>
+          </li>
+          <li class="ds-nav-menu__item" role="none">
+            <a href="#" class="ds-nav-menu__link" role="menuitem">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              Settings
+            </a>
+          </li>
+          <li class="ds-nav-menu__item" role="none">
+            <a href="#" class="ds-nav-menu__link" role="menuitem">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 8H13M8 3L13 8L8 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+</body>
+</html>

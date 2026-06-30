@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toast Component — Design System</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="toast.css" />
+  <style>
+    body {
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-family: sans-serif;
+      padding: 2rem;
+      /* Extra bottom padding so fixed toasts are visible */
+      padding-bottom: 320px;
+    }
+    .demo-label {
+      font-size: var(--ds-action-primary-font-size-sm);
+      color: var(--ds-content-text-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+    p.intro {
+      color: var(--ds-content-text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    /* Inline SVG icon sizing */
+    .icon {
+      width: 1.125rem;
+      height: 1.125rem;
+      display: block;
+    }
+    .icon-close {
+      font-style: normal;
+      font-size: 0.875rem;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <p class="demo-label">Toast Notifications</p>
+  <p class="intro">
+    Four toast variants are shown fixed in the bottom-right corner as they would appear at runtime.
+    Each toast has an icon, title, description, and close button.
+  </p>
+
+  <!-- Live region for screen readers -->
+  <div aria-live="polite" aria-atomic="false" aria-label="Notifications" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;"></div>
+
+  <!-- Toast region — fixed bottom-right -->
+  <section class="ds-toast-region" aria-label="Notifications">
+
+    <!-- Success toast -->
+    <div
+      class="ds-toast ds-toast--success"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <span class="ds-toast__icon" aria-hidden="true">
+        <!-- Checkmark icon -->
+        <svg class="icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M5.5 9l2.5 2.5 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <div class="ds-toast__content">
+        <p class="ds-toast__title">Changes saved</p>
+        <p class="ds-toast__description">Your profile has been updated successfully.</p>
+      </div>
+      <button class="ds-toast__close" type="button" aria-label="Dismiss notification">
+        <span aria-hidden="true" class="icon-close">✕</span>
+      </button>
+    </div>
+
+    <!-- Error toast -->
+    <div
+      class="ds-toast ds-toast--error"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+    >
+      <span class="ds-toast__icon" aria-hidden="true">
+        <!-- X circle icon -->
+        <svg class="icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <div class="ds-toast__content">
+        <p class="ds-toast__title">Upload failed</p>
+        <p class="ds-toast__description">The file exceeds the 10 MB size limit. Please try a smaller file.</p>
+      </div>
+      <button class="ds-toast__close" type="button" aria-label="Dismiss notification">
+        <span aria-hidden="true" class="icon-close">✕</span>
+      </button>
+    </div>
+
+    <!-- Warning toast -->
+    <div
+      class="ds-toast ds-toast--warning"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <span class="ds-toast__icon" aria-hidden="true">
+        <!-- Warning triangle icon -->
+        <svg class="icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 2L1.5 15.5h15L9 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M9 7.5v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="9" cy="13" r="0.75" fill="currentColor"/>
+        </svg>
+      </span>
+      <div class="ds-toast__content">
+        <p class="ds-toast__title">Session expiring soon</p>
+        <p class="ds-toast__description">Your session will expire in 5 minutes. Save your work.</p>
+      </div>
+      <button class="ds-toast__close" type="button" aria-label="Dismiss notification">
+        <span aria-hidden="true" class="icon-close">✕</span>
+      </button>
+    </div>
+
+    <!-- Info toast -->
+    <div
+      class="ds-toast ds-toast--info"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <span class="ds-toast__icon" aria-hidden="true">
+        <!-- Info circle icon -->
+        <svg class="icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M9 8.5v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="9" cy="5.5" r="0.75" fill="currentColor"/>
+        </svg>
+      </span>
+      <div class="ds-toast__content">
+        <p class="ds-toast__title">New features available</p>
+        <p class="ds-toast__description">Version 2.4 is live. Check out the changelog for what's new.</p>
+      </div>
+      <button class="ds-toast__close" type="button" aria-label="Dismiss notification">
+        <span aria-hidden="true" class="icon-close">✕</span>
+      </button>
+    </div>
+
+  </section>
+
+</body>
+</html>

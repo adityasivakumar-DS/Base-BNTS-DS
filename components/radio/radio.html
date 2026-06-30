@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio — Base BNTS DS</title>
+  <link rel="stylesheet" href="../../build/css/core.css">
+  <link rel="stylesheet" href="../../build/css/semantic.css">
+  <link rel="stylesheet" href="../../build/css/base.css">
+  <link rel="stylesheet" href="radio.css">
+  <style>
+    body { font-family: sans-serif; background: var(--ds-surface-page); padding: 2rem; color: var(--ds-content-text-primary); }
+    h2 { font-size: 1rem; font-weight: 600; margin: 2rem 0 0.5rem; color: var(--ds-content-text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+  </style>
+</head>
+<body>
+  <h1 style="font-size:1.5rem;font-weight:700;margin-bottom:0.25rem">Radio — base design system</h1>
+  <p style="color:var(--ds-content-text-secondary);font-size:0.875rem;margin-top:0">All values resolved from CSS variables.</p>
+
+  <h2>Vertical group</h2>
+  <fieldset style="border:none;padding:0;margin:0" role="radiogroup" aria-labelledby="plan-legend">
+    <legend id="plan-legend" style="font-size:0.875rem;font-weight:500;margin-bottom:0.5rem">Select a plan</legend>
+    <div class="ds-radio-group">
+      <label class="ds-radio-item">
+        <input type="radio" class="ds-radio" name="plan" value="free" checked>
+        <span class="ds-radio-label">Free</span>
+      </label>
+      <label class="ds-radio-item">
+        <input type="radio" class="ds-radio" name="plan" value="pro">
+        <span class="ds-radio-label">Pro</span>
+      </label>
+      <label class="ds-radio-item">
+        <input type="radio" class="ds-radio" name="plan" value="enterprise">
+        <span class="ds-radio-label">Enterprise</span>
+      </label>
+      <label class="ds-radio-item">
+        <input type="radio" class="ds-radio" name="plan" value="disabled" disabled>
+        <span class="ds-radio-label">Unavailable</span>
+      </label>
+    </div>
+  </fieldset>
+
+  <h2>Horizontal group</h2>
+  <div class="ds-radio-group ds-radio-group--horizontal" role="radiogroup">
+    <label class="ds-radio-item">
+      <input type="radio" class="ds-radio" name="size" value="s" checked>
+      <span class="ds-radio-label">S</span>
+    </label>
+    <label class="ds-radio-item">
+      <input type="radio" class="ds-radio" name="size" value="m">
+      <span class="ds-radio-label">M</span>
+    </label>
+    <label class="ds-radio-item">
+      <input type="radio" class="ds-radio" name="size" value="l">
+      <span class="ds-radio-label">L</span>
+    </label>
+    <label class="ds-radio-item">
+      <input type="radio" class="ds-radio" name="size" value="xl">
+      <span class="ds-radio-label">XL</span>
+    </label>
+  </div>
+</body>
+</html>

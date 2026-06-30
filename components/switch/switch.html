@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Switch — Base BNTS DS</title>
+  <link rel="stylesheet" href="../../build/css/core.css">
+  <link rel="stylesheet" href="../../build/css/semantic.css">
+  <link rel="stylesheet" href="../../build/css/base.css">
+  <link rel="stylesheet" href="switch.css">
+  <style>
+    body { font-family: sans-serif; background: var(--ds-surface-page); padding: 2rem; color: var(--ds-content-text-primary); }
+    h2 { font-size: 1rem; font-weight: 600; margin: 2rem 0 0.5rem; color: var(--ds-content-text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+    .stack { display: flex; flex-direction: column; gap: 0.75rem; }
+  </style>
+</head>
+<body>
+  <h1 style="font-size:1.5rem;font-weight:700;margin-bottom:0.25rem">Switch — base design system</h1>
+  <p style="color:var(--ds-content-text-secondary);font-size:0.875rem;margin-top:0">All values resolved from CSS variables.</p>
+
+  <h2>States</h2>
+  <div class="stack">
+    <label class="ds-switch-item">
+      <input type="checkbox" class="ds-switch" role="switch">
+      <span class="ds-switch-label">Off (default)</span>
+    </label>
+    <label class="ds-switch-item">
+      <input type="checkbox" class="ds-switch" role="switch" checked>
+      <span class="ds-switch-label">On</span>
+    </label>
+    <label class="ds-switch-item">
+      <input type="checkbox" class="ds-switch" role="switch" disabled>
+      <span class="ds-switch-label">Disabled off</span>
+    </label>
+    <label class="ds-switch-item">
+      <input type="checkbox" class="ds-switch" role="switch" checked disabled>
+      <span class="ds-switch-label">Disabled on</span>
+    </label>
+  </div>
+
+  <h2>Sizes</h2>
+  <div class="stack">
+    <label class="ds-switch-item">
+      <input type="checkbox" class="ds-switch ds-switch--sm" role="switch" checked>
+      <span class="ds-switch-label">Small</span>
+    </label>
+    <label class="ds-switch-item">
+      <input type="checkbox" class="ds-switch" role="switch" checked>
+      <span class="ds-switch-label">Medium</span>
+    </label>
+    <label class="ds-switch-item">
+      <input type="checkbox" class="ds-switch ds-switch--lg" role="switch" checked>
+      <span class="ds-switch-label">Large</span>
+    </label>
+  </div>
+
+  <h2>Settings list</h2>
+  <div class="stack" style="max-width:320px">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:0.9375rem">Email notifications</span>
+      <label class="ds-switch-item">
+        <input type="checkbox" class="ds-switch" role="switch" checked aria-label="Email notifications">
+      </label>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:0.9375rem">Dark mode</span>
+      <label class="ds-switch-item">
+        <input type="checkbox" class="ds-switch" role="switch" aria-label="Dark mode">
+      </label>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+/* Product Price — headless component. All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes. */
+
+.ds-product-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+}
+
+.ds-product-price__current {
+  font-weight: 700;
+  color: var(--ds-content-text-primary);
+  font-size: var(--ds-action-primary-font-size-lg, 1.125rem);
+  line-height: 1.2;
+}
+
+.ds-product-price__original {
+  text-decoration: line-through;
+  color: var(--ds-content-text-secondary);
+  font-size: var(--ds-action-primary-font-size-md, 0.875rem);
+  line-height: 1.2;
+}
+
+.ds-product-price__discount {
+  font-size: var(--ds-action-primary-font-size-sm, 0.75rem);
+  font-weight: 600;
+  color: var(--ds-status-success, var(--ds-action-primary-bg));
+  line-height: 1.2;
+}
+
+.ds-product-price__label {
+  font-size: var(--ds-action-primary-font-size-sm, 0.75rem);
+  color: var(--ds-content-text-secondary);
+  line-height: 1.2;
+}
+
+/* Sale variant: current price uses destructive/sale color */
+.ds-product-price--sale .ds-product-price__current {
+  color: var(--ds-action-destructive-bg);
+}
+
+/* Range */
+.ds-product-price__range {
+  font-weight: 600;
+  color: var(--ds-content-text-primary);
+  font-size: var(--ds-action-primary-font-size-lg, 1.125rem);
+  line-height: 1.2;
+}
+
+/* Per-unit label */
+.ds-product-price__per-unit {
+  font-size: var(--ds-action-primary-font-size-sm, 0.75rem);
+  color: var(--ds-content-text-secondary);
+  line-height: 1.2;
+}
+
+/* Size: small */
+.ds-product-price--sm .ds-product-price__current,
+.ds-product-price--sm .ds-product-price__range {
+  font-size: var(--ds-action-primary-font-size-sm, 0.75rem);
+}
+
+.ds-product-price--sm .ds-product-price__original {
+  font-size: var(--ds-font-size-xs, 0.625rem);
+}
+
+.ds-product-price--sm .ds-product-price__discount,
+.ds-product-price--sm .ds-product-price__label,
+.ds-product-price--sm .ds-product-price__per-unit {
+  font-size: var(--ds-font-size-xs, 0.625rem);
+}
+
+/* Size: large */
+.ds-product-price--lg .ds-product-price__current,
+.ds-product-price--lg .ds-product-price__range {
+  font-size: var(--ds-font-size-xl, 1.5rem);
+}
+
+.ds-product-price--lg .ds-product-price__original {
+  font-size: var(--ds-action-primary-font-size-lg, 1.125rem);
+}
+
+/* Stacked layout */
+.ds-product-price--stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
+}

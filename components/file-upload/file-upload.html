@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Upload — Base BNTS DS</title>
+  <link rel="stylesheet" href="../../build/css/core.css">
+  <link rel="stylesheet" href="../../build/css/semantic.css">
+  <link rel="stylesheet" href="../../build/css/base.css">
+  <link rel="stylesheet" href="file-upload.css">
+  <style>
+    body { font-family: sans-serif; background: var(--ds-surface-page); padding: 2rem; color: var(--ds-content-text-primary); max-width: 480px; }
+    h2 { font-size: 1rem; font-weight: 600; margin: 2rem 0 0.5rem; color: var(--ds-content-text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+  </style>
+</head>
+<body>
+  <h1 style="font-size:1.5rem;font-weight:700;margin-bottom:0.25rem">File Upload — base design system</h1>
+  <p style="color:var(--ds-content-text-secondary);font-size:0.875rem;margin-top:0">All values resolved from CSS variables.</p>
+
+  <h2>Drop zone</h2>
+  <div class="ds-file-upload">
+    <span class="ds-file-upload__label">Attachments</span>
+    <div class="ds-file-upload__zone" role="button" tabindex="0" aria-label="Upload files">
+      <input type="file" class="ds-file-upload__input" multiple accept="image/*,.pdf" aria-label="Upload files">
+      <span class="ds-file-upload__icon" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 20V12M16 12l-4 4M16 12l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6 24a4 4 0 01-1-7.87A8 8 0 0122.83 13 5 5 0 0127 18v0a5 5 0 01-5 6H6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="ds-file-upload__text">Drag &amp; drop files here</span>
+      <span class="ds-file-upload__subtext">or click to browse · PNG, JPG, PDF up to 10 MB</span>
+    </div>
+  </div>
+
+  <h2>Button style</h2>
+  <div class="ds-file-upload">
+    <span class="ds-file-upload__label">Profile photo</span>
+    <label class="ds-file-upload__button">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M8 2v8M4 6l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Choose file
+      <input type="file" class="ds-file-upload__input" accept="image/*" style="position:static;width:0;height:0;opacity:0">
+    </label>
+  </div>
+
+  <h2>With file list</h2>
+  <div class="ds-file-upload">
+    <span class="ds-file-upload__label">Uploaded files</span>
+    <ul class="ds-file-upload__list" aria-label="Uploaded files">
+      <li class="ds-file-upload__file-item">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M9 2H4a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V6L9 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M9 2v4h4" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <span class="ds-file-upload__file-name">design-spec.pdf</span>
+        <span class="ds-file-upload__file-size">2.4 MB</span>
+        <button class="ds-file-upload__file-remove" aria-label="Remove design-spec.pdf">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </li>
+      <li class="ds-file-upload__file-item">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M9 2H4a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V6L9 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M9 2v4h4" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <span class="ds-file-upload__file-name">hero-banner.png</span>
+        <span class="ds-file-upload__file-size">840 KB</span>
+        <button class="ds-file-upload__file-remove" aria-label="Remove hero-banner.png">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tooltip — Design System</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="tooltip.css" />
+  <style>
+    body {
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    h2 {
+      margin: 2rem 0 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ds-content-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h2:first-child { margin-top: 0; }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4rem;
+      max-width: 600px;
+      padding: 2rem;
+    }
+    .demo-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .demo-trigger-btn {
+      background: var(--ds-action-primary-bg);
+      color: var(--ds-action-primary-text);
+      border: none;
+      padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+      border-radius: var(--ds-action-primary-radius);
+      font-size: var(--ds-action-primary-font-size-md);
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .demo-label {
+      font-size: var(--ds-action-primary-font-size-sm);
+      color: var(--ds-content-text-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Tooltip Positions (hover to reveal)</h2>
+  <div class="demo-grid">
+
+    <div class="demo-cell">
+      <div class="ds-tooltip-wrapper">
+        <button class="demo-trigger-btn ds-tooltip-trigger" aria-describedby="tt-top">
+          Hover me
+        </button>
+        <div id="tt-top" class="ds-tooltip ds-tooltip--top" role="tooltip">
+          Tooltip on top
+        </div>
+      </div>
+      <span class="demo-label">Top</span>
+    </div>
+
+    <div class="demo-cell">
+      <div class="ds-tooltip-wrapper">
+        <button class="demo-trigger-btn ds-tooltip-trigger" aria-describedby="tt-bottom">
+          Hover me
+        </button>
+        <div id="tt-bottom" class="ds-tooltip ds-tooltip--bottom" role="tooltip">
+          Tooltip on bottom
+        </div>
+      </div>
+      <span class="demo-label">Bottom</span>
+    </div>
+
+    <div class="demo-cell">
+      <div class="ds-tooltip-wrapper">
+        <button class="demo-trigger-btn ds-tooltip-trigger" aria-describedby="tt-left">
+          Hover me
+        </button>
+        <div id="tt-left" class="ds-tooltip ds-tooltip--left" role="tooltip">
+          Tooltip on left
+        </div>
+      </div>
+      <span class="demo-label">Left</span>
+    </div>
+
+    <div class="demo-cell">
+      <div class="ds-tooltip-wrapper">
+        <button class="demo-trigger-btn ds-tooltip-trigger" aria-describedby="tt-right">
+          Hover me
+        </button>
+        <div id="tt-right" class="ds-tooltip ds-tooltip--right" role="tooltip">
+          Tooltip on right
+        </div>
+      </div>
+      <span class="demo-label">Right</span>
+    </div>
+
+  </div>
+
+  <h2>Long Content Tooltip</h2>
+  <div style="display: flex; gap: 2rem; padding: 2rem;">
+    <div class="ds-tooltip-wrapper">
+      <button class="demo-trigger-btn ds-tooltip-trigger" aria-describedby="tt-long">
+        Hover for details
+      </button>
+      <div id="tt-long" class="ds-tooltip ds-tooltip--top" role="tooltip">
+        This tooltip contains longer text that wraps across multiple lines to demonstrate the max-width constraint behavior.
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

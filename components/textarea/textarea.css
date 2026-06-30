@@ -1,0 +1,95 @@
+/**
+ * Textarea — headless component.
+ * All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes.
+ */
+
+.ds-textarea-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-form-label-gap, 0.375rem);
+  width: 100%;
+}
+
+.ds-textarea-label {
+  font-family: var(--ds-form-label-font-family, inherit);
+  font-size: var(--ds-form-label-font-size, 0.875rem);
+  font-weight: var(--ds-form-label-font-weight, 500);
+  color: var(--ds-content-text-primary);
+}
+
+.ds-textarea {
+  display: block;
+  width: 100%;
+  font-family: inherit;
+  background-color: var(--ds-surface-input, var(--ds-surface-page));
+  color: var(--ds-content-text-primary);
+  border: var(--ds-border-default-width) solid var(--ds-border-default-color);
+  border-radius: var(--ds-action-primary-radius);
+  outline: none;
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color var(--ds-action-primary-transition-duration),
+              box-shadow var(--ds-action-primary-transition-duration);
+  box-sizing: border-box;
+  padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+  font-size: var(--ds-action-primary-font-size-md);
+  line-height: 1.5;
+}
+
+.ds-textarea::placeholder {
+  color: var(--ds-content-text-placeholder, var(--ds-content-text-secondary));
+}
+
+.ds-textarea:hover:not(:disabled) {
+  border-color: var(--ds-border-hover-color, var(--ds-action-primary-bg));
+}
+
+.ds-textarea:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+  border-color: var(--ds-action-primary-bg);
+}
+
+.ds-textarea:disabled {
+  background-color: var(--ds-action-primary-bg-disabled);
+  color: var(--ds-action-primary-text-disabled);
+  cursor: not-allowed;
+  resize: none;
+}
+
+.ds-textarea--sm {
+  padding: var(--ds-action-primary-padding-y-sm) var(--ds-action-primary-padding-x-sm);
+  font-size: var(--ds-action-primary-font-size-sm);
+}
+
+.ds-textarea--lg {
+  padding: var(--ds-action-primary-padding-y-lg) var(--ds-action-primary-padding-x-lg);
+  font-size: var(--ds-action-primary-font-size-lg);
+}
+
+.ds-textarea--error {
+  border-color: var(--ds-action-destructive-bg);
+}
+
+.ds-textarea--error:focus-visible {
+  outline-color: var(--ds-action-destructive-bg);
+}
+
+.ds-textarea--no-resize {
+  resize: none;
+}
+
+.ds-textarea-hint {
+  font-size: var(--ds-action-primary-font-size-sm);
+  color: var(--ds-content-text-secondary);
+}
+
+.ds-textarea-hint--error {
+  color: var(--ds-action-destructive-bg);
+}
+
+.ds-textarea-char-count {
+  font-size: var(--ds-action-primary-font-size-sm);
+  color: var(--ds-content-text-secondary);
+  text-align: right;
+}

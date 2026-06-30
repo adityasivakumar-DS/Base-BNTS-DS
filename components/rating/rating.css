@@ -1,0 +1,134 @@
+/* Rating — headless component. All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes. */
+
+.ds-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+}
+
+/* Visually hidden radio inputs for accessibility */
+.ds-rating__input {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ds-rating__star {
+  display: inline-flex;
+  cursor: pointer;
+  color: var(--ds-content-text-secondary);
+  transition: color var(--ds-action-primary-transition-duration, 0.15s) ease;
+  position: relative;
+}
+
+.ds-rating__star svg {
+  display: block;
+  /* Size set by modifier */
+}
+
+/* Filled star */
+.ds-rating__star--filled {
+  color: var(--ds-rating-star-color, var(--ds-action-primary-bg));
+}
+
+/* Half star via clip */
+.ds-rating__star--half {
+  color: var(--ds-content-text-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.ds-rating__star--half::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 50%;
+  background: var(--ds-rating-star-color, var(--ds-action-primary-bg));
+  /* Clip the left half and colorize via currentColor override */
+  z-index: 0;
+}
+
+.ds-rating__star--half svg {
+  position: relative;
+  z-index: 1;
+}
+
+/* Half-filled: use a layered approach with clip-path */
+.ds-rating__star--half {
+  display: inline-grid;
+}
+
+.ds-rating__star--half .ds-rating__star-full {
+  grid-area: 1 / 1;
+  color: var(--ds-rating-star-color, var(--ds-action-primary-bg));
+  clip-path: inset(0 50% 0 0);
+}
+
+.ds-rating__star--half .ds-rating__star-empty {
+  grid-area: 1 / 1;
+  color: var(--ds-content-text-secondary);
+  clip-path: inset(0 0 0 50%);
+}
+
+/* Interactive hover: color hovered star and all before it */
+.ds-rating:not(.ds-rating--readonly) .ds-rating__star:hover,
+.ds-rating:not(.ds-rating--readonly) .ds-rating__star:hover ~ .ds-rating__star + .ds-rating__star {
+  color: var(--ds-rating-star-color, var(--ds-action-primary-bg));
+}
+
+/* Reset stars after the hovered one */
+.ds-rating:not(.ds-rating--readonly) .ds-rating__star:hover ~ .ds-rating__star {
+  color: var(--ds-content-text-secondary);
+}
+
+/* Focus ring on radio input -> adjacent star label */
+.ds-rating__input:focus-visible + .ds-rating__star {
+  outline: var(--ds-focus-ring-width, 2px) solid var(--ds-focus-ring-color, var(--ds-action-primary-bg));
+  outline-offset: var(--ds-focus-ring-offset, 2px);
+  border-radius: 2px;
+}
+
+/* Read-only state */
+.ds-rating--readonly {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Size modifiers */
+.ds-rating--sm .ds-rating__star svg,
+.ds-rating--sm .ds-rating__star-full,
+.ds-rating--sm .ds-rating__star-empty {
+  width: 1rem;
+  height: 1rem;
+}
+
+.ds-rating--md .ds-rating__star svg,
+.ds-rating--md .ds-rating__star-full,
+.ds-rating--md .ds-rating__star-empty {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Default (no modifier) = md */
+.ds-rating__star svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.ds-rating--lg .ds-rating__star svg,
+.ds-rating--lg .ds-rating__star-full,
+.ds-rating--lg .ds-rating__star-empty {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+/* Review count */
+.ds-rating__count {
+  margin-left: 0.375rem;
+  font-size: var(--ds-action-primary-font-size-sm, 0.75rem);
+  color: var(--ds-content-text-secondary);
+  line-height: 1;
+}

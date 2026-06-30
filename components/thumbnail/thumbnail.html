@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thumbnail — Design System</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="thumbnail.css" />
+  <style>
+    .demo-section { margin-bottom: 2.5rem; }
+    .demo-label { font-size: 0.75rem; color: var(--ds-content-text-secondary); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .demo-row { display: flex; align-items: flex-start; gap: 1rem; flex-wrap: wrap; }
+    hr { border: none; border-top: var(--ds-border-default-width, 1px) solid var(--ds-border-default-color); margin: 2rem 0; }
+
+    /* Placeholder fill for demo images */
+    .thumb-fill {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body style="background: var(--ds-surface-page); color: var(--ds-content-text-primary); font-family: sans-serif; padding: 2rem;">
+
+  <h1 style="margin-bottom: 2rem;">Thumbnail Component</h1>
+
+  <!-- Aspect ratios -->
+  <div class="demo-section">
+    <div class="demo-label">Aspect ratios — 1:1, 16:9, 4:3</div>
+    <div class="demo-row">
+
+      <div style="width: 160px;">
+        <div class="demo-label">1:1 Square</div>
+        <div class="ds-thumbnail ds-thumbnail--1-1" tabindex="0" role="img" aria-label="Square thumbnail">
+          <div class="thumb-fill" style="background: var(--ds-surface-input, #dbeafe);">🏔️</div>
+          <div class="ds-thumbnail__overlay"></div>
+        </div>
+      </div>
+
+      <div style="width: 280px;">
+        <div class="demo-label">16:9 Widescreen</div>
+        <div class="ds-thumbnail ds-thumbnail--16-9" tabindex="0" role="img" aria-label="Widescreen thumbnail">
+          <div class="thumb-fill" style="background: var(--ds-surface-input, #d1fae5);">🌅</div>
+          <div class="ds-thumbnail__overlay"></div>
+        </div>
+      </div>
+
+      <div style="width: 200px;">
+        <div class="demo-label">4:3 Standard</div>
+        <div class="ds-thumbnail ds-thumbnail--4-3" tabindex="0" role="img" aria-label="Standard thumbnail">
+          <div class="thumb-fill" style="background: var(--ds-surface-input, #fce7f3);">🌸</div>
+          <div class="ds-thumbnail__overlay"></div>
+        </div>
+      </div>
+
+      <div style="width: 120px;">
+        <div class="demo-label">3:4 Portrait</div>
+        <div class="ds-thumbnail ds-thumbnail--3-4" tabindex="0" role="img" aria-label="Portrait thumbnail">
+          <div class="thumb-fill" style="background: var(--ds-surface-input, #fef3c7);">🦋</div>
+          <div class="ds-thumbnail__overlay"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- With caption -->
+  <div class="demo-section">
+    <div class="demo-label">With caption</div>
+    <div class="demo-row">
+      <div style="width: 240px;">
+        <div class="ds-thumbnail ds-thumbnail--16-9">
+          <div class="thumb-fill" style="background: var(--ds-surface-input, #e0e7ff);">🌃</div>
+          <div class="ds-thumbnail__overlay"></div>
+          <div class="ds-thumbnail__caption">City at night — New York, 2024</div>
+        </div>
+      </div>
+      <div style="width: 160px;">
+        <div class="ds-thumbnail ds-thumbnail--1-1">
+          <div class="thumb-fill" style="background: var(--ds-surface-input, #dcfce7);">🌿</div>
+          <div class="ds-thumbnail__overlay"></div>
+          <div class="ds-thumbnail__caption">Botanical garden</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- With play button (video thumbnail) -->
+  <div class="demo-section">
+    <div class="demo-label">Video thumbnail — with play button overlay</div>
+    <div class="demo-row">
+      <div style="width: 280px;">
+        <div class="ds-thumbnail ds-thumbnail--16-9" tabindex="0" role="button" aria-label="Play video: Product demo">
+          <div class="thumb-fill" style="background: var(--ds-surface-input, #1e293b); color: #94a3b8;">🎬</div>
+          <div class="ds-thumbnail__overlay"></div>
+          <div class="ds-thumbnail__play" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="11" fill="rgba(0,0,0,0.55)"/>
+              <polygon points="10,8 16,12 10,16" fill="white"/>
+            </svg>
+          </div>
+          <div class="ds-thumbnail__caption">Product demo — 3:42</div>
+        </div>
+      </div>
+      <div style="width: 160px;">
+        <div class="ds-thumbnail ds-thumbnail--1-1" tabindex="0" role="button" aria-label="Play video: Tutorial">
+          <div class="thumb-fill" style="background: var(--ds-surface-input, #0f172a); color: #64748b;">📹</div>
+          <div class="ds-thumbnail__overlay"></div>
+          <div class="ds-thumbnail__play" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="11" fill="rgba(0,0,0,0.55)"/>
+              <polygon points="10,8 16,12 10,16" fill="white"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Selected state -->
+  <div class="demo-section">
+    <div class="demo-label">Selected state</div>
+    <div class="demo-row">
+      <div style="width: 120px;">
+        <div class="demo-label">Default</div>
+        <div class="ds-thumbnail ds-thumbnail--1-1" tabindex="0" role="option" aria-selected="false" aria-label="Image 1">
+          <div class="thumb-fill" style="background: var(--ds-surface-input, #f3f4f6);">🏠</div>
+          <div class="ds-thumbnail__overlay"></div>
+        </div>
+      </div>
+      <div style="width: 120px;">
+        <div class="demo-label">Selected</div>
+        <div class="ds-thumbnail ds-thumbnail--1-1 ds-thumbnail--selected" tabindex="0" role="option" aria-selected="true" aria-label="Image 2 (selected)">
+          <div class="thumb-fill" style="background: var(--ds-surface-input, #ede9fe);">🏡</div>
+          <div class="ds-thumbnail__overlay"></div>
+        </div>
+      </div>
+      <div style="width: 120px;">
+        <div class="demo-label">Default</div>
+        <div class="ds-thumbnail ds-thumbnail--1-1" tabindex="0" role="option" aria-selected="false" aria-label="Image 3">
+          <div class="thumb-fill" style="background: var(--ds-surface-input, #fef9c3);">🏘️</div>
+          <div class="ds-thumbnail__overlay"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Grid of thumbnails -->
+  <div class="demo-section">
+    <div class="demo-label">Grid of thumbnails</div>
+    <div style="display: grid; grid-template-columns: repeat(4, 120px); gap: 0.75rem;">
+      <div class="ds-thumbnail ds-thumbnail--1-1" tabindex="0" role="img" aria-label="Gallery image 1">
+        <div class="thumb-fill" style="background: var(--ds-surface-input, #dbeafe);">🌊</div>
+        <div class="ds-thumbnail__overlay"></div>
+      </div>
+      <div class="ds-thumbnail ds-thumbnail--1-1" tabindex="0" role="img" aria-label="Gallery image 2">
+        <div class="thumb-fill" style="background: var(--ds-surface-input, #d1fae5);">🌲</div>
+        <div class="ds-thumbnail__overlay"></div>
+      </div>
+      <div class="ds-thumbnail ds-thumbnail--1-1 ds-thumbnail--selected" tabindex="0" role="img" aria-label="Gallery image 3 (selected)">
+        <div class="thumb-fill" style="background: var(--ds-surface-input, #fce7f3);">🌺</div>
+        <div class="ds-thumbnail__overlay"></div>
+      </div>
+      <div class="ds-thumbnail ds-thumbnail--1-1" tabindex="0" role="img" aria-label="Gallery image 4">
+        <div class="thumb-fill" style="background: var(--ds-surface-input, #fef3c7);">🌻</div>
+        <div class="ds-thumbnail__overlay"></div>
+      </div>
+      <div class="ds-thumbnail ds-thumbnail--1-1" tabindex="0" role="img" aria-label="Gallery image 5">
+        <div class="thumb-fill" style="background: var(--ds-surface-input, #e0e7ff);">🦜</div>
+        <div class="ds-thumbnail__overlay"></div>
+      </div>
+      <div class="ds-thumbnail ds-thumbnail--1-1" tabindex="0" role="img" aria-label="Gallery image 6">
+        <div class="thumb-fill" style="background: var(--ds-surface-input, #fecaca);">🦩</div>
+        <div class="ds-thumbnail__overlay"></div>
+      </div>
+      <div class="ds-thumbnail ds-thumbnail--1-1" tabindex="0" role="img" aria-label="Gallery image 7">
+        <div class="thumb-fill" style="background: var(--ds-surface-input, #ccfbf1);">🐬</div>
+        <div class="ds-thumbnail__overlay"></div>
+      </div>
+      <div class="ds-thumbnail ds-thumbnail--1-1" tabindex="0" role="img" aria-label="Gallery image 8">
+        <div class="thumb-fill" style="background: var(--ds-surface-input, #f0fdf4);">🌴</div>
+        <div class="ds-thumbnail__overlay"></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

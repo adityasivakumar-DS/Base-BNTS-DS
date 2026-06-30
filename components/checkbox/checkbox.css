@@ -1,0 +1,84 @@
+/**
+ * Checkbox — headless component.
+ * All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes.
+ */
+
+.ds-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-form-label-gap, 0.5rem);
+}
+
+.ds-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-action-primary-icon-gap, 0.5rem);
+  cursor: pointer;
+  user-select: none;
+}
+
+.ds-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+  border: var(--ds-border-default-width) solid var(--ds-border-default-color);
+  border-radius: calc(var(--ds-action-primary-radius) / 2);
+  background-color: var(--ds-surface-input, var(--ds-surface-page));
+  cursor: pointer;
+  transition: background-color var(--ds-action-primary-transition-duration),
+              border-color var(--ds-action-primary-transition-duration);
+  position: relative;
+  outline: none;
+}
+
+.ds-checkbox:checked {
+  background-color: var(--ds-action-primary-bg);
+  border-color: var(--ds-action-primary-bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2 6l3 3 5-5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.ds-checkbox:indeterminate {
+  background-color: var(--ds-action-primary-bg);
+  border-color: var(--ds-action-primary-bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Crect x='2' y='5.25' width='8' height='1.5' rx='0.75' fill='white'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.ds-checkbox:hover:not(:disabled) {
+  border-color: var(--ds-action-primary-bg);
+}
+
+.ds-checkbox:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+.ds-checkbox:disabled {
+  background-color: var(--ds-action-primary-bg-disabled);
+  border-color: var(--ds-action-primary-border-disabled);
+  cursor: not-allowed;
+}
+
+.ds-checkbox:disabled + .ds-checkbox-label {
+  color: var(--ds-action-primary-text-disabled);
+  cursor: not-allowed;
+}
+
+.ds-checkbox-label {
+  font-size: var(--ds-action-primary-font-size-md);
+  color: var(--ds-content-text-primary);
+  line-height: 1.4;
+}
+
+.ds-checkbox-label--sm {
+  font-size: var(--ds-action-primary-font-size-sm);
+}
+
+.ds-checkbox-label--lg {
+  font-size: var(--ds-action-primary-font-size-lg);
+}

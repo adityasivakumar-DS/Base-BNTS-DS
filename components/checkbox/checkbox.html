@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkbox — Base BNTS DS</title>
+  <link rel="stylesheet" href="../../build/css/core.css">
+  <link rel="stylesheet" href="../../build/css/semantic.css">
+  <link rel="stylesheet" href="../../build/css/base.css">
+  <link rel="stylesheet" href="checkbox.css">
+  <style>
+    body { font-family: sans-serif; background: var(--ds-surface-page); padding: 2rem; color: var(--ds-content-text-primary); }
+    h2 { font-size: 1rem; font-weight: 600; margin: 2rem 0 0.5rem; color: var(--ds-content-text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+  </style>
+</head>
+<body>
+  <h1 style="font-size:1.5rem;font-weight:700;margin-bottom:0.25rem">Checkbox — base design system</h1>
+  <p style="color:var(--ds-content-text-secondary);font-size:0.875rem;margin-top:0">All values resolved from CSS variables.</p>
+
+  <h2>Default states</h2>
+  <div class="ds-checkbox-group">
+    <label class="ds-checkbox-item">
+      <input type="checkbox" class="ds-checkbox">
+      <span class="ds-checkbox-label">Unchecked</span>
+    </label>
+    <label class="ds-checkbox-item">
+      <input type="checkbox" class="ds-checkbox" checked>
+      <span class="ds-checkbox-label">Checked</span>
+    </label>
+    <label class="ds-checkbox-item">
+      <input type="checkbox" class="ds-checkbox" id="indeterminate-cb">
+      <span class="ds-checkbox-label">Indeterminate</span>
+    </label>
+    <label class="ds-checkbox-item">
+      <input type="checkbox" class="ds-checkbox" disabled>
+      <span class="ds-checkbox-label">Disabled unchecked</span>
+    </label>
+    <label class="ds-checkbox-item">
+      <input type="checkbox" class="ds-checkbox" checked disabled>
+      <span class="ds-checkbox-label">Disabled checked</span>
+    </label>
+  </div>
+
+  <h2>Group example</h2>
+  <fieldset style="border:none;padding:0;margin:0">
+    <legend style="font-size:0.875rem;font-weight:500;margin-bottom:0.5rem;color:var(--ds-content-text-primary)">Select interests</legend>
+    <div class="ds-checkbox-group">
+      <label class="ds-checkbox-item">
+        <input type="checkbox" class="ds-checkbox" name="interest" checked>
+        <span class="ds-checkbox-label">Design systems</span>
+      </label>
+      <label class="ds-checkbox-item">
+        <input type="checkbox" class="ds-checkbox" name="interest">
+        <span class="ds-checkbox-label">Accessibility</span>
+      </label>
+      <label class="ds-checkbox-item">
+        <input type="checkbox" class="ds-checkbox" name="interest" checked>
+        <span class="ds-checkbox-label">CSS architecture</span>
+      </label>
+    </div>
+  </fieldset>
+
+  <script>
+    document.getElementById('indeterminate-cb').indeterminate = true;
+  </script>
+</body>
+</html>

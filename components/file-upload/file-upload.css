@@ -1,0 +1,161 @@
+/**
+ * File-upload — headless component.
+ * All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes.
+ */
+
+.ds-file-upload {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-form-label-gap, 0.375rem);
+}
+
+.ds-file-upload__label {
+  font-size: var(--ds-form-label-font-size, 0.875rem);
+  font-weight: var(--ds-form-label-font-weight, 500);
+  color: var(--ds-content-text-primary);
+}
+
+.ds-file-upload__zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: var(--ds-action-primary-padding-y-lg) var(--ds-action-primary-padding-x-lg);
+  border: 2px dashed var(--ds-border-default-color);
+  border-radius: var(--ds-action-primary-radius);
+  background-color: var(--ds-surface-input, var(--ds-surface-page));
+  cursor: pointer;
+  text-align: center;
+  transition: border-color var(--ds-action-primary-transition-duration),
+              background-color var(--ds-action-primary-transition-duration);
+  outline: none;
+  position: relative;
+}
+
+.ds-file-upload__zone:hover {
+  border-color: var(--ds-action-primary-bg);
+  background-color: var(--ds-action-ghost-bg-hover, var(--ds-surface-input));
+}
+
+.ds-file-upload__zone--drag-over {
+  border-color: var(--ds-action-primary-bg);
+  background-color: var(--ds-action-ghost-bg-hover, var(--ds-surface-input));
+}
+
+.ds-file-upload__zone:focus-within {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+.ds-file-upload__zone--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.ds-file-upload__icon {
+  color: var(--ds-content-text-secondary);
+}
+
+.ds-file-upload__text {
+  font-size: var(--ds-action-primary-font-size-md);
+  color: var(--ds-content-text-primary);
+}
+
+.ds-file-upload__subtext {
+  font-size: var(--ds-action-primary-font-size-sm);
+  color: var(--ds-content-text-secondary);
+}
+
+.ds-file-upload__input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+/* Compact button-style upload */
+.ds-file-upload__button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-action-primary-icon-gap);
+  padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+  font-size: var(--ds-action-primary-font-size-md);
+  font-family: inherit;
+  background-color: var(--ds-action-secondary-bg);
+  color: var(--ds-action-secondary-text);
+  border: var(--ds-border-default-width) solid var(--ds-action-secondary-border);
+  border-radius: var(--ds-action-primary-radius);
+  cursor: pointer;
+  outline: none;
+  transition: background-color var(--ds-action-primary-transition-duration);
+  position: relative;
+  overflow: hidden;
+}
+
+.ds-file-upload__button:hover {
+  background-color: var(--ds-action-secondary-bg-hover);
+}
+
+.ds-file-upload__button:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+/* File list */
+.ds-file-upload__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.ds-file-upload__file-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem var(--ds-action-primary-padding-x-md);
+  background-color: var(--ds-surface-input, var(--ds-surface-page));
+  border: var(--ds-border-default-width) solid var(--ds-border-default-color);
+  border-radius: var(--ds-action-primary-radius);
+  font-size: var(--ds-action-primary-font-size-sm);
+  color: var(--ds-content-text-primary);
+}
+
+.ds-file-upload__file-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ds-file-upload__file-size {
+  color: var(--ds-content-text-secondary);
+  flex-shrink: 0;
+}
+
+.ds-file-upload__file-remove {
+  background: none;
+  border: none;
+  padding: 0.125rem;
+  cursor: pointer;
+  color: var(--ds-content-text-secondary);
+  display: flex;
+  align-items: center;
+  outline: none;
+  border-radius: var(--ds-action-primary-radius);
+}
+
+.ds-file-upload__file-remove:hover {
+  color: var(--ds-action-destructive-bg);
+}
+
+.ds-file-upload__file-remove:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}

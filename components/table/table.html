@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Table — Design System</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="table.css" />
+  <style>
+    body {
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    h2 {
+      margin: 2rem 0 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ds-content-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h2:first-child { margin-top: 0; }
+  </style>
+</head>
+<body>
+
+  <h2>Default Table</h2>
+  <div class="ds-table-wrapper">
+    <table class="ds-table">
+      <thead>
+        <tr>
+          <th>
+            <button class="ds-table__sort-btn ds-table__sort-btn--asc" aria-label="Sort by Name ascending">
+              Name <span aria-hidden="true">↑</span>
+            </button>
+          </th>
+          <th>Role</th>
+          <th>Department</th>
+          <th class="ds-table__cell--numeric">
+            <button class="ds-table__sort-btn" aria-label="Sort by Salary">
+              Salary <span aria-hidden="true">↕</span>
+            </button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Alice Martin</td>
+          <td>Senior Engineer</td>
+          <td>Engineering</td>
+          <td class="ds-table__cell--numeric">$142,000</td>
+        </tr>
+        <tr>
+          <td>Bob Chen</td>
+          <td>Product Manager</td>
+          <td>Product</td>
+          <td class="ds-table__cell--numeric">$128,000</td>
+        </tr>
+        <tr>
+          <td>Carol Davis</td>
+          <td>UX Designer</td>
+          <td>Design</td>
+          <td class="ds-table__cell--numeric">$115,000</td>
+        </tr>
+        <tr>
+          <td>David Kim</td>
+          <td>Data Analyst</td>
+          <td>Analytics</td>
+          <td class="ds-table__cell--numeric">$108,000</td>
+        </tr>
+        <tr>
+          <td>Eva Lopez</td>
+          <td>Engineering Manager</td>
+          <td>Engineering</td>
+          <td class="ds-table__cell--numeric">$165,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Striped Table</h2>
+  <div class="ds-table-wrapper">
+    <table class="ds-table ds-table--striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Department</th>
+          <th class="ds-table__cell--numeric">Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Alice Martin</td>
+          <td>Senior Engineer</td>
+          <td>Engineering</td>
+          <td class="ds-table__cell--numeric">$142,000</td>
+        </tr>
+        <tr>
+          <td>Bob Chen</td>
+          <td>Product Manager</td>
+          <td>Product</td>
+          <td class="ds-table__cell--numeric">$128,000</td>
+        </tr>
+        <tr>
+          <td>Carol Davis</td>
+          <td>UX Designer</td>
+          <td>Design</td>
+          <td class="ds-table__cell--numeric">$115,000</td>
+        </tr>
+        <tr>
+          <td>David Kim</td>
+          <td>Data Analyst</td>
+          <td>Analytics</td>
+          <td class="ds-table__cell--numeric">$108,000</td>
+        </tr>
+        <tr>
+          <td>Eva Lopez</td>
+          <td>Engineering Manager</td>
+          <td>Engineering</td>
+          <td class="ds-table__cell--numeric">$165,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Compact Table</h2>
+  <div class="ds-table-wrapper">
+    <table class="ds-table ds-table--compact ds-table--hoverable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Department</th>
+          <th class="ds-table__cell--numeric">Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Alice Martin</td>
+          <td>Senior Engineer</td>
+          <td>Engineering</td>
+          <td class="ds-table__cell--numeric">$142,000</td>
+        </tr>
+        <tr>
+          <td>Bob Chen</td>
+          <td>Product Manager</td>
+          <td>Product</td>
+          <td class="ds-table__cell--numeric">$128,000</td>
+        </tr>
+        <tr>
+          <td>Carol Davis</td>
+          <td>UX Designer</td>
+          <td>Design</td>
+          <td class="ds-table__cell--numeric">$115,000</td>
+        </tr>
+        <tr>
+          <td>David Kim</td>
+          <td>Data Analyst</td>
+          <td>Analytics</td>
+          <td class="ds-table__cell--numeric">$108,000</td>
+        </tr>
+        <tr>
+          <td>Eva Lopez</td>
+          <td>Engineering Manager</td>
+          <td>Engineering</td>
+          <td class="ds-table__cell--numeric">$165,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Bordered Table with Selected Row</h2>
+  <div class="ds-table-wrapper">
+    <table class="ds-table ds-table--bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Department</th>
+          <th class="ds-table__cell--numeric">Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Alice Martin</td>
+          <td>Senior Engineer</td>
+          <td>Engineering</td>
+          <td class="ds-table__cell--numeric">$142,000</td>
+        </tr>
+        <tr class="ds-table__row--selected" aria-selected="true">
+          <td>Bob Chen</td>
+          <td>Product Manager</td>
+          <td>Product</td>
+          <td class="ds-table__cell--numeric">$128,000</td>
+        </tr>
+        <tr>
+          <td>Carol Davis</td>
+          <td>UX Designer</td>
+          <td>Design</td>
+          <td class="ds-table__cell--numeric">$115,000</td>
+        </tr>
+        <tr>
+          <td>David Kim</td>
+          <td>Data Analyst</td>
+          <td>Analytics</td>
+          <td class="ds-table__cell--numeric">$108,000</td>
+        </tr>
+        <tr>
+          <td>Eva Lopez</td>
+          <td>Engineering Manager</td>
+          <td>Engineering</td>
+          <td class="ds-table__cell--numeric">$165,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

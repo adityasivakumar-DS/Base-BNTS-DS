@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alert — Design System</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="alert.css" />
+  <style>
+    body {
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    h2 {
+      margin: 2rem 0 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ds-content-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h2:first-child { margin-top: 0; }
+    .demo-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 640px;
+    }
+    /* Inline SVG icon sizing */
+    .ds-alert__icon svg {
+      width: 1.125rem;
+      height: 1.125rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Semantic Variants</h2>
+  <div class="demo-stack">
+
+    <!-- Info -->
+    <div class="ds-alert ds-alert--info" role="alert">
+      <span class="ds-alert__icon" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor" style="color: var(--ds-action-primary-bg);">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+        </svg>
+      </span>
+      <div class="ds-alert__content">
+        <p class="ds-alert__title">Informational</p>
+        <p class="ds-alert__description">Your session will expire in 30 minutes. Save your work to avoid losing any unsaved changes.</p>
+      </div>
+    </div>
+
+    <!-- Success -->
+    <div class="ds-alert ds-alert--success" role="alert">
+      <span class="ds-alert__icon" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor" style="color: var(--ds-status-success, var(--ds-action-primary-bg));">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+        </svg>
+      </span>
+      <div class="ds-alert__content">
+        <p class="ds-alert__title">Changes saved</p>
+        <p class="ds-alert__description">Your profile has been updated successfully. Changes will take effect immediately.</p>
+      </div>
+    </div>
+
+    <!-- Warning -->
+    <div class="ds-alert ds-alert--warning" role="alert">
+      <span class="ds-alert__icon" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor" style="color: var(--ds-status-warning, var(--ds-content-text-primary));">
+          <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+        </svg>
+      </span>
+      <div class="ds-alert__content">
+        <p class="ds-alert__title">Storage almost full</p>
+        <p class="ds-alert__description">You are using 90% of your available storage. Consider removing old files or upgrading your plan.</p>
+      </div>
+    </div>
+
+    <!-- Error -->
+    <div class="ds-alert ds-alert--error" role="alert">
+      <span class="ds-alert__icon" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor" style="color: var(--ds-action-destructive-bg);">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+        </svg>
+      </span>
+      <div class="ds-alert__content">
+        <p class="ds-alert__title">Payment failed</p>
+        <p class="ds-alert__description">We could not process your payment. Please check your card details and try again.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>With Close Button</h2>
+  <div class="demo-stack">
+
+    <div class="ds-alert ds-alert--info" role="alert">
+      <span class="ds-alert__icon" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor" style="color: var(--ds-action-primary-bg);">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+        </svg>
+      </span>
+      <div class="ds-alert__content">
+        <p class="ds-alert__title">New feature available</p>
+        <p class="ds-alert__description">Check out the new dashboard analytics features in your settings panel.</p>
+      </div>
+      <button class="ds-alert__close" aria-label="Dismiss alert">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="ds-alert ds-alert--error" role="alert">
+      <span class="ds-alert__icon" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor" style="color: var(--ds-action-destructive-bg);">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+        </svg>
+      </span>
+      <div class="ds-alert__content">
+        <p class="ds-alert__title">Connection error</p>
+        <p class="ds-alert__description">Unable to connect to the server. Please check your internet connection.</p>
+      </div>
+      <button class="ds-alert__close" aria-label="Dismiss alert">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <h2>Title Only (No Description)</h2>
+  <div class="demo-stack">
+
+    <div class="ds-alert ds-alert--success" role="alert">
+      <span class="ds-alert__icon" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor" style="color: var(--ds-status-success, var(--ds-action-primary-bg));">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+        </svg>
+      </span>
+      <div class="ds-alert__content">
+        <p class="ds-alert__title">File uploaded successfully.</p>
+      </div>
+    </div>
+
+    <div class="ds-alert ds-alert--warning" role="alert">
+      <div class="ds-alert__content">
+        <p class="ds-alert__title">Your subscription expires in 3 days.</p>
+      </div>
+      <button class="ds-alert__close" aria-label="Dismiss">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <h2>Small Variant</h2>
+  <div class="demo-stack">
+
+    <div class="ds-alert ds-alert--info ds-alert--sm" role="alert">
+      <div class="ds-alert__content">
+        <p class="ds-alert__title">Compact info alert with a short message.</p>
+      </div>
+    </div>
+
+    <div class="ds-alert ds-alert--error ds-alert--sm" role="alert">
+      <div class="ds-alert__content">
+        <p class="ds-alert__title">Error</p>
+        <p class="ds-alert__description">The form could not be submitted due to validation errors.</p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

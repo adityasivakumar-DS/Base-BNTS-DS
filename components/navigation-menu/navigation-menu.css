@@ -1,0 +1,158 @@
+/* Navigation Menu — headless component. All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes. */
+
+.ds-nav-menu {
+  display: flex;
+}
+
+.ds-nav-menu__list {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.ds-nav-menu__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ds-nav-menu__link {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+  border-radius: var(--ds-action-primary-radius);
+  color: var(--ds-content-text-primary);
+  font-size: var(--ds-action-primary-font-size-md);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background var(--ds-action-primary-transition-duration) ease,
+              color var(--ds-action-primary-transition-duration) ease;
+  outline: none;
+  white-space: nowrap;
+}
+
+.ds-nav-menu__link:hover {
+  background: var(--ds-action-ghost-bg);
+  color: var(--ds-action-ghost-text);
+}
+
+.ds-nav-menu__link:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+.ds-nav-menu__link--active {
+  background: var(--ds-action-primary-bg);
+  color: var(--ds-action-primary-text);
+  border-radius: var(--ds-action-primary-radius);
+}
+
+.ds-nav-menu__link--active:hover {
+  background: var(--ds-action-primary-bg);
+  color: var(--ds-action-primary-text);
+}
+
+.ds-nav-menu__link--current {
+  font-weight: 600;
+  border-bottom: 2px solid var(--ds-action-primary-bg);
+  border-radius: 0;
+  padding-bottom: calc(var(--ds-action-primary-padding-y-md) - 2px);
+}
+
+.ds-nav-menu__link--current:hover {
+  background: var(--ds-action-ghost-bg);
+}
+
+/* Chevron icon inside link for dropdown triggers */
+.ds-nav-menu__chevron {
+  display: inline-flex;
+  align-items: center;
+  transition: transform var(--ds-action-primary-transition-duration) ease;
+  flex-shrink: 0;
+}
+
+.ds-nav-menu__item--open > .ds-nav-menu__link .ds-nav-menu__chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown submenu */
+.ds-nav-menu__dropdown {
+  position: absolute;
+  top: calc(100% + 0.375rem);
+  left: 0;
+  background: var(--ds-surface-overlay, var(--ds-surface-page));
+  border: var(--ds-border-default-width) solid var(--ds-border-default-color);
+  border-radius: var(--ds-action-primary-radius);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  min-width: 200px;
+  list-style: none;
+  padding: 0.375rem;
+  margin: 0;
+  z-index: 200;
+}
+
+.ds-nav-menu__dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+  border-radius: var(--ds-action-primary-radius);
+  color: var(--ds-content-text-primary);
+  font-size: var(--ds-action-primary-font-size-md);
+  text-decoration: none;
+  transition: background var(--ds-action-primary-transition-duration) ease;
+  outline: none;
+}
+
+.ds-nav-menu__dropdown-link:hover {
+  background: var(--ds-action-ghost-bg);
+  color: var(--ds-action-ghost-text);
+}
+
+.ds-nav-menu__dropdown-link:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+/* Vertical variant */
+.ds-nav-menu--vertical {
+  flex-direction: column;
+}
+
+.ds-nav-menu--vertical .ds-nav-menu__list {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.125rem;
+}
+
+.ds-nav-menu--vertical .ds-nav-menu__item {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.ds-nav-menu--vertical .ds-nav-menu__link {
+  width: 100%;
+}
+
+.ds-nav-menu--vertical .ds-nav-menu__dropdown {
+  position: static;
+  box-shadow: none;
+  border: none;
+  padding-left: var(--ds-action-primary-padding-x-md);
+  margin-top: 0.125rem;
+  background: transparent;
+}
+
+.ds-nav-menu--vertical .ds-nav-menu__link--current {
+  border-bottom: none;
+  border-left: 2px solid var(--ds-action-primary-bg);
+  border-radius: 0 var(--ds-action-primary-radius) var(--ds-action-primary-radius) 0;
+  padding-bottom: var(--ds-action-primary-padding-y-md);
+  padding-left: calc(var(--ds-action-primary-padding-x-md) - 2px);
+}

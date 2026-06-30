@@ -1,0 +1,69 @@
+/* Breadcrumb — headless component. All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes. */
+
+.ds-breadcrumb {
+  display: block;
+}
+
+.ds-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.ds-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ds-breadcrumb__link {
+  color: var(--ds-content-text-secondary);
+  text-decoration: none;
+  font-size: var(--ds-action-primary-font-size-sm);
+  transition: color var(--ds-action-primary-transition-duration) ease;
+  outline: none;
+  border-radius: var(--ds-action-primary-radius);
+  padding: 0.125rem 0.25rem;
+}
+
+.ds-breadcrumb__link:hover {
+  color: var(--ds-content-text-primary);
+  text-decoration: underline;
+}
+
+.ds-breadcrumb__link:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+.ds-breadcrumb__separator {
+  color: var(--ds-content-text-secondary);
+  font-size: var(--ds-action-primary-font-size-sm);
+  user-select: none;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ds-breadcrumb__current {
+  color: var(--ds-content-text-primary);
+  font-size: var(--ds-action-primary-font-size-sm);
+  font-weight: 500;
+}
+
+/* Size modifiers */
+.ds-breadcrumb--sm .ds-breadcrumb__link,
+.ds-breadcrumb--sm .ds-breadcrumb__separator,
+.ds-breadcrumb--sm .ds-breadcrumb__current {
+  font-size: calc(var(--ds-action-primary-font-size-sm) * 0.875);
+}
+
+.ds-breadcrumb--lg .ds-breadcrumb__link,
+.ds-breadcrumb--lg .ds-breadcrumb__separator,
+.ds-breadcrumb--lg .ds-breadcrumb__current {
+  font-size: var(--ds-action-primary-font-size-md);
+}

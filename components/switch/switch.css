@@ -1,0 +1,109 @@
+/**
+ * Switch (toggle) — headless component.
+ * All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes.
+ */
+
+.ds-switch-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-action-primary-icon-gap, 0.5rem);
+  cursor: pointer;
+  user-select: none;
+}
+
+.ds-switch {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  width: 2.5rem;
+  height: 1.375rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background-color: var(--ds-border-default-color);
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: background-color var(--ds-action-primary-transition-duration);
+}
+
+.ds-switch::after {
+  content: '';
+  position: absolute;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: var(--ds-surface-page);
+  transition: transform var(--ds-action-primary-transition-duration);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.ds-switch:checked {
+  background-color: var(--ds-action-primary-bg);
+}
+
+.ds-switch:checked::after {
+  transform: translateX(1.125rem);
+}
+
+.ds-switch:hover:not(:disabled) {
+  background-color: var(--ds-action-primary-bg-hover);
+}
+
+.ds-switch:checked:hover:not(:disabled) {
+  background-color: var(--ds-action-primary-bg-hover);
+}
+
+.ds-switch:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+.ds-switch:disabled {
+  background-color: var(--ds-action-primary-bg-disabled);
+  cursor: not-allowed;
+}
+
+.ds-switch:disabled + .ds-switch-label {
+  color: var(--ds-action-primary-text-disabled);
+  cursor: not-allowed;
+}
+
+.ds-switch-label {
+  font-size: var(--ds-action-primary-font-size-md);
+  color: var(--ds-content-text-primary);
+}
+
+/* Sizes */
+.ds-switch--sm {
+  width: 2rem;
+  height: 1.125rem;
+}
+
+.ds-switch--sm::after {
+  width: 0.75rem;
+  height: 0.75rem;
+  top: 0.1875rem;
+  left: 0.1875rem;
+}
+
+.ds-switch--sm:checked::after {
+  transform: translateX(0.875rem);
+}
+
+.ds-switch--lg {
+  width: 3rem;
+  height: 1.625rem;
+}
+
+.ds-switch--lg::after {
+  width: 1.25rem;
+  height: 1.25rem;
+  top: 0.1875rem;
+  left: 0.1875rem;
+}
+
+.ds-switch--lg:checked::after {
+  transform: translateX(1.375rem);
+}

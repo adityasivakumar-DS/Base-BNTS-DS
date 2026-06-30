@@ -1,0 +1,113 @@
+/* Alert — headless component. All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes. */
+
+.ds-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ds-action-primary-padding-x-md);
+  padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+  border-radius: var(--ds-action-primary-radius);
+  border-left: 4px solid var(--ds-border-default-color);
+  border-top: var(--ds-border-default-width) solid var(--ds-border-default-color);
+  border-right: var(--ds-border-default-width) solid var(--ds-border-default-color);
+  border-bottom: var(--ds-border-default-width) solid var(--ds-border-default-color);
+}
+
+.ds-alert__icon {
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+  display: flex;
+  align-items: center;
+}
+
+.ds-alert__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.ds-alert__title {
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  color: var(--ds-content-text-primary);
+  font-size: var(--ds-action-primary-font-size-md);
+  line-height: 1.4;
+}
+
+.ds-alert__title:only-child {
+  margin-bottom: 0;
+}
+
+.ds-alert__description {
+  color: var(--ds-content-text-secondary);
+  font-size: var(--ds-action-primary-font-size-sm);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.ds-alert__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ds-content-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0.25rem;
+  border-radius: var(--ds-action-primary-radius);
+  outline: none;
+  font-family: inherit;
+  transition: background var(--ds-action-primary-transition-duration, 0.15s) ease;
+  margin-top: -0.125rem;
+}
+
+.ds-alert__close:hover {
+  background: var(--ds-action-ghost-bg-hover);
+}
+
+.ds-alert__close:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+/* Semantic variants */
+.ds-alert--info {
+  border-left-color: var(--ds-action-primary-bg);
+  border-top-color: var(--ds-border-default-color);
+  border-right-color: var(--ds-border-default-color);
+  border-bottom-color: var(--ds-border-default-color);
+}
+
+.ds-alert--success {
+  border-left-color: var(--ds-status-success, var(--ds-action-primary-bg));
+  border-top-color: var(--ds-border-default-color);
+  border-right-color: var(--ds-border-default-color);
+  border-bottom-color: var(--ds-border-default-color);
+}
+
+.ds-alert--warning {
+  border-left-color: var(--ds-status-warning, var(--ds-action-primary-bg));
+  border-top-color: var(--ds-border-default-color);
+  border-right-color: var(--ds-border-default-color);
+  border-bottom-color: var(--ds-border-default-color);
+}
+
+.ds-alert--error {
+  border-left-color: var(--ds-action-destructive-bg);
+  border-top-color: var(--ds-border-default-color);
+  border-right-color: var(--ds-border-default-color);
+  border-bottom-color: var(--ds-border-default-color);
+}
+
+/* Small variant */
+.ds-alert--sm {
+  padding: calc(var(--ds-action-primary-padding-y-md) * 0.625) var(--ds-action-primary-padding-x-md);
+  gap: calc(var(--ds-action-primary-padding-x-md) * 0.75);
+}
+
+.ds-alert--sm .ds-alert__title {
+  font-size: var(--ds-action-primary-font-size-sm);
+}
+
+.ds-alert--sm .ds-alert__description {
+  font-size: var(--ds-action-primary-font-size-sm);
+}

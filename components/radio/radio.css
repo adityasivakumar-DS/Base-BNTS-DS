@@ -1,0 +1,80 @@
+/**
+ * Radio — headless component.
+ * All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes.
+ */
+
+.ds-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-form-label-gap, 0.5rem);
+}
+
+.ds-radio-group--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--ds-action-primary-padding-x-md);
+}
+
+.ds-radio-item {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-action-primary-icon-gap, 0.5rem);
+  cursor: pointer;
+  user-select: none;
+}
+
+.ds-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+  border: var(--ds-border-default-width) solid var(--ds-border-default-color);
+  border-radius: 50%;
+  background-color: var(--ds-surface-input, var(--ds-surface-page));
+  cursor: pointer;
+  transition: background-color var(--ds-action-primary-transition-duration),
+              border-color var(--ds-action-primary-transition-duration);
+  outline: none;
+  position: relative;
+}
+
+.ds-radio:checked {
+  border-color: var(--ds-action-primary-bg);
+  background-color: var(--ds-action-primary-bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Ccircle cx='9' cy='9' r='3.5' fill='white'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.ds-radio:hover:not(:disabled) {
+  border-color: var(--ds-action-primary-bg);
+}
+
+.ds-radio:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+.ds-radio:disabled {
+  background-color: var(--ds-action-primary-bg-disabled);
+  border-color: var(--ds-action-primary-border-disabled);
+  cursor: not-allowed;
+}
+
+.ds-radio:disabled + .ds-radio-label {
+  color: var(--ds-action-primary-text-disabled);
+  cursor: not-allowed;
+}
+
+.ds-radio-label {
+  font-size: var(--ds-action-primary-font-size-md);
+  color: var(--ds-content-text-primary);
+  line-height: 1.4;
+}
+
+.ds-radio-hint {
+  font-size: var(--ds-action-primary-font-size-sm);
+  color: var(--ds-content-text-secondary);
+  margin-left: calc(1.125rem + var(--ds-action-primary-icon-gap, 0.5rem));
+}

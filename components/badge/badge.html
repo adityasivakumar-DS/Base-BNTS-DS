@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Badge — Design System</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="badge.css" />
+  <style>
+    body {
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    h2 {
+      margin: 2rem 0 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ds-content-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h2:first-child { margin-top: 0; }
+    .demo-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    /* Stub button for notification demo */
+    .demo-btn {
+      background: var(--ds-action-primary-bg);
+      color: var(--ds-action-primary-text);
+      border: none;
+      padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+      border-radius: var(--ds-action-primary-radius);
+      font-size: var(--ds-action-primary-font-size-md);
+      cursor: pointer;
+      font-family: inherit;
+    }
+    /* Stub avatar for notification demo */
+    .demo-avatar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: var(--ds-action-secondary-bg);
+      color: var(--ds-action-secondary-text);
+      font-weight: 600;
+      font-size: 0.9375rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Semantic Variants</h2>
+  <div class="demo-row">
+    <span class="ds-badge ds-badge--default">Default</span>
+    <span class="ds-badge ds-badge--primary">Primary</span>
+    <span class="ds-badge ds-badge--success">Success</span>
+    <span class="ds-badge ds-badge--warning">Warning</span>
+    <span class="ds-badge ds-badge--error">Error</span>
+    <span class="ds-badge ds-badge--outline">Outline</span>
+  </div>
+
+  <h2>Dot Badges</h2>
+  <div class="demo-row">
+    <span style="display:inline-flex;align-items:center;gap:0.375rem;">
+      <span class="ds-badge ds-badge--dot ds-badge--default" aria-hidden="true"></span>
+      Default
+    </span>
+    <span style="display:inline-flex;align-items:center;gap:0.375rem;">
+      <span class="ds-badge ds-badge--dot ds-badge--primary" aria-hidden="true"></span>
+      Primary
+    </span>
+    <span style="display:inline-flex;align-items:center;gap:0.375rem;">
+      <span class="ds-badge ds-badge--dot ds-badge--success" aria-hidden="true"></span>
+      Success
+    </span>
+    <span style="display:inline-flex;align-items:center;gap:0.375rem;">
+      <span class="ds-badge ds-badge--dot ds-badge--warning" aria-hidden="true"></span>
+      Warning
+    </span>
+    <span style="display:inline-flex;align-items:center;gap:0.375rem;">
+      <span class="ds-badge ds-badge--dot ds-badge--error" aria-hidden="true"></span>
+      Error
+    </span>
+  </div>
+
+  <h2>Notification Badge Overlay</h2>
+  <div class="demo-row">
+
+    <div class="ds-badge-wrapper">
+      <button class="demo-btn" type="button">Inbox</button>
+      <span class="ds-badge ds-badge--notification ds-badge--error" aria-label="5 unread messages">5</span>
+    </div>
+
+    <div class="ds-badge-wrapper">
+      <button class="demo-btn" type="button">Notifications</button>
+      <span class="ds-badge ds-badge--notification ds-badge--error" aria-label="99 or more notifications">99+</span>
+    </div>
+
+    <div class="ds-badge-wrapper">
+      <span class="demo-avatar" aria-label="Alice Martin">AM</span>
+      <span class="ds-badge ds-badge--notification ds-badge--success" aria-label="Online">&nbsp;</span>
+    </div>
+
+    <div class="ds-badge-wrapper">
+      <button class="demo-btn" type="button">Updates</button>
+      <span class="ds-badge ds-badge--notification ds-badge--error" aria-label="1 update">1</span>
+    </div>
+
+  </div>
+
+  <h2>All Sizes</h2>
+  <div class="demo-row" style="align-items: center;">
+    <span class="ds-badge ds-badge--primary ds-badge--sm">Small</span>
+    <span class="ds-badge ds-badge--primary">Default</span>
+    <span class="ds-badge ds-badge--primary ds-badge--lg">Large</span>
+  </div>
+
+  <div class="demo-row" style="margin-top: 0.75rem;">
+    <span class="ds-badge ds-badge--success ds-badge--sm">Active</span>
+    <span class="ds-badge ds-badge--success">Active</span>
+    <span class="ds-badge ds-badge--success ds-badge--lg">Active</span>
+  </div>
+
+  <div class="demo-row" style="margin-top: 0.75rem;">
+    <span class="ds-badge ds-badge--error ds-badge--sm">Critical</span>
+    <span class="ds-badge ds-badge--error">Critical</span>
+    <span class="ds-badge ds-badge--error ds-badge--lg">Critical</span>
+  </div>
+
+  <h2>In Context (Text with Badges)</h2>
+  <div style="display:flex;flex-direction:column;gap:0.625rem;max-width:400px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem;border:var(--ds-border-default-width) solid var(--ds-border-default-color);border-radius:var(--ds-action-primary-radius);">
+      <span>Pull Request #412</span>
+      <span class="ds-badge ds-badge--success">Merged</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem;border:var(--ds-border-default-width) solid var(--ds-border-default-color);border-radius:var(--ds-action-primary-radius);">
+      <span>Issue #89</span>
+      <span class="ds-badge ds-badge--error">Critical</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem;border:var(--ds-border-default-width) solid var(--ds-border-default-color);border-radius:var(--ds-action-primary-radius);">
+      <span>Deploy #34</span>
+      <span class="ds-badge ds-badge--warning">In Review</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem;border:var(--ds-border-default-width) solid var(--ds-border-default-color);border-radius:var(--ds-action-primary-radius);">
+      <span>Feature Flag</span>
+      <span class="ds-badge ds-badge--outline">Experimental</span>
+    </div>
+  </div>
+
+</body>
+</html>

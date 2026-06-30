@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Header — Component Demo</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="header.css" />
+  <style>
+    body {
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-family: sans-serif;
+      padding: 0;
+      margin: 0;
+    }
+    .demo-section {
+      padding: 2rem;
+    }
+    .demo-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ds-content-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      padding: 0 1rem;
+    }
+    .demo-spacer {
+      height: 2rem;
+    }
+    /* Button reset for demo actions */
+    .ds-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+      border-radius: var(--ds-action-primary-radius);
+      font-size: var(--ds-action-primary-font-size-md);
+      font-weight: 500;
+      cursor: pointer;
+      border: var(--ds-border-default-width) solid transparent;
+      text-decoration: none;
+      transition: background var(--ds-action-primary-transition-duration) ease;
+      outline: none;
+    }
+    .ds-btn--primary {
+      background: var(--ds-action-primary-bg);
+      color: var(--ds-action-primary-text);
+    }
+    .ds-btn--secondary {
+      background: var(--ds-action-secondary-bg);
+      color: var(--ds-action-secondary-text);
+      border-color: var(--ds-action-secondary-border);
+    }
+    .ds-btn:focus-visible {
+      outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+      outline-offset: var(--ds-focus-ring-offset);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Default Header -->
+  <p class="demo-label">Default Header</p>
+  <header class="ds-header" role="banner">
+    <a href="#" class="ds-header__brand" aria-label="Acme Home">
+      <!-- Brand logo SVG -->
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <rect width="28" height="28" rx="6" fill="var(--ds-action-primary-bg)" />
+        <path d="M7 21L14 7L21 21H17L14 14.5L11 21H7Z" fill="var(--ds-action-primary-text)" />
+      </svg>
+      Acme
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="ds-header__nav">
+        <li><a href="#" class="ds-header__nav-link ds-header__nav-link--active" aria-current="page">Home</a></li>
+        <li><a href="#" class="ds-header__nav-link">Products</a></li>
+        <li><a href="#" class="ds-header__nav-link">Docs</a></li>
+        <li><a href="#" class="ds-header__nav-link">Pricing</a></li>
+        <li><a href="#" class="ds-header__nav-link">Blog</a></li>
+      </ul>
+    </nav>
+
+    <div class="ds-header__actions">
+      <a href="#" class="ds-btn ds-btn--secondary">Sign in</a>
+      <a href="#" class="ds-btn ds-btn--primary">Get started</a>
+    </div>
+  </header>
+
+  <div class="demo-spacer"></div>
+
+  <!-- Compact Header -->
+  <p class="demo-label">Compact Header</p>
+  <header class="ds-header ds-header--compact" role="banner">
+    <a href="#" class="ds-header__brand" aria-label="Acme Home">
+      <svg width="22" height="22" viewBox="0 0 28 28" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <rect width="28" height="28" rx="6" fill="var(--ds-action-primary-bg)" />
+        <path d="M7 21L14 7L21 21H17L14 14.5L11 21H7Z" fill="var(--ds-action-primary-text)" />
+      </svg>
+      Acme
+    </a>
+
+    <nav aria-label="Main navigation compact">
+      <ul class="ds-header__nav">
+        <li><a href="#" class="ds-header__nav-link ds-header__nav-link--active" aria-current="page">Home</a></li>
+        <li><a href="#" class="ds-header__nav-link">Products</a></li>
+        <li><a href="#" class="ds-header__nav-link">Docs</a></li>
+        <li><a href="#" class="ds-header__nav-link">Pricing</a></li>
+      </ul>
+    </nav>
+
+    <div class="ds-header__actions">
+      <a href="#" class="ds-btn ds-btn--primary">Get started</a>
+    </div>
+  </header>
+
+  <div class="demo-section">
+    <p style="color: var(--ds-content-text-secondary); font-size: 0.875rem;">
+      Scroll to see sticky behavior. The default header uses <code>ds-header</code> and the compact variant adds <code>ds-header--compact</code>. The transparent variant (<code>ds-header--transparent</code>) removes background and border for use over hero imagery.
+    </p>
+  </div>
+
+</body>
+</html>

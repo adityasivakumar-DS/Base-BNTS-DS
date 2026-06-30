@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Card Component — Design System</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="card.css" />
+  <style>
+    body {
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    .demo-section {
+      margin-bottom: 3rem;
+    }
+    .demo-label {
+      font-size: var(--ds-action-primary-font-size-sm);
+      color: var(--ds-content-text-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .demo-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    /* Placeholder image */
+    .img-placeholder {
+      background: var(--ds-action-secondary-bg, #e5e7eb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ds-content-text-secondary);
+      font-size: var(--ds-action-primary-font-size-sm);
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+    .img-placeholder--fixed {
+      width: 240px;
+      aspect-ratio: unset;
+      align-self: stretch;
+      min-height: 140px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Default Card with image -->
+  <div class="demo-section">
+    <p class="demo-label">Default Card — with image, title, description, footer actions</p>
+    <div class="demo-grid">
+      <div class="ds-card">
+        <div class="img-placeholder" role="img" aria-label="Card image placeholder">16 / 9 Image</div>
+        <div class="ds-card__body">
+          <div class="ds-card__header">
+            <div>
+              <h2 class="ds-card__title">Card Title</h2>
+              <p class="ds-card__subtitle">Category · 4 min read</p>
+            </div>
+          </div>
+          <p class="ds-card__content">
+            This is a default card with an image at the top, a title, subtitle, and body content.
+            It demonstrates the standard vertical card layout.
+          </p>
+        </div>
+        <div class="ds-card__footer">
+          <button class="ds-btn ds-btn--primary ds-btn--sm" type="button">Read More</button>
+          <button class="ds-btn ds-btn--ghost ds-btn--sm" type="button">Save</button>
+        </div>
+      </div>
+
+      <!-- Small card -->
+      <div class="ds-card ds-card--sm">
+        <div class="img-placeholder" role="img" aria-label="Card image placeholder">16 / 9 Image</div>
+        <div class="ds-card__body">
+          <div class="ds-card__header">
+            <div>
+              <h2 class="ds-card__title">Small Card</h2>
+              <p class="ds-card__subtitle">Compact padding</p>
+            </div>
+          </div>
+          <p class="ds-card__content">
+            This card uses the <code>ds-card--sm</code> modifier for tighter spacing.
+          </p>
+        </div>
+        <div class="ds-card__footer">
+          <button class="ds-btn ds-btn--primary ds-btn--sm" type="button">Action</button>
+        </div>
+      </div>
+
+      <!-- Large card -->
+      <div class="ds-card ds-card--lg">
+        <div class="img-placeholder" role="img" aria-label="Card image placeholder">16 / 9 Image</div>
+        <div class="ds-card__body">
+          <div class="ds-card__header">
+            <div>
+              <h2 class="ds-card__title">Large Card</h2>
+              <p class="ds-card__subtitle">Spacious padding</p>
+            </div>
+          </div>
+          <p class="ds-card__content">
+            This card uses the <code>ds-card--lg</code> modifier for more generous spacing.
+          </p>
+        </div>
+        <div class="ds-card__footer">
+          <button class="ds-btn ds-btn--primary ds-btn--sm" type="button">Action</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hoverable Card -->
+  <div class="demo-section">
+    <p class="demo-label">Hoverable Card</p>
+    <div class="demo-grid">
+      <div class="ds-card ds-card--hoverable" tabindex="0" role="article" aria-label="Hoverable card example">
+        <div class="img-placeholder" role="img" aria-label="Hoverable card image">16 / 9 Image</div>
+        <div class="ds-card__body">
+          <div class="ds-card__header">
+            <div>
+              <h2 class="ds-card__title">Hoverable Card</h2>
+              <p class="ds-card__subtitle">Click to navigate</p>
+            </div>
+          </div>
+          <p class="ds-card__content">
+            Hover or focus this card to see the lift effect. Use this variant for clickable card links.
+          </p>
+        </div>
+        <div class="ds-card__footer">
+          <span style="font-size: var(--ds-action-primary-font-size-sm); color: var(--ds-content-text-secondary);">Hover to see effect →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Horizontal Card -->
+  <div class="demo-section">
+    <p class="demo-label">Horizontal Card Variant</p>
+    <div class="demo-stack">
+      <div class="ds-card ds-card--horizontal">
+        <div class="img-placeholder img-placeholder--fixed" role="img" aria-label="Horizontal card image">Image</div>
+        <div style="display: flex; flex-direction: column; flex: 1;">
+          <div class="ds-card__body">
+            <div class="ds-card__header">
+              <div>
+                <h2 class="ds-card__title">Horizontal Card</h2>
+                <p class="ds-card__subtitle">Media on the left</p>
+              </div>
+            </div>
+            <p class="ds-card__content">
+              This card uses the <code>ds-card--horizontal</code> modifier. The media sits to the left at a fixed
+              width of 240px while the content fills the remaining space.
+            </p>
+          </div>
+          <div class="ds-card__footer">
+            <button class="ds-btn ds-btn--primary ds-btn--sm" type="button">Read More</button>
+            <button class="ds-btn ds-btn--ghost ds-btn--sm" type="button">Dismiss</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-card ds-card--horizontal ds-card--hoverable" tabindex="0" role="article">
+        <div class="img-placeholder img-placeholder--fixed" role="img" aria-label="Horizontal hoverable card image">Image</div>
+        <div style="display: flex; flex-direction: column; flex: 1;">
+          <div class="ds-card__body">
+            <div class="ds-card__header">
+              <div>
+                <h2 class="ds-card__title">Horizontal + Hoverable</h2>
+                <p class="ds-card__subtitle">Both modifiers combined</p>
+              </div>
+            </div>
+            <p class="ds-card__content">
+              Horizontal layout with hover lift effect. Good for list-style content feeds.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Text-only Card (no image) -->
+  <div class="demo-section">
+    <p class="demo-label">Text-only Card — no image</p>
+    <div class="demo-grid">
+      <div class="ds-card">
+        <div class="ds-card__body">
+          <div class="ds-card__header">
+            <div>
+              <h2 class="ds-card__title">Text Only Card</h2>
+              <p class="ds-card__subtitle">No media element</p>
+            </div>
+          </div>
+          <p class="ds-card__content">
+            Cards don't require an image. This variant works well for informational panels,
+            settings summaries, or any content where imagery isn't necessary.
+          </p>
+        </div>
+        <div class="ds-card__footer">
+          <button class="ds-btn ds-btn--secondary ds-btn--sm" type="button">Learn More</button>
+        </div>
+      </div>
+
+      <div class="ds-card">
+        <div class="ds-card__body">
+          <div class="ds-card__header">
+            <div>
+              <h2 class="ds-card__title">Stat Card</h2>
+              <p class="ds-card__subtitle">Key metric</p>
+            </div>
+          </div>
+          <p style="font-size: 2.5rem; font-weight: 700; color: var(--ds-content-text-primary); margin: 0.25rem 0;">
+            4,821
+          </p>
+          <p class="ds-card__content">
+            Total active users this month, up 12% from last month.
+          </p>
+        </div>
+      </div>
+
+      <div class="ds-card">
+        <div class="ds-card__body">
+          <h2 class="ds-card__title">No Footer Card</h2>
+          <p class="ds-card__content">
+            A minimal card with no footer. Useful for read-only display panels where no actions are needed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

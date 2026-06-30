@@ -1,0 +1,88 @@
+/* Header — headless component. All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes. */
+
+.ds-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: var(--ds-surface-overlay, var(--ds-surface-page));
+  border-bottom: var(--ds-border-default-width) solid var(--ds-border-default-color);
+  padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+  gap: var(--ds-action-primary-padding-x-md);
+}
+
+.ds-header__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-action-primary-padding-y-md);
+  font-weight: 700;
+  color: var(--ds-content-text-primary);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.ds-header__nav {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  flex: 1;
+}
+
+.ds-header__nav-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ds-content-text-primary);
+  text-decoration: none;
+  padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+  border-radius: var(--ds-action-primary-radius);
+  font-size: var(--ds-action-primary-font-size-md);
+  transition: background var(--ds-action-primary-transition-duration) ease,
+              color var(--ds-action-primary-transition-duration) ease;
+  outline: none;
+}
+
+.ds-header__nav-link:hover {
+  background: var(--ds-action-ghost-bg);
+  color: var(--ds-action-ghost-text);
+}
+
+.ds-header__nav-link:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+.ds-header__nav-link--active {
+  color: var(--ds-action-primary-bg);
+  font-weight: 600;
+}
+
+.ds-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-action-primary-padding-y-md);
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* Transparent variant */
+.ds-header--transparent {
+  background: transparent;
+  border-bottom-color: transparent;
+}
+
+/* Compact variant */
+.ds-header--compact {
+  padding-top: calc(var(--ds-action-primary-padding-y-md) * 0.5);
+  padding-bottom: calc(var(--ds-action-primary-padding-y-md) * 0.5);
+}
+
+.ds-header--compact .ds-header__nav-link {
+  padding-top: calc(var(--ds-action-primary-padding-y-md) * 0.5);
+  padding-bottom: calc(var(--ds-action-primary-padding-y-md) * 0.5);
+  font-size: var(--ds-action-primary-font-size-sm);
+}

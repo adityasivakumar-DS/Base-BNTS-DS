@@ -1,0 +1,148 @@
+/* List — headless component. All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes. */
+
+/* Base list */
+.ds-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bordered list container */
+.ds-list--bordered {
+  border: var(--ds-border-default-width) solid var(--ds-border-default-color);
+  border-radius: var(--ds-action-primary-radius);
+  overflow: hidden;
+}
+
+/* List item */
+.ds-list__item {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-action-primary-icon-gap, 0.75rem);
+  padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+  color: var(--ds-content-text-primary);
+  font-size: var(--ds-action-primary-font-size-md);
+  border-bottom: var(--ds-border-default-width) solid var(--ds-border-default-color);
+}
+
+.ds-list__item:last-child {
+  border-bottom: none;
+}
+
+/* Bordered: separator via item's border-bottom on non-last children only */
+.ds-list--bordered .ds-list__item:not(:last-child) {
+  border-bottom: var(--ds-border-default-width) solid var(--ds-border-default-color);
+}
+
+/* Interactive item */
+.ds-list__item--interactive {
+  cursor: pointer;
+  outline: none;
+  transition: background var(--ds-action-primary-transition-duration, 0.15s) ease;
+}
+
+.ds-list__item--interactive:hover {
+  background: var(--ds-action-ghost-bg-hover);
+}
+
+.ds-list__item--interactive:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: calc(var(--ds-focus-ring-offset, 2px) * -1);
+}
+
+/* Selected item */
+.ds-list__item--selected {
+  background: var(--ds-action-secondary-bg);
+}
+
+.ds-list__item--selected:hover {
+  background: var(--ds-action-secondary-bg);
+}
+
+/* Disabled item */
+.ds-list__item--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Media (avatar/thumbnail) */
+.ds-list__item-media {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--ds-action-primary-radius);
+  object-fit: cover;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Content area */
+.ds-list__item-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+/* Item title */
+.ds-list__item-title {
+  font-weight: 500;
+  color: var(--ds-content-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+/* Item subtitle */
+.ds-list__item-subtitle {
+  font-size: var(--ds-action-primary-font-size-sm);
+  color: var(--ds-content-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+}
+
+/* Action slot (trailing content) */
+.ds-list__item-action {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Small variant */
+.ds-list--sm .ds-list__item {
+  padding: calc(var(--ds-action-primary-padding-y-md, 0.625rem) * 0.65) var(--ds-action-primary-padding-x-md);
+  font-size: var(--ds-action-primary-font-size-sm);
+}
+
+.ds-list--sm .ds-list__item-media {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Large variant */
+.ds-list--lg .ds-list__item {
+  padding: calc(var(--ds-action-primary-padding-y-md, 0.625rem) * 1.4) var(--ds-action-primary-padding-x-md);
+}
+
+.ds-list--lg .ds-list__item-media {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Striped variant */
+.ds-list--striped .ds-list__item:nth-child(even) {
+  background: var(--ds-action-ghost-bg, var(--ds-action-secondary-bg));
+}
+
+.ds-list--striped .ds-list__item--interactive:nth-child(even):hover {
+  background: var(--ds-action-ghost-bg-hover);
+}

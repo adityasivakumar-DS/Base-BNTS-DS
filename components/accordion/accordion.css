@@ -1,0 +1,103 @@
+/* Accordion — headless component. All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes. */
+
+.ds-accordion {
+  display: flex;
+  flex-direction: column;
+  border-top: var(--ds-border-default-width) solid var(--ds-border-default-color);
+}
+
+.ds-accordion__item {
+  border-bottom: var(--ds-border-default-width) solid var(--ds-border-default-color);
+}
+
+.ds-accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+  background: none;
+  border: none;
+  font-size: var(--ds-action-primary-font-size-md);
+  font-weight: 500;
+  color: var(--ds-content-text-primary);
+  cursor: pointer;
+  text-align: left;
+  gap: 0.75rem;
+  outline: none;
+  transition: background var(--ds-action-primary-transition-duration) ease;
+  font-family: inherit;
+}
+
+.ds-accordion__trigger:hover {
+  background: var(--ds-action-ghost-bg);
+}
+
+.ds-accordion__trigger:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+  border-radius: var(--ds-action-primary-radius);
+}
+
+.ds-accordion__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: transform var(--ds-action-primary-transition-duration) ease;
+  color: var(--ds-content-text-secondary);
+}
+
+.ds-accordion__trigger[aria-expanded="true"] .ds-accordion__icon {
+  transform: rotate(180deg);
+}
+
+/* Content area — hidden when collapsed */
+.ds-accordion__content {
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--ds-action-primary-transition-duration) ease;
+}
+
+.ds-accordion__content[aria-hidden="false"],
+.ds-accordion__content:not([aria-hidden]) {
+  grid-template-rows: 1fr;
+}
+
+/* Inner wrapper required for grid-template-rows animation */
+.ds-accordion__content-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.ds-accordion__body {
+  padding: 0 var(--ds-action-primary-padding-x-md) var(--ds-action-primary-padding-y-md);
+  color: var(--ds-content-text-secondary);
+  font-size: var(--ds-action-primary-font-size-md);
+  line-height: 1.6;
+}
+
+/* Flush variant — no outer border */
+.ds-accordion--flush {
+  border-top: none;
+}
+
+.ds-accordion--flush .ds-accordion__item:last-child {
+  border-bottom: none;
+}
+
+/* Bordered variant — each item has border and border-radius with gap */
+.ds-accordion--bordered {
+  border-top: none;
+  gap: 0.5rem;
+}
+
+.ds-accordion--bordered .ds-accordion__item {
+  border: var(--ds-border-default-width) solid var(--ds-border-default-color);
+  border-radius: var(--ds-action-primary-radius);
+  overflow: hidden;
+}
+
+.ds-accordion--bordered .ds-accordion__trigger:focus-visible {
+  outline-offset: calc(var(--ds-focus-ring-offset) * -1);
+}

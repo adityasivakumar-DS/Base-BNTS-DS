@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown — Base BNTS DS</title>
+  <link rel="stylesheet" href="../../build/css/core.css">
+  <link rel="stylesheet" href="../../build/css/semantic.css">
+  <link rel="stylesheet" href="../../build/css/base.css">
+  <link rel="stylesheet" href="dropdown.css">
+  <style>
+    body { font-family: sans-serif; background: var(--ds-surface-page); padding: 2rem; color: var(--ds-content-text-primary); max-width: 400px; }
+    h2 { font-size: 1rem; font-weight: 600; margin: 2rem 0 0.5rem; color: var(--ds-content-text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+    .stack { display: flex; flex-direction: column; gap: 1rem; }
+  </style>
+</head>
+<body>
+  <h1 style="font-size:1.5rem;font-weight:700;margin-bottom:0.25rem">Dropdown — base design system</h1>
+  <p style="color:var(--ds-content-text-secondary);font-size:0.875rem;margin-top:0">All values resolved from CSS variables.</p>
+
+  <h2>Sizes</h2>
+  <div class="stack">
+    <div class="ds-dropdown-wrapper">
+      <label class="ds-dropdown-label" for="dd-sm">Small</label>
+      <select id="dd-sm" class="ds-dropdown ds-dropdown--sm">
+        <option>Option A</option>
+        <option>Option B</option>
+        <option>Option C</option>
+      </select>
+    </div>
+    <div class="ds-dropdown-wrapper">
+      <label class="ds-dropdown-label" for="dd-md">Medium</label>
+      <select id="dd-md" class="ds-dropdown ds-dropdown--md">
+        <option>Option A</option>
+        <option>Option B</option>
+        <option>Option C</option>
+      </select>
+    </div>
+    <div class="ds-dropdown-wrapper">
+      <label class="ds-dropdown-label" for="dd-lg">Large</label>
+      <select id="dd-lg" class="ds-dropdown ds-dropdown--lg">
+        <option>Option A</option>
+        <option>Option B</option>
+        <option>Option C</option>
+      </select>
+    </div>
+  </div>
+
+  <h2>Error</h2>
+  <div class="ds-dropdown-wrapper">
+    <label class="ds-dropdown-label" for="dd-error">Country</label>
+    <select id="dd-error" class="ds-dropdown ds-dropdown--md ds-dropdown--error">
+      <option value="">Select a country</option>
+      <option>United States</option>
+    </select>
+    <span class="ds-dropdown-hint ds-dropdown-hint--error">Please select a country.</span>
+  </div>
+
+  <h2>Disabled</h2>
+  <div class="ds-dropdown-wrapper">
+    <label class="ds-dropdown-label" for="dd-dis">Region</label>
+    <select id="dd-dis" class="ds-dropdown ds-dropdown--md" disabled>
+      <option>Locked option</option>
+    </select>
+  </div>
+</body>
+</html>

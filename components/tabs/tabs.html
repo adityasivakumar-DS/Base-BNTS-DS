@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabs — Component Demo</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="tabs.css" />
+  <style>
+    body {
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    .demo-section {
+      margin-bottom: 3rem;
+    }
+    .demo-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ds-content-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    .panel-content {
+      color: var(--ds-content-text-secondary);
+      font-size: var(--ds-action-primary-font-size-md);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Default tabs with 3 panels -->
+  <div class="demo-section">
+    <p class="demo-label">Default Tabs</p>
+    <div class="ds-tabs" id="tabs-default">
+      <div class="ds-tabs__list" role="tablist" aria-label="Content sections">
+        <button
+          class="ds-tabs__trigger"
+          role="tab"
+          id="tab-overview"
+          aria-selected="true"
+          aria-controls="panel-overview"
+        >
+          Overview
+        </button>
+        <button
+          class="ds-tabs__trigger"
+          role="tab"
+          id="tab-activity"
+          aria-selected="false"
+          aria-controls="panel-activity"
+          tabindex="-1"
+        >
+          Activity
+          <span class="ds-tabs__badge" aria-label="12 items">12</span>
+        </button>
+        <button
+          class="ds-tabs__trigger"
+          role="tab"
+          id="tab-settings"
+          aria-selected="false"
+          aria-controls="panel-settings"
+          tabindex="-1"
+          disabled
+        >
+          Settings
+        </button>
+      </div>
+
+      <div
+        class="ds-tabs__panel"
+        role="tabpanel"
+        id="panel-overview"
+        aria-labelledby="tab-overview"
+        tabindex="0"
+      >
+        <p class="panel-content">
+          This is the <strong>Overview</strong> panel. It provides a high-level summary of the current context, including key metrics, recent updates, and quick-access actions relevant to the user.
+        </p>
+      </div>
+
+      <div
+        class="ds-tabs__panel"
+        role="tabpanel"
+        id="panel-activity"
+        aria-labelledby="tab-activity"
+        tabindex="0"
+        hidden
+      >
+        <p class="panel-content">
+          This is the <strong>Activity</strong> panel. It shows a chronological feed of all recent actions, comments, and system events. There are 12 unread items.
+        </p>
+      </div>
+
+      <div
+        class="ds-tabs__panel"
+        role="tabpanel"
+        id="panel-settings"
+        aria-labelledby="tab-settings"
+        tabindex="0"
+        hidden
+      >
+        <p class="panel-content">
+          This is the <strong>Settings</strong> panel. This tab is disabled in the demo.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pills variant -->
+  <div class="demo-section">
+    <p class="demo-label">Pills Variant</p>
+    <div class="ds-tabs ds-tabs--pills" id="tabs-pills">
+      <div class="ds-tabs__list" role="tablist" aria-label="View selector">
+        <button
+          class="ds-tabs__trigger"
+          role="tab"
+          id="pill-list"
+          aria-selected="true"
+          aria-controls="pill-panel-list"
+        >
+          List
+        </button>
+        <button
+          class="ds-tabs__trigger"
+          role="tab"
+          id="pill-grid"
+          aria-selected="false"
+          aria-controls="pill-panel-grid"
+          tabindex="-1"
+        >
+          Grid
+        </button>
+        <button
+          class="ds-tabs__trigger"
+          role="tab"
+          id="pill-table"
+          aria-selected="false"
+          aria-controls="pill-panel-table"
+          tabindex="-1"
+        >
+          Table
+        </button>
+      </div>
+
+      <div
+        class="ds-tabs__panel"
+        role="tabpanel"
+        id="pill-panel-list"
+        aria-labelledby="pill-list"
+        tabindex="0"
+      >
+        <p class="panel-content">List view content is displayed here.</p>
+      </div>
+
+      <div
+        class="ds-tabs__panel"
+        role="tabpanel"
+        id="pill-panel-grid"
+        aria-labelledby="pill-grid"
+        tabindex="0"
+        hidden
+      >
+        <p class="panel-content">Grid view content is displayed here.</p>
+      </div>
+
+      <div
+        class="ds-tabs__panel"
+        role="tabpanel"
+        id="pill-panel-table"
+        aria-labelledby="pill-table"
+        tabindex="0"
+        hidden
+      >
+        <p class="panel-content">Table view content is displayed here.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Minimal tab switching for demo interactivity
+    document.querySelectorAll('[role="tablist"]').forEach(function(tablist) {
+      var tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          if (tab.disabled) return;
+          tabs.forEach(function(t) {
+            t.setAttribute('aria-selected', 'false');
+            t.setAttribute('tabindex', '-1');
+          });
+          tab.setAttribute('aria-selected', 'true');
+          tab.removeAttribute('tabindex');
+          var panelId = tab.getAttribute('aria-controls');
+          var container = tablist.closest('.ds-tabs');
+          container.querySelectorAll('[role="tabpanel"]').forEach(function(p) {
+            p.hidden = true;
+          });
+          var panel = document.getElementById(panelId);
+          if (panel) panel.hidden = false;
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

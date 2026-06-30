@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Price — Design System</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="product-price.css" />
+  <style>
+    .demo-section { margin-bottom: 2.5rem; }
+    .demo-label { font-size: 0.75rem; color: var(--ds-content-text-secondary); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .demo-row { display: flex; align-items: flex-end; gap: 2rem; flex-wrap: wrap; }
+    hr { border: none; border-top: var(--ds-border-default-width, 1px) solid var(--ds-border-default-color); margin: 2rem 0; }
+  </style>
+</head>
+<body style="background: var(--ds-surface-page); color: var(--ds-content-text-primary); font-family: sans-serif; padding: 2rem;">
+
+  <h1 style="margin-bottom: 2rem;">Product Price Component</h1>
+
+  <!-- Regular price -->
+  <div class="demo-section">
+    <div class="demo-label">Regular price</div>
+    <div class="ds-product-price">
+      <span class="ds-product-price__current">£49.99</span>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Sale price -->
+  <div class="demo-section">
+    <div class="demo-label">Sale price — current + original + % off</div>
+    <div class="ds-product-price ds-product-price--sale">
+      <span class="ds-product-price__current">£29.99</span>
+      <span class="ds-product-price__original">£59.99</span>
+      <span class="ds-product-price__discount">50% off</span>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Price with "was" label -->
+  <div class="demo-section">
+    <div class="demo-label">With label</div>
+    <div class="ds-product-price ds-product-price--sale">
+      <span class="ds-product-price__label">Now</span>
+      <span class="ds-product-price__current">£39.00</span>
+      <span class="ds-product-price__label">was</span>
+      <span class="ds-product-price__original">£65.00</span>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Price range -->
+  <div class="demo-section">
+    <div class="demo-label">Price range</div>
+    <div class="ds-product-price">
+      <span class="ds-product-price__label">From</span>
+      <span class="ds-product-price__range">£12.00 – £24.00</span>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- With per-unit -->
+  <div class="demo-section">
+    <div class="demo-label">With per-unit pricing</div>
+    <div class="ds-product-price">
+      <span class="ds-product-price__current">£3.60</span>
+      <span class="ds-product-price__per-unit">£1.20/100g</span>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Stacked layout -->
+  <div class="demo-section">
+    <div class="demo-label">Stacked layout</div>
+    <div class="ds-product-price ds-product-price--sale ds-product-price--stacked">
+      <span class="ds-product-price__current">£89.00</span>
+      <div style="display: flex; align-items: baseline; gap: 0.375rem;">
+        <span class="ds-product-price__original">£130.00</span>
+        <span class="ds-product-price__discount">31% off</span>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- All sizes -->
+  <div class="demo-section">
+    <div class="demo-label">All sizes — SM / MD (default) / LG</div>
+    <div class="demo-row">
+      <div>
+        <div class="demo-label">SM</div>
+        <div class="ds-product-price ds-product-price--sm ds-product-price--sale">
+          <span class="ds-product-price__current">£14.99</span>
+          <span class="ds-product-price__original">£24.99</span>
+          <span class="ds-product-price__discount">40% off</span>
+        </div>
+      </div>
+      <div>
+        <div class="demo-label">MD (default)</div>
+        <div class="ds-product-price ds-product-price--sale">
+          <span class="ds-product-price__current">£14.99</span>
+          <span class="ds-product-price__original">£24.99</span>
+          <span class="ds-product-price__discount">40% off</span>
+        </div>
+      </div>
+      <div>
+        <div class="demo-label">LG</div>
+        <div class="ds-product-price ds-product-price--lg ds-product-price--sale">
+          <span class="ds-product-price__current">£14.99</span>
+          <span class="ds-product-price__original">£24.99</span>
+          <span class="ds-product-price__discount">40% off</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

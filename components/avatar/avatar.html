@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avatar — Design System</title>
+  <link rel="stylesheet" href="../../build/css/core.css" />
+  <link rel="stylesheet" href="../../build/css/semantic.css" />
+  <link rel="stylesheet" href="../../build/css/base.css" />
+  <link rel="stylesheet" href="avatar.css" />
+  <style>
+    body {
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    h2 {
+      margin: 2rem 0 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ds-content-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h2:first-child { margin-top: 0; }
+    .demo-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .demo-label {
+      font-size: var(--ds-action-primary-font-size-sm);
+      color: var(--ds-content-text-secondary);
+      margin-top: 0.25rem;
+      text-align: center;
+    }
+    .demo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>All Sizes — Initials</h2>
+  <div class="demo-row">
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--xs" aria-label="Alice Martin">AM</span>
+      <span class="demo-label">xs</span>
+    </div>
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--sm" aria-label="Bob Chen">BC</span>
+      <span class="demo-label">sm</span>
+    </div>
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--md" aria-label="Carol Davis">CD</span>
+      <span class="demo-label">md</span>
+    </div>
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--lg" aria-label="David Kim">DK</span>
+      <span class="demo-label">lg</span>
+    </div>
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--xl" aria-label="Eva Lopez">EL</span>
+      <span class="demo-label">xl</span>
+    </div>
+  </div>
+
+  <h2>With Image</h2>
+  <div class="demo-row">
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--sm" aria-label="Alice Martin">
+        <img class="ds-avatar__image" src="https://i.pravatar.cc/80?img=1" alt="Alice Martin" />
+      </span>
+      <span class="demo-label">sm</span>
+    </div>
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--md" aria-label="Bob Chen">
+        <img class="ds-avatar__image" src="https://i.pravatar.cc/80?img=2" alt="Bob Chen" />
+      </span>
+      <span class="demo-label">md</span>
+    </div>
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--lg" aria-label="Carol Davis">
+        <img class="ds-avatar__image" src="https://i.pravatar.cc/80?img=3" alt="Carol Davis" />
+      </span>
+      <span class="demo-label">lg</span>
+    </div>
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--xl" aria-label="David Kim">
+        <img class="ds-avatar__image" src="https://i.pravatar.cc/80?img=4" alt="David Kim" />
+      </span>
+      <span class="demo-label">xl</span>
+    </div>
+  </div>
+
+  <h2>Avatar Group (Stacked)</h2>
+  <div class="demo-row">
+    <div class="ds-avatar-group" aria-label="Team members: Alice, Bob, Carol, David">
+      <span class="ds-avatar ds-avatar--md" aria-label="Alice Martin">AM</span>
+      <span class="ds-avatar ds-avatar--md" aria-label="Bob Chen">BC</span>
+      <span class="ds-avatar ds-avatar--md" aria-label="Carol Davis">CD</span>
+      <span class="ds-avatar ds-avatar--md" aria-label="David Kim">DK</span>
+      <span class="ds-avatar ds-avatar--md" aria-label="3 more members" style="background: var(--ds-action-ghost-bg); color: var(--ds-content-text-secondary);">+3</span>
+    </div>
+  </div>
+
+  <h2>Status Indicators</h2>
+  <div class="demo-row">
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--md" aria-label="Alice Martin — online">
+        AM
+        <span class="ds-avatar__status ds-avatar__status--online" aria-label="Online"></span>
+      </span>
+      <span class="demo-label">Online</span>
+    </div>
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--md" aria-label="Bob Chen — offline">
+        BC
+        <span class="ds-avatar__status ds-avatar__status--offline" aria-label="Offline"></span>
+      </span>
+      <span class="demo-label">Offline</span>
+    </div>
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--md" aria-label="Carol Davis — busy">
+        CD
+        <span class="ds-avatar__status ds-avatar__status--busy" aria-label="Busy"></span>
+      </span>
+      <span class="demo-label">Busy</span>
+    </div>
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--lg" aria-label="David Kim — online">
+        <img class="ds-avatar__image" src="https://i.pravatar.cc/80?img=4" alt="David Kim" />
+        <span class="ds-avatar__status ds-avatar__status--online" aria-label="Online"></span>
+      </span>
+      <span class="demo-label">Image + Status</span>
+    </div>
+  </div>
+
+  <h2>Square Variant</h2>
+  <div class="demo-row">
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--sm ds-avatar--square" aria-label="Alice Martin">AM</span>
+      <span class="demo-label">sm</span>
+    </div>
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--md ds-avatar--square" aria-label="Bob Chen">BC</span>
+      <span class="demo-label">md</span>
+    </div>
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--lg ds-avatar--square" aria-label="Carol Davis">CD</span>
+      <span class="demo-label">lg</span>
+    </div>
+    <div class="demo-item">
+      <span class="ds-avatar ds-avatar--lg ds-avatar--square" aria-label="David Kim">
+        <img class="ds-avatar__image" src="https://i.pravatar.cc/80?img=5" alt="David Kim" />
+      </span>
+      <span class="demo-label">Image</span>
+    </div>
+  </div>
+
+</body>
+</html>
