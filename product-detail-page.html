@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Detail Page — Base BNTS DS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─────────────────────────────────────────────────────────────
+       CORE TOKENS  (core/color + core/spacing + core/radius + core/typography)
+    ───────────────────────────────────────────────────────────── */
+    :root {
+      /* Brand palette */
+      --color-brand-50:  #f0f4ff;
+      --color-brand-100: #dde8ff;
+      --color-brand-200: #b8ccff;
+      --color-brand-300: #84a9ff;
+      --color-brand-400: #527bff;
+      --color-brand-500: #2a52e0;
+      --color-brand-600: #1e3dbf;
+      --color-brand-700: #152e9e;
+
+      /* Neutral palette */
+      --color-neutral-0:   #ffffff;
+      --color-neutral-50:  #f8f9fa;
+      --color-neutral-100: #f1f3f5;
+      --color-neutral-200: #e9ecef;
+      --color-neutral-300: #dee2e6;
+      --color-neutral-400: #ced4da;
+      --color-neutral-500: #adb5bd;
+      --color-neutral-600: #868e96;
+      --color-neutral-700: #495057;
+      --color-neutral-800: #343a40;
+      --color-neutral-900: #212529;
+
+      /* Feedback */
+      --color-green-50:  #ebfbee;
+      --color-green-500: #51cf66;
+      --color-red-500:   #ff6b6b;
+      --color-orange-500:#ff922b;
+      --color-yellow-500:#fcc419;
+      --color-blue-600:  #228be6;
+
+      /* Spacing */
+      --spacing-2xs: 4px;
+      --spacing-xs:  8px;
+      --spacing-sm:  12px;
+      --spacing-md:  16px;
+      --spacing-lg:  24px;
+      --spacing-xl:  32px;
+      --spacing-2xl: 40px;
+      --spacing-3xl: 48px;
+      --spacing-4xl: 64px;
+
+      /* Radius */
+      --radius-2xs: 2px;
+      --radius-xs:  4px;
+      --radius-sm:  6px;
+      --radius-md:  8px;
+      --radius-lg:  12px;
+      --radius-xl:  16px;
+      --radius-full: 9999px;
+
+      /* Typography */
+      --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-size-xs:  12px;
+      --font-size-sm:  14px;
+      --font-size-md:  16px;
+      --font-size-lg:  18px;
+      --font-size-xl:  20px;
+      --font-size-2xl: 24px;
+      --font-size-3xl: 30px;
+      --font-weight-regular:  400;
+      --font-weight-medium:   500;
+      --font-weight-semibold: 600;
+      --font-weight-bold:     700;
+      --line-height-compact:  1.2;
+      --line-height-normal:   1.4;
+      --line-height-relaxed:  1.5;
+
+      /* Border */
+      --border-width: 1px;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       SEMANTIC TOKENS  (semantic/color + semantic/radius …)
+    ───────────────────────────────────────────────────────────── */
+    :root {
+      /* Surface */
+      --ds-surface-page:    var(--color-neutral-50);
+      --ds-surface-default: var(--color-neutral-0);
+      --ds-surface-raised:  var(--color-neutral-50);
+      --ds-surface-overlay: var(--color-neutral-0);
+      --ds-surface-input:   var(--color-neutral-0);
+
+      /* Content / text */
+      --ds-content-text-primary:   var(--color-neutral-900);
+      --ds-content-text-secondary: var(--color-neutral-700);
+      --ds-content-text-disabled:  var(--color-neutral-400);
+      --ds-content-link:           var(--color-blue-600);
+
+      /* Border */
+      --ds-border-default-width: var(--border-width);
+      --ds-border-default-color: var(--color-neutral-200);
+      --ds-border-strong-color:  var(--color-neutral-400);
+      --ds-border-focus-color:   var(--color-brand-500);
+
+      /* Corner (semantic radius aliases) */
+      --ds-corner-subtle:  var(--radius-2xs);
+      --ds-corner-sm:      var(--radius-xs);
+      --ds-corner-default: var(--radius-md);
+      --ds-corner-lg:      var(--radius-lg);
+      --ds-corner-pill:    var(--radius-full);
+
+      /* Focus ring */
+      --ds-focus-ring-color:  var(--color-brand-500);
+      --ds-focus-ring-width:  2px;
+      --ds-focus-ring-offset: 2px;
+
+      /* Feedback */
+      --ds-feedback-error:          var(--color-red-500);
+      --ds-feedback-success:        var(--color-green-500);
+      --ds-feedback-success-subtle: var(--color-green-50);
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       BASE (ACTION / FORM) TOKENS
+    ───────────────────────────────────────────────────────────── */
+    :root {
+      /* Primary action */
+      --ds-action-primary-bg:          var(--color-brand-500);
+      --ds-action-primary-bg-hover:    var(--color-brand-600);
+      --ds-action-primary-bg-active:   var(--color-brand-700);
+      --ds-action-primary-bg-disabled: var(--color-neutral-100);
+      --ds-action-primary-text:        var(--color-neutral-0);
+      --ds-action-primary-text-disabled: var(--color-neutral-400);
+      --ds-action-primary-border:      var(--color-brand-500);
+      --ds-action-primary-border-disabled: var(--color-neutral-200);
+      --ds-action-primary-radius:      var(--radius-md);
+
+      --ds-action-primary-padding-x-sm: var(--spacing-xs);
+      --ds-action-primary-padding-y-sm: var(--spacing-xs);
+      --ds-action-primary-padding-x-md: var(--spacing-md);
+      --ds-action-primary-padding-y-md: var(--spacing-xs);
+      --ds-action-primary-padding-x-lg: var(--spacing-lg);
+      --ds-action-primary-padding-y-lg: var(--spacing-md);
+
+      --ds-action-primary-font-size-sm: var(--font-size-sm);
+      --ds-action-primary-font-size-md: var(--font-size-md);
+      --ds-action-primary-font-size-lg: var(--font-size-lg);
+      --ds-action-primary-font-weight:  var(--font-weight-semibold);
+      --ds-action-primary-font-family:  var(--font-family-primary);
+      --ds-action-primary-letter-spacing: 0.02em;
+      --ds-action-primary-icon-gap:     8px;
+      --ds-action-primary-transition-duration: 150ms;
+      --ds-action-primary-transition-easing: cubic-bezier(0,0,0.2,1);
+
+      /* Secondary action */
+      --ds-action-secondary-bg:          var(--color-brand-100);
+      --ds-action-secondary-bg-hover:    var(--color-brand-200);
+      --ds-action-secondary-bg-active:   var(--color-brand-300);
+      --ds-action-secondary-text:        var(--color-brand-700);
+      --ds-action-secondary-border:      var(--color-neutral-200);
+
+      /* Ghost action */
+      --ds-action-ghost-bg:       transparent;
+      --ds-action-ghost-bg-hover: var(--color-brand-50);
+      --ds-action-ghost-text:     var(--color-brand-500);
+      --ds-action-ghost-border:   transparent;
+
+      /* Rating */
+      --ds-rating-star-filled: var(--color-yellow-500);
+      --ds-rating-star-empty:  var(--color-neutral-300);
+      --ds-rating-text:        var(--color-neutral-700);
+
+      /* Product price */
+      --ds-price-current-color:   var(--color-neutral-900);
+      --ds-price-original-color:  var(--color-neutral-500);
+      --ds-price-discount-bg:     var(--color-green-50);
+      --ds-price-discount-color:  #2f9e44;
+
+      /* Thumbnail row */
+      --ds-thumbnail-border-color:        var(--color-neutral-200);
+      --ds-thumbnail-border-active-color: var(--color-brand-500);
+      --ds-thumbnail-radius:              var(--radius-sm);
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       RESET & BASE
+    ───────────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-family-primary);
+      background: var(--ds-surface-page);
+      color: var(--ds-content-text-primary);
+      font-size: var(--font-size-md);
+      line-height: var(--line-height-relaxed);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       HEADER — ds-header
+    ───────────────────────────────────────────────────────────── */
+    .ds-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      background: var(--ds-surface-overlay);
+      border-bottom: var(--ds-border-default-width) solid var(--ds-border-default-color);
+      padding: var(--ds-action-primary-padding-y-md) var(--spacing-xl);
+      gap: var(--spacing-md);
+    }
+
+    .ds-header__brand {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-lg);
+      color: var(--ds-content-text-primary);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .ds-header__brand-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--ds-action-primary-bg);
+      border-radius: var(--radius-sm);
+    }
+
+    .ds-header__nav {
+      display: flex;
+      list-style: none;
+      gap: 4px;
+      align-items: center;
+      flex: 1;
+      margin-left: var(--spacing-lg);
+    }
+
+    .ds-header__nav-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--ds-content-text-primary);
+      text-decoration: none;
+      padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+      border-radius: var(--ds-action-primary-radius);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      transition: background var(--ds-action-primary-transition-duration) ease,
+                  color var(--ds-action-primary-transition-duration) ease;
+    }
+
+    .ds-header__nav-link:hover {
+      background: var(--ds-action-ghost-bg-hover);
+      color: var(--ds-action-ghost-text);
+    }
+
+    .ds-header__nav-link--active {
+      color: var(--ds-action-primary-bg);
+      font-weight: var(--font-weight-semibold);
+    }
+
+    .ds-header__actions {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      margin-left: auto;
+    }
+
+    .ds-header__icon-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      border: none;
+      border-radius: var(--ds-action-primary-radius);
+      color: var(--ds-content-text-secondary);
+      cursor: pointer;
+      transition: background var(--ds-action-primary-transition-duration) ease;
+    }
+
+    .ds-header__icon-btn:hover {
+      background: var(--ds-action-ghost-bg-hover);
+      color: var(--ds-content-text-primary);
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       BREADCRUMB — ds-breadcrumb
+    ───────────────────────────────────────────────────────────── */
+    .ds-breadcrumb {
+      padding: var(--spacing-sm) var(--spacing-xl);
+      background: var(--ds-surface-overlay);
+      border-bottom: var(--ds-border-default-width) solid var(--ds-border-default-color);
+    }
+
+    .ds-breadcrumb__list {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .ds-breadcrumb__item {
+      display: flex;
+      align-items: center;
+    }
+
+    .ds-breadcrumb__link {
+      color: var(--ds-content-link);
+      text-decoration: none;
+      font-size: var(--font-size-sm);
+      transition: color var(--ds-action-primary-transition-duration) ease;
+    }
+
+    .ds-breadcrumb__link:hover { text-decoration: underline; }
+
+    .ds-breadcrumb__separator {
+      color: var(--ds-content-text-secondary);
+      font-size: var(--font-size-sm);
+      padding: 0 4px;
+      user-select: none;
+    }
+
+    .ds-breadcrumb__current {
+      color: var(--ds-content-text-secondary);
+      font-size: var(--font-size-sm);
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       PAGE LAYOUT
+    ───────────────────────────────────────────────────────────── */
+    .pdp-main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: var(--spacing-xl);
+    }
+
+    .pdp-grid {
+      display: grid;
+      grid-template-columns: 65fr 35fr;
+      gap: var(--spacing-xl);
+      align-items: start;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       PRODUCT GALLERY — left column
+    ───────────────────────────────────────────────────────────── */
+    .pdp-gallery {
+      position: sticky;
+      top: calc(60px + var(--spacing-xl));
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    /* Main image */
+    .ds-thumbnail {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--ds-surface-overlay);
+      border: var(--ds-border-default-width) solid var(--ds-border-default-color);
+      border-radius: var(--ds-corner-lg);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .ds-thumbnail__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Placeholder fill */
+    .ds-thumbnail__placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-md);
+      background: linear-gradient(135deg, var(--color-brand-50) 0%, var(--color-neutral-100) 100%);
+      color: var(--ds-content-text-secondary);
+      font-size: var(--font-size-sm);
+    }
+
+    .ds-thumbnail__placeholder-icon {
+      width: 72px;
+      height: 72px;
+      opacity: 0.4;
+    }
+
+    /* Thumbnail row */
+    .ds-thumbnail-row {
+      display: flex;
+      gap: var(--spacing-xs);
+    }
+
+    .ds-thumbnail-row__item {
+      flex: 1;
+      aspect-ratio: 1 / 1;
+      min-width: 0;
+      border: 2px solid var(--ds-thumbnail-border-color);
+      border-radius: var(--ds-thumbnail-radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color var(--ds-action-primary-transition-duration) ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ds-surface-overlay);
+    }
+
+    .ds-thumbnail-row__item:hover {
+      border-color: var(--color-brand-300);
+    }
+
+    .ds-thumbnail-row__item--active {
+      border-color: var(--ds-thumbnail-border-active-color);
+    }
+
+    .ds-thumbnail-row__item:focus-visible {
+      outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+      outline-offset: var(--ds-focus-ring-offset);
+    }
+
+    .ds-thumbnail-row__item span {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       RIGHT COLUMN — product details
+    ───────────────────────────────────────────────────────────── */
+    .pdp-details {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    /* ── Product header: brand + wishlist + rating + title ── */
+    .pdp-product-header {}
+
+    .pdp-brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--spacing-xs);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .pdp-brand-name {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--ds-action-primary-bg);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .pdp-wishlist-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: var(--ds-border-default-width) solid var(--ds-border-default-color);
+      border-radius: var(--ds-corner-circle, 50%);
+      background: var(--ds-surface-overlay);
+      color: var(--ds-content-text-secondary);
+      cursor: pointer;
+      transition: border-color var(--ds-action-primary-transition-duration) ease,
+                  color var(--ds-action-primary-transition-duration) ease,
+                  background var(--ds-action-primary-transition-duration) ease;
+      flex-shrink: 0;
+    }
+
+    .pdp-wishlist-btn:hover {
+      border-color: #ff6b6b;
+      color: #ff6b6b;
+      background: #fff5f5;
+    }
+
+    /* Rating — ds-rating */
+    .ds-rating {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2xs);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .ds-rating__stars {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .ds-rating__star {
+      display: inline-flex;
+      width: 16px;
+      height: 16px;
+      color: var(--ds-rating-star-filled);
+    }
+
+    .ds-rating__star--empty {
+      color: var(--ds-rating-star-empty);
+    }
+
+    .ds-rating__score {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--ds-content-text-primary);
+    }
+
+    .ds-rating__count {
+      font-size: var(--font-size-sm);
+      color: var(--ds-content-text-secondary);
+    }
+
+    .ds-rating__count a {
+      color: var(--ds-content-link);
+      text-decoration: none;
+    }
+
+    .ds-rating__count a:hover { text-decoration: underline; }
+
+    /* Product title */
+    .pdp-title {
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--line-height-compact);
+      color: var(--ds-content-text-primary);
+    }
+
+    /* Divider */
+    .pdp-divider {
+      border: none;
+      border-top: var(--ds-border-default-width) solid var(--ds-border-default-color);
+    }
+
+    /* ── Price block — ds-product-price ── */
+    .ds-product-price {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: var(--spacing-xs);
+    }
+
+    .ds-product-price__current {
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--ds-price-current-color);
+      line-height: 1;
+    }
+
+    .ds-product-price__original {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-regular);
+      color: var(--ds-price-original-color);
+      text-decoration: line-through;
+      line-height: 1;
+    }
+
+    .ds-product-price__discount {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px var(--spacing-xs);
+      background: var(--ds-price-discount-bg);
+      color: var(--ds-price-discount-color);
+      border-radius: var(--ds-corner-pill);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Variant selector ── */
+    .pdp-variant-section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .pdp-size-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .pdp-field-label {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--ds-content-text-primary);
+      margin-bottom: var(--spacing-2xs);
+      display: block;
+    }
+
+    .pdp-size-chart-link {
+      font-size: var(--font-size-xs);
+      color: var(--ds-content-link);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .pdp-size-chart-link:hover { text-decoration: underline; }
+
+    /* Dropdown — ds-dropdown */
+    .ds-dropdown-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .ds-dropdown-label {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      color: var(--ds-content-text-primary);
+    }
+
+    .ds-dropdown {
+      display: block;
+      width: 100%;
+      font-family: inherit;
+      font-size: var(--font-size-md);
+      background-color: var(--ds-surface-input);
+      color: var(--ds-content-text-primary);
+      border: var(--ds-border-default-width) solid var(--ds-border-default-color);
+      border-radius: var(--ds-action-primary-radius);
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%23868e96' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding: var(--ds-action-primary-padding-y-md) 36px var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+      cursor: pointer;
+      transition: border-color var(--ds-action-primary-transition-duration);
+      min-height: 44px;
+    }
+
+    .ds-dropdown:hover:not(:disabled) {
+      border-color: var(--ds-border-strong-color);
+    }
+
+    .ds-dropdown:focus-visible {
+      outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+      outline-offset: var(--ds-focus-ring-offset);
+      border-color: var(--ds-action-primary-bg);
+    }
+
+    /* ── Purchase options / Card selector ── */
+    .pdp-purchase-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-sm);
+    }
+
+    .pdp-purchase-card {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: var(--spacing-sm) var(--spacing-md);
+      background: var(--ds-surface-overlay);
+      border: 2px solid var(--ds-border-default-color);
+      border-radius: var(--ds-corner-lg);
+      cursor: pointer;
+      transition: border-color var(--ds-action-primary-transition-duration) ease,
+                  background var(--ds-action-primary-transition-duration) ease;
+    }
+
+    .pdp-purchase-card:hover {
+      border-color: var(--color-brand-300);
+      background: var(--color-brand-50);
+    }
+
+    .pdp-purchase-card--selected {
+      border-color: var(--ds-action-primary-bg);
+      background: var(--color-brand-50);
+    }
+
+    .pdp-purchase-card__title {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--ds-content-text-primary);
+    }
+
+    .pdp-purchase-card__desc {
+      font-size: var(--font-size-xs);
+      color: var(--ds-content-text-secondary);
+    }
+
+    .pdp-purchase-card__badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 6px;
+      background: var(--color-brand-100);
+      color: var(--color-brand-700);
+      border-radius: var(--ds-corner-pill);
+      font-size: 10px;
+      font-weight: var(--font-weight-semibold);
+      width: fit-content;
+    }
+
+    /* ── Delivery info — IconWithText ── */
+    .pdp-delivery {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+      padding: var(--spacing-md);
+      background: var(--ds-surface-raised);
+      border: var(--ds-border-default-width) solid var(--ds-border-default-color);
+      border-radius: var(--ds-corner-lg);
+    }
+
+    .pdp-delivery__item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-xs);
+    }
+
+    .pdp-delivery__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      color: var(--ds-action-primary-bg);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .pdp-delivery__text {
+      font-size: var(--font-size-sm);
+      color: var(--ds-content-text-secondary);
+      line-height: var(--line-height-normal);
+    }
+
+    .pdp-delivery__text strong {
+      color: var(--ds-content-text-primary);
+      font-weight: var(--font-weight-semibold);
+    }
+
+    /* ── Add to cart — ds-button ── */
+    .ds-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--ds-action-primary-icon-gap);
+      font-family: var(--ds-action-primary-font-family);
+      font-weight: var(--ds-action-primary-font-weight);
+      letter-spacing: var(--ds-action-primary-letter-spacing);
+      text-decoration: none;
+      white-space: nowrap;
+      border-radius: var(--ds-action-primary-radius);
+      border-style: solid;
+      border-width: var(--ds-border-default-width);
+      cursor: pointer;
+      transition-property: background-color, color, border-color, box-shadow;
+      transition-duration: var(--ds-action-primary-transition-duration);
+      transition-timing-function: var(--ds-action-primary-transition-easing);
+      user-select: none;
+      outline: none;
+    }
+
+    .ds-button:focus-visible {
+      outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+      outline-offset: var(--ds-focus-ring-offset);
+    }
+
+    .ds-button--md {
+      padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+      font-size: var(--ds-action-primary-font-size-md);
+      min-height: 44px;
+    }
+
+    .ds-button--lg {
+      padding: var(--ds-action-primary-padding-y-lg) var(--ds-action-primary-padding-x-lg);
+      font-size: var(--ds-action-primary-font-size-lg);
+      min-height: 52px;
+    }
+
+    .ds-button--full {
+      width: 100%;
+    }
+
+    .ds-button--primary {
+      background-color: var(--ds-action-primary-bg);
+      color: var(--ds-action-primary-text);
+      border-color: var(--ds-action-primary-border);
+    }
+
+    .ds-button--primary:hover:not(:disabled) {
+      background-color: var(--ds-action-primary-bg-hover);
+      border-color: var(--ds-action-primary-bg-hover);
+    }
+
+    .ds-button--primary:active:not(:disabled) {
+      background-color: var(--ds-action-primary-bg-active);
+      border-color: var(--ds-action-primary-bg-active);
+    }
+
+    .ds-button--secondary {
+      background-color: var(--ds-action-secondary-bg);
+      color: var(--ds-action-secondary-text);
+      border-color: var(--ds-action-secondary-border);
+    }
+
+    .ds-button--secondary:hover:not(:disabled) {
+      background-color: var(--ds-action-secondary-bg-hover);
+    }
+
+    .ds-button:disabled {
+      background-color: var(--ds-action-primary-bg-disabled);
+      color: var(--ds-action-primary-text-disabled);
+      border-color: var(--ds-action-primary-border-disabled);
+      cursor: not-allowed;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       @MEDIA — Mobile stacking
+    ───────────────────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .pdp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pdp-gallery {
+        position: static;
+      }
+
+      .pdp-main {
+        padding: var(--spacing-md);
+      }
+
+      .ds-header {
+        padding: var(--ds-action-primary-padding-y-md) var(--spacing-md);
+      }
+
+      .ds-header__nav { display: none; }
+
+      .pdp-title { font-size: var(--font-size-xl); }
+
+      .pdp-purchase-options { grid-template-columns: 1fr; }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       PDF / PRINT STYLES
+    ───────────────────────────────────────────────────────────── */
+    @media print {
+      body {
+        background: #fff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .ds-header {
+        position: static;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .pdp-gallery {
+        position: static;
+        break-inside: avoid;
+      }
+
+      .ds-button--primary {
+        background-color: #2a52e0 !important;
+        color: #fff !important;
+      }
+
+      @page {
+        size: A4 landscape;
+        margin: 12mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║  HEADER — navigation_bar                                ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <header class="ds-header" role="banner">
+    <!-- Brand -->
+    <a href="#" class="ds-header__brand" aria-label="BNTS Home">
+      <span class="ds-header__brand-logo" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 16L10 4L16 16H13L10 10.5L7 16H4Z" fill="#ffffff"/>
+        </svg>
+      </span>
+      BNTS
+    </a>
+
+    <!-- Nav links -->
+    <nav aria-label="Main navigation">
+      <ul class="ds-header__nav">
+        <li><a href="#" class="ds-header__nav-link">Home</a></li>
+        <li><a href="#" class="ds-header__nav-link ds-header__nav-link--active" aria-current="page">Products</a></li>
+        <li><a href="#" class="ds-header__nav-link">About</a></li>
+        <li><a href="#" class="ds-header__nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Actions: search + user -->
+    <div class="ds-header__actions">
+      <button class="ds-header__icon-btn" aria-label="Search" type="button">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+        </svg>
+      </button>
+      <button class="ds-header__icon-btn" aria-label="Account" type="button">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+      <button class="ds-header__icon-btn" aria-label="Cart (3 items)" type="button">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║  BREADCRUMB — breadcrumb_trail                          ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol class="ds-breadcrumb__list">
+      <li class="ds-breadcrumb__item">
+        <a href="#" class="ds-breadcrumb__link">Home</a>
+      </li>
+      <li class="ds-breadcrumb__item" aria-hidden="true">
+        <span class="ds-breadcrumb__separator">/</span>
+      </li>
+      <li class="ds-breadcrumb__item">
+        <a href="#" class="ds-breadcrumb__link">Apparel</a>
+      </li>
+      <li class="ds-breadcrumb__item" aria-hidden="true">
+        <span class="ds-breadcrumb__separator">/</span>
+      </li>
+      <li class="ds-breadcrumb__item">
+        <a href="#" class="ds-breadcrumb__link">Jackets</a>
+      </li>
+      <li class="ds-breadcrumb__item" aria-hidden="true">
+        <span class="ds-breadcrumb__separator">/</span>
+      </li>
+      <li class="ds-breadcrumb__item">
+        <span class="ds-breadcrumb__current" aria-current="page">Alpine Pro Shell</span>
+      </li>
+    </ol>
+  </nav>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║  MAIN CONTENT — two_column_split                        ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <main class="pdp-main" id="main-content">
+    <div class="pdp-grid">
+
+      <!-- ┌──────────────────────────────────────────────────────┐
+           │  LEFT COLUMN (65%) — Product Media Section           │
+           └──────────────────────────────────────────────────────┘ -->
+      <section class="pdp-gallery" aria-label="Product images">
+
+        <!-- Main product image -->
+        <div class="ds-thumbnail" role="img" aria-label="Alpine Pro Shell — front view, Navy Blue">
+          <div class="ds-thumbnail__placeholder">
+            <svg class="ds-thumbnail__placeholder-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="16" fill="#dde8ff"/>
+              <path d="M40 20C34 20 29 25 29 31C29 37 34 42 40 42C46 42 51 37 51 31C51 25 46 20 40 20Z" fill="#2a52e0" opacity="0.5"/>
+              <path d="M20 60C20 52 28 46 40 46C52 46 60 52 60 60" stroke="#2a52e0" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+            <span style="color: var(--color-brand-500); font-weight: 600; font-size: 13px;">Product Image</span>
+            <span style="font-size: 12px;">Main view — 1:1</span>
+          </div>
+        </div>
+
+        <!-- Thumbnail gallery -->
+        <div class="ds-thumbnail-row" role="listbox" aria-label="Select product image">
+
+          <div class="ds-thumbnail-row__item ds-thumbnail-row__item--active" role="option" aria-selected="true" tabindex="0" aria-label="Front view (selected)">
+            <span aria-hidden="true">🧥</span>
+          </div>
+
+          <div class="ds-thumbnail-row__item" role="option" aria-selected="false" tabindex="0" aria-label="Back view">
+            <span aria-hidden="true">🔄</span>
+          </div>
+
+          <div class="ds-thumbnail-row__item" role="option" aria-selected="false" tabindex="0" aria-label="Side view">
+            <span aria-hidden="true">↔️</span>
+          </div>
+
+          <div class="ds-thumbnail-row__item" role="option" aria-selected="false" tabindex="0" aria-label="Detail — hood">
+            <span aria-hidden="true">🔍</span>
+          </div>
+
+          <div class="ds-thumbnail-row__item" role="option" aria-selected="false" tabindex="0" aria-label="Detail — pocket">
+            <span aria-hidden="true">🫙</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ┌──────────────────────────────────────────────────────┐
+           │  RIGHT COLUMN (35%) — Product info + purchase        │
+           └──────────────────────────────────────────────────────┘ -->
+      <section class="pdp-details" aria-label="Product details">
+
+        <!-- 1. Product header: brand + wishlist + rating + title -->
+        <div class="pdp-product-header">
+
+          <div class="pdp-brand-row">
+            <!-- brand_name -->
+            <span class="pdp-brand-name">Arc'teryx</span>
+            <!-- wishlist_button -->
+            <button class="pdp-wishlist-btn" aria-label="Add to wishlist" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- star_rating -->
+          <div class="ds-rating" aria-label="4.5 out of 5 stars">
+            <div class="ds-rating__stars" aria-hidden="true">
+              <!-- Star 1 -->
+              <svg class="ds-rating__star" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+              <!-- Star 2 -->
+              <svg class="ds-rating__star" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+              <!-- Star 3 -->
+              <svg class="ds-rating__star" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+              <!-- Star 4 -->
+              <svg class="ds-rating__star" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+              <!-- Star 5 — half -->
+              <svg class="ds-rating__star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="half-star">
+                    <stop offset="50%" stop-color="var(--ds-rating-star-filled)"/>
+                    <stop offset="50%" stop-color="var(--ds-rating-star-empty)"/>
+                  </linearGradient>
+                </defs>
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#half-star)"/>
+              </svg>
+            </div>
+            <span class="ds-rating__score">4.5</span>
+            <span class="ds-rating__count">(<a href="#reviews">1,284 reviews</a>)</span>
+          </div>
+
+          <!-- product_title -->
+          <h1 class="pdp-title">Alpine Pro Shell Jacket</h1>
+        </div>
+
+        <hr class="pdp-divider" />
+
+        <!-- 2. Price block — ds-product-price -->
+        <div class="ds-product-price ds-product-price--sale" aria-label="Price: £129.99, was £199.99, 35% off">
+          <span class="ds-product-price__current">£129.99</span>
+          <span class="ds-product-price__original">£199.99</span>
+          <span class="ds-product-price__discount">35% off</span>
+        </div>
+
+        <hr class="pdp-divider" />
+
+        <!-- 3. Variant selector — size_chart_link + size_dropdown + color_dropdown -->
+        <div class="pdp-variant-section">
+
+          <!-- Size -->
+          <div class="ds-dropdown-wrapper">
+            <div class="pdp-size-header">
+              <label class="ds-dropdown-label" for="size-select">Size</label>
+              <a href="#size-chart" class="pdp-size-chart-link" aria-label="View size chart">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                Size chart
+              </a>
+            </div>
+            <select id="size-select" class="ds-dropdown" aria-label="Select size">
+              <option value="">Select a size</option>
+              <option value="xs">XS — Extra Small</option>
+              <option value="s">S — Small</option>
+              <option value="m" selected>M — Medium</option>
+              <option value="l">L — Large</option>
+              <option value="xl">XL — Extra Large</option>
+              <option value="2xl">2XL — Double Extra Large</option>
+            </select>
+          </div>
+
+          <!-- Color -->
+          <div class="ds-dropdown-wrapper">
+            <label class="ds-dropdown-label" for="color-select">Colour</label>
+            <select id="color-select" class="ds-dropdown" aria-label="Select colour">
+              <option value="">Select a colour</option>
+              <option value="navy" selected>Navy Blue</option>
+              <option value="black">Stealth Black</option>
+              <option value="slate">Slate Grey</option>
+              <option value="red">Alpine Red</option>
+              <option value="green">Forest Green</option>
+            </select>
+          </div>
+        </div>
+
+        <hr class="pdp-divider" />
+
+        <!-- 4. Purchase options — Card selector (horizontal_grid) -->
+        <div aria-labelledby="purchase-options-label">
+          <p id="purchase-options-label" class="pdp-field-label">Purchase option</p>
+          <div class="pdp-purchase-options" role="radiogroup" aria-labelledby="purchase-options-label">
+
+            <label>
+              <input type="radio" name="purchase" value="to-order" style="position:absolute;opacity:0;pointer-events:none;" checked />
+              <div class="pdp-purchase-card pdp-purchase-card--selected" tabindex="0" role="radio" aria-checked="true" aria-label="To order — ships in 3–5 days">
+                <span class="pdp-purchase-card__title">To order</span>
+                <span class="pdp-purchase-card__desc">Ships in 3–5 business days</span>
+                <span class="pdp-purchase-card__badge">Most popular</span>
+              </div>
+            </label>
+
+            <label>
+              <input type="radio" name="purchase" value="in-store" style="position:absolute;opacity:0;pointer-events:none;" />
+              <div class="pdp-purchase-card" tabindex="0" role="radio" aria-checked="false" aria-label="In-store pickup — free, ready today">
+                <span class="pdp-purchase-card__title">In-store pickup</span>
+                <span class="pdp-purchase-card__desc">Free · Ready today at 3 stores</span>
+              </div>
+            </label>
+
+          </div>
+        </div>
+
+        <!-- 5. Delivery info — IconWithText -->
+        <div class="pdp-delivery" aria-label="Delivery and returns information">
+
+          <div class="pdp-delivery__item">
+            <span class="pdp-delivery__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+              </svg>
+            </span>
+            <p class="pdp-delivery__text">
+              <strong>Free delivery</strong> on orders over £75 · Estimated arrival <strong>3–5 working days</strong>
+            </p>
+          </div>
+
+          <div class="pdp-delivery__item">
+            <span class="pdp-delivery__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.51"/>
+              </svg>
+            </span>
+            <p class="pdp-delivery__text">
+              <strong>Free 30-day returns</strong> · Hassle-free exchanges and refunds
+            </p>
+          </div>
+
+          <div class="pdp-delivery__item">
+            <span class="pdp-delivery__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </span>
+            <p class="pdp-delivery__text">
+              <strong>2-year warranty</strong> · Covered against manufacturing defects
+            </p>
+          </div>
+
+        </div>
+
+        <!-- 6. Add to cart — add_to_cart_action (critical CTA) -->
+        <button
+          class="ds-button ds-button--primary ds-button--lg ds-button--full"
+          type="button"
+          aria-label="Add Alpine Pro Shell Jacket, size M, Navy Blue to cart"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          Add to Cart
+        </button>
+
+      </section>
+      <!-- end right column -->
+
+    </div>
+    <!-- end pdp-grid -->
+  </main>
+
+</body>
+</html>
