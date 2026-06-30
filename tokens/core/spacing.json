@@ -1,0 +1,18 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "spacing": {
+    "none": { "$value": "0px",   "$type": "dimension", "$description": "No spacing" },
+    "3xs":  { "$value": "2px",   "$type": "dimension", "$description": "Extra extra extra small" },
+    "2xs":  { "$value": "4px",   "$type": "dimension", "$description": "Extra extra small" },
+    "xs":   { "$value": "8px",   "$type": "dimension", "$description": "Extra small" },
+    "sm":   { "$value": "12px",  "$type": "dimension", "$description": "Small" },
+    "md":   { "$value": "16px",  "$type": "dimension", "$description": "Default" },
+    "lg":   { "$value": "24px",  "$type": "dimension", "$description": "Large" },
+    "xl":   { "$value": "32px",  "$type": "dimension", "$description": "Extra large" },
+    "2xl":  { "$value": "40px",  "$type": "dimension", "$description": "Double extra large" },
+    "3xl":  { "$value": "48px",  "$type": "dimension", "$description": "Triple extra large" },
+    "4xl":  { "$value": "64px",  "$type": "dimension", "$description": "Large layout spacing" },
+    "5xl":  { "$value": "96px",  "$type": "dimension", "$description": "Section spacing" },
+    "6xl":  { "$value": "128px", "$type": "dimension", "$description": "Page spacing" }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "border": {
+    "width": {
+      "hairline": { "$value": "0.5px", "$type": "dimension", "$description": "Hairline border — smallest visible" },
+      "xs":       { "$value": "1px",   "$type": "dimension", "$description": "Extra small" },
+      "sm":       { "$value": "2px",   "$type": "dimension", "$description": "Small" },
+      "md":       { "$value": "3px",   "$type": "dimension", "$description": "Standard" },
+      "lg":       { "$value": "4px",   "$type": "dimension", "$description": "Large" },
+      "xl":       { "$value": "6px",   "$type": "dimension", "$description": "Extra large" },
+      "2xl":      { "$value": "8px",   "$type": "dimension", "$description": "Heavy border" }
+    },
+    "style": {
+      "none":   { "$value": "none",   "$type": "string", "$description": "No border" },
+      "solid":  { "$value": "solid",  "$type": "string", "$description": "Continuous border" },
+      "dashed": { "$value": "dashed", "$type": "string", "$description": "Dashed border" },
+      "dotted": { "$value": "dotted", "$type": "string", "$description": "Dotted border" },
+      "double": { "$value": "double", "$type": "string", "$description": "Double border" },
+      "groove": { "$value": "groove", "$type": "string", "$description": "Groove border — legacy" },
+      "inset":  { "$value": "inset",  "$type": "string", "$description": "Inset border — legacy" }
+    },
+    "treatment": {
+      "inside":  { "$value": "inside",  "$type": "string", "$description": "Border inside element boundary" },
+      "outside": { "$value": "outside", "$type": "string", "$description": "Border outside element boundary" },
+      "center":  { "$value": "center",  "$type": "string", "$description": "Border centered on element boundary (default)" },
+      "none":    { "$value": "none",    "$type": "string", "$description": "No border treatment" }
+    }
+  }
+}

@@ -1,0 +1,146 @@
+/**
+ * Button — headless component.
+ * All values come from semantic/base CSS variables. No hardcoded colors, radii, or sizes.
+ * Import build/css/core.css, semantic.css, and base.css before this file.
+ */
+
+.ds-button {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-action-primary-icon-gap);
+
+  /* Typography */
+  font-family: var(--ds-action-primary-font-family);
+  font-weight: var(--ds-action-primary-font-weight);
+  letter-spacing: var(--ds-action-primary-letter-spacing);
+  text-decoration: none;
+  white-space: nowrap;
+
+  /* Shape */
+  border-radius: var(--ds-action-primary-radius);
+  border-style: solid;
+  border-width: var(--ds-border-default-width);
+  cursor: pointer;
+
+  /* Behaviour */
+  transition-property: background-color, color, border-color, box-shadow, opacity;
+  transition-duration: var(--ds-action-primary-transition-duration);
+  transition-timing-function: var(--ds-action-primary-transition-easing);
+  user-select: none;
+  position: relative;
+  outline: none;
+}
+
+/* Focus-visible ring — keyboard only */
+.ds-button:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+/* ── Sizes ──────────────────────────────────────────────────────────────── */
+
+.ds-button--sm {
+  padding: var(--ds-action-primary-padding-y-sm) var(--ds-action-primary-padding-x-sm);
+  font-size: var(--ds-action-primary-font-size-sm);
+  min-height: 32px;
+}
+
+.ds-button--md {
+  padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
+  font-size: var(--ds-action-primary-font-size-md);
+  min-height: 40px;
+}
+
+.ds-button--lg {
+  padding: var(--ds-action-primary-padding-y-lg) var(--ds-action-primary-padding-x-lg);
+  font-size: var(--ds-action-primary-font-size-lg);
+  min-height: 48px;
+}
+
+/* ── Variant: Primary ────────────────────────────────────────────────────── */
+
+.ds-button--primary {
+  background-color: var(--ds-action-primary-bg);
+  color: var(--ds-action-primary-text);
+  border-color: var(--ds-action-primary-border);
+}
+
+.ds-button--primary:hover:not(:disabled) {
+  background-color: var(--ds-action-primary-bg-hover);
+  border-color: var(--ds-action-primary-bg-hover);
+}
+
+.ds-button--primary:active:not(:disabled) {
+  background-color: var(--ds-action-primary-bg-active);
+  border-color: var(--ds-action-primary-bg-active);
+}
+
+/* ── Variant: Secondary ──────────────────────────────────────────────────── */
+
+.ds-button--secondary {
+  background-color: var(--ds-action-secondary-bg);
+  color: var(--ds-action-secondary-text);
+  border-color: var(--ds-action-secondary-border);
+}
+
+.ds-button--secondary:hover:not(:disabled) {
+  background-color: var(--ds-action-secondary-bg-hover);
+}
+
+.ds-button--secondary:active:not(:disabled) {
+  background-color: var(--ds-action-secondary-bg-active);
+}
+
+/* ── Variant: Ghost ──────────────────────────────────────────────────────── */
+
+.ds-button--ghost {
+  background-color: var(--ds-action-ghost-bg);
+  color: var(--ds-action-ghost-text);
+  border-color: var(--ds-action-ghost-border);
+}
+
+.ds-button--ghost:hover:not(:disabled) {
+  background-color: var(--ds-action-ghost-bg-hover);
+}
+
+/* ── Variant: Destructive ────────────────────────────────────────────────── */
+
+.ds-button--destructive {
+  background-color: var(--ds-action-destructive-bg);
+  color: var(--ds-action-destructive-text);
+  border-color: var(--ds-action-destructive-bg);
+}
+
+.ds-button--destructive:hover:not(:disabled) {
+  background-color: var(--ds-action-destructive-bg-hover);
+  border-color: var(--ds-action-destructive-bg-hover);
+}
+
+/* ── Disabled state (all variants) ──────────────────────────────────────── */
+
+.ds-button:disabled,
+.ds-button[aria-disabled="true"] {
+  background-color: var(--ds-action-primary-bg-disabled);
+  color: var(--ds-action-primary-text-disabled);
+  border-color: var(--ds-action-primary-border-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 1;
+}
+
+/* ── Icon-only ───────────────────────────────────────────────────────────── */
+
+.ds-button--icon-only {
+  padding: var(--ds-action-primary-padding-y-md);
+  aspect-ratio: 1;
+}
+
+.ds-button--icon-only.ds-button--sm {
+  padding: var(--ds-action-primary-padding-y-sm);
+}
+
+.ds-button--icon-only.ds-button--lg {
+  padding: var(--ds-action-primary-padding-y-lg);
+}

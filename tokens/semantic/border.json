@@ -1,0 +1,33 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "border": {
+    "default": {
+      "width": { "$value": "{border.width.xs}",     "$type": "dimension", "$description": "Standard component border width" },
+      "style": { "$value": "{border.style.solid}",  "$type": "string",    "$description": "Standard component border style" }
+    },
+    "subtle": {
+      "width": { "$value": "{border.width.hairline}", "$type": "dimension", "$description": "Low-emphasis border — cards" },
+      "style": { "$value": "{border.style.solid}",    "$type": "string" }
+    },
+    "strong": {
+      "width": { "$value": "{border.width.md}",    "$type": "dimension", "$description": "High-emphasis border — tables" },
+      "style": { "$value": "{border.style.solid}", "$type": "string" }
+    },
+    "focus": {
+      "width": { "$value": "{border.width.sm}",    "$type": "dimension", "$description": "Keyboard focus ring — inputs and interactive elements" },
+      "style": { "$value": "{border.style.solid}", "$type": "string" }
+    },
+    "success": {
+      "width": { "$value": "{border.width.sm}",    "$type": "dimension", "$description": "Success state — alerts and validated fields" },
+      "style": { "$value": "{border.style.solid}", "$type": "string" }
+    },
+    "warning": {
+      "width": { "$value": "{border.width.sm}",    "$type": "dimension", "$description": "Warning state — alerts and cautioned fields" },
+      "style": { "$value": "{border.style.solid}", "$type": "string" }
+    },
+    "error": {
+      "width": { "$value": "{border.width.sm}",    "$type": "dimension", "$description": "Error state — alerts and invalid fields" },
+      "style": { "$value": "{border.style.solid}", "$type": "string" }
+    }
+  }
+}

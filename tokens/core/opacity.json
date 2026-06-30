@@ -1,0 +1,16 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "opacity": {
+    "transparent": { "$value": "0",    "$type": "number", "$description": "Fully transparent" },
+    "xxs":         { "$value": "0.04", "$type": "number", "$description": "Very subtle" },
+    "xs":          { "$value": "0.08", "$type": "number", "$description": "Extra subtle" },
+    "sm":          { "$value": "0.12", "$type": "number", "$description": "Small" },
+    "md":          { "$value": "0.16", "$type": "number", "$description": "Medium" },
+    "lg":          { "$value": "0.24", "$type": "number", "$description": "Large" },
+    "xl":          { "$value": "0.32", "$type": "number", "$description": "Extra large" },
+    "2xl":         { "$value": "0.48", "$type": "number", "$description": "Strong" },
+    "3xl":         { "$value": "0.64", "$type": "number", "$description": "Very strong" },
+    "4xl":         { "$value": "0.80", "$type": "number", "$description": "Nearly opaque" },
+    "opaque":      { "$value": "1.0",  "$type": "number", "$description": "Fully opaque" }
+  }
+}

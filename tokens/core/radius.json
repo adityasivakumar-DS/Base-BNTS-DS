@@ -1,0 +1,16 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "radius": {
+    "none": { "$value": "0px",     "$type": "dimension", "$description": "Sharp corners" },
+    "2xs":  { "$value": "2px",     "$type": "dimension", "$description": "Very subtle" },
+    "xs":   { "$value": "4px",     "$type": "dimension", "$description": "Extra small" },
+    "sm":   { "$value": "6px",     "$type": "dimension", "$description": "Small" },
+    "md":   { "$value": "8px",     "$type": "dimension", "$description": "Default" },
+    "lg":   { "$value": "12px",    "$type": "dimension", "$description": "Large" },
+    "xl":   { "$value": "16px",    "$type": "dimension", "$description": "Extra Large" },
+    "2xl":  { "$value": "24px",    "$type": "dimension", "$description": "Double Extra Large" },
+    "3xl":  { "$value": "32px",    "$type": "dimension", "$description": "Triple Extra Large" },
+    "full": { "$value": "9999px",  "$type": "dimension", "$description": "Fully rounded ends — pill" },
+    "circle": { "$value": "50%",   "$type": "dimension", "$description": "Perfect circle" }
+  }
+}

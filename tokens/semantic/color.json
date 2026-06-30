@@ -1,0 +1,65 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "color": {
+    "primary": {
+      "default":  { "$value": "{color.brand.500}", "$type": "color", "$description": "Primary brand — key actions, CTAs, links" },
+      "hover":    { "$value": "{color.brand.600}", "$type": "color", "$description": "Primary hovered" },
+      "active":   { "$value": "{color.brand.700}", "$type": "color", "$description": "Primary pressed" },
+      "disabled": { "$value": "{color.neutral.400}", "$type": "color", "$description": "Primary disabled" },
+      "subtle":   { "$value": "{color.brand.50}",  "$type": "color", "$description": "Primary tinted background" },
+      "on-primary": { "$value": "{color.white.0}", "$type": "color", "$description": "Text/icons on primary surface" }
+    },
+    "secondary": {
+      "default":  { "$value": "{color.brand.100}", "$type": "color", "$description": "Secondary — supporting actions" },
+      "hover":    { "$value": "{color.brand.200}", "$type": "color", "$description": "Secondary hovered" },
+      "active":   { "$value": "{color.brand.300}", "$type": "color", "$description": "Secondary pressed" },
+      "on-secondary": { "$value": "{color.brand.700}", "$type": "color", "$description": "Text/icons on secondary surface" }
+    },
+    "surface": {
+      "default":  { "$value": "{color.neutral.0}",  "$type": "color", "$description": "Card and panel surface" },
+      "raised":   { "$value": "{color.neutral.50}", "$type": "color", "$description": "Slightly elevated surface" },
+      "overlay":  { "$value": "{color.neutral.100}", "$type": "color", "$description": "Overlay surface" },
+      "inverse":  { "$value": "{color.neutral.900}", "$type": "color", "$description": "Inverse/dark surface" }
+    },
+    "background": {
+      "default": { "$value": "{color.neutral.50}",  "$type": "color", "$description": "Page-level background" },
+      "subtle":  { "$value": "{color.neutral.100}", "$type": "color", "$description": "Subtly differentiated background" }
+    },
+    "text": {
+      "primary":   { "$value": "{color.neutral.900}", "$type": "color", "$description": "Primary text" },
+      "secondary": { "$value": "{color.neutral.700}", "$type": "color", "$description": "Secondary / supporting text" },
+      "disabled":  { "$value": "{color.neutral.400}", "$type": "color", "$description": "Disabled text" },
+      "inverse":   { "$value": "{color.white.0}",     "$type": "color", "$description": "Text on dark surfaces" },
+      "on-primary":{ "$value": "{color.white.0}",     "$type": "color", "$description": "Text on primary colored surfaces" }
+    },
+    "border": {
+      "default":  { "$value": "{color.neutral.200}", "$type": "color", "$description": "Default border and divider" },
+      "subtle":   { "$value": "{color.neutral.100}", "$type": "color", "$description": "Low-emphasis border" },
+      "strong":   { "$value": "{color.neutral.400}", "$type": "color", "$description": "High-emphasis border" },
+      "focus":    { "$value": "{color.brand.500}",   "$type": "color", "$description": "Keyboard focus ring" }
+    },
+    "feedback": {
+      "success":  { "$value": "{color.green.500}",  "$type": "color", "$description": "Positive / success" },
+      "success-subtle": { "$value": "{color.green.50}", "$type": "color", "$description": "Success tinted background" },
+      "warning":  { "$value": "{color.orange.500}", "$type": "color", "$description": "Caution / warning" },
+      "warning-subtle": { "$value": "{color.orange.50}", "$type": "color", "$description": "Warning tinted background" },
+      "error":    { "$value": "{color.red.500}",    "$type": "color", "$description": "Error / destructive" },
+      "error-subtle": { "$value": "{color.red.50}", "$type": "color", "$description": "Error tinted background" },
+      "info":     { "$value": "{color.blue.500}",   "$type": "color", "$description": "Informational message" },
+      "info-subtle": { "$value": "{color.blue.50}", "$type": "color", "$description": "Info tinted background" }
+    },
+    "overlay": {
+      "default": { "$value": "rgba(0,0,0,0.48)", "$type": "color", "$description": "Scrim over page content — dialogs and drawers" }
+    },
+    "link": {
+      "default": { "$value": "{color.blue.600}",  "$type": "color", "$description": "Hyperlink default" },
+      "hover":   { "$value": "{color.blue.700}",  "$type": "color", "$description": "Hyperlink hovered" },
+      "visited": { "$value": "{color.purple.600}", "$type": "color", "$description": "Hyperlink visited" }
+    },
+    "disabled": {
+      "surface": { "$value": "{color.neutral.100}", "$type": "color", "$description": "Disabled component surface" },
+      "text":    { "$value": "{color.neutral.400}", "$type": "color", "$description": "Disabled text and icons" },
+      "border":  { "$value": "{color.neutral.200}", "$type": "color", "$description": "Disabled border" }
+    }
+  }
+}

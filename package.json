@@ -1,0 +1,22 @@
+{
+  "name": "base-bnts-ds",
+  "version": "1.0.0",
+  "description": "Bounteous base design system — single source of truth for all design tokens, headless components, and the foundation every brand is generated from.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "node style-dictionary.config.js",
+    "build:watch": "node --watch style-dictionary.config.js",
+    "test": "echo \"No test suite configured yet\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:41729/git/adityasivakumar-DS/Base-BNTS-DS"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "style-dictionary": "^4.4.0"
+  }
+}

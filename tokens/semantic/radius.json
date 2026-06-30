@@ -1,0 +1,13 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "corner": {
+    "sharp":   { "$value": "{radius.none}", "$type": "dimension", "$description": "No radius — data tables, grids" },
+    "subtle":  { "$value": "{radius.2xs}",  "$type": "dimension", "$description": "Very subtle rounding — form inputs" },
+    "sm":      { "$value": "{radius.xs}",   "$type": "dimension", "$description": "Small rounding — tags, chips" },
+    "default": { "$value": "{radius.md}",   "$type": "dimension", "$description": "Default rounding — most UI components" },
+    "lg":      { "$value": "{radius.lg}",   "$type": "dimension", "$description": "Large rounding — cards, panels" },
+    "xl":      { "$value": "{radius.xl}",   "$type": "dimension", "$description": "Extra large rounding — modals" },
+    "pill":    { "$value": "{radius.full}", "$type": "dimension", "$description": "Fully rounded — badges, pill buttons" },
+    "circle":  { "$value": "{radius.circle}", "$type": "dimension", "$description": "Circular — avatars, icon buttons" }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "motion": {
+    "fade-in": {
+      "duration": { "$value": "{motion.duration.fast}",    "$type": "duration" },
+      "easing":   { "$value": "{motion.easing.ease-out}",  "$type": "cubicBezier" },
+      "delay":    { "$value": "{motion.delay.none}",        "$type": "duration" },
+      "$description": "Page and element entry"
+    },
+    "fade-out": {
+      "duration": { "$value": "{motion.duration.fast}",   "$type": "duration" },
+      "easing":   { "$value": "{motion.easing.ease-in}",  "$type": "cubicBezier" },
+      "delay":    { "$value": "{motion.delay.none}",       "$type": "duration" },
+      "$description": "Element exit"
+    },
+    "slide-up": {
+      "duration": { "$value": "{motion.duration.normal}",  "$type": "duration" },
+      "easing":   { "$value": "{motion.easing.ease-out}",  "$type": "cubicBezier" },
+      "delay":    { "$value": "{motion.delay.none}",        "$type": "duration" },
+      "$description": "Scroll reveal — elements enter from below"
+    },
+    "scale-in": {
+      "duration": { "$value": "{motion.duration.fast}",   "$type": "duration" },
+      "easing":   { "$value": "{motion.easing.spring}",   "$type": "cubicBezier" },
+      "delay":    { "$value": "{motion.delay.none}",       "$type": "duration" },
+      "$description": "Hover scale effect"
+    },
+    "dialog-open": {
+      "duration": { "$value": "{motion.duration.fast}",   "$type": "duration" },
+      "easing":   { "$value": "{motion.easing.ease-out}", "$type": "cubicBezier" },
+      "delay":    { "$value": "{motion.delay.none}",       "$type": "duration" },
+      "$description": "Dialog / modal entrance"
+    },
+    "drawer-open": {
+      "duration": { "$value": "{motion.duration.normal}", "$type": "duration" },
+      "easing":   { "$value": "{motion.easing.ease-out}", "$type": "cubicBezier" },
+      "delay":    { "$value": "{motion.delay.none}",       "$type": "duration" },
+      "$description": "Navigation drawer entrance"
+    },
+    "tooltip-reveal": {
+      "duration": { "$value": "{motion.duration.instant}", "$type": "duration" },
+      "easing":   { "$value": "{motion.easing.ease-out}",  "$type": "cubicBezier" },
+      "delay":    { "$value": "{motion.delay.short}",       "$type": "duration" },
+      "$description": "Tooltip reveal — instant animation, short delay"
+    }
+  }
+}

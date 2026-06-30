@@ -1,0 +1,40 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "elevation": {
+    "surface": {
+      "$value": "none",
+      "$type": "shadow",
+      "$description": "Base surfaces — no shadow"
+    },
+    "card": {
+      "$value": "{elevation.x-offset.xs} {elevation.y-offset.sm} {elevation.blur.md} {elevation.spread.none}",
+      "$type": "shadow",
+      "$description": "Cards — subtle raised shadow"
+    },
+    "popover": {
+      "$value": "{elevation.x-offset.xs} {elevation.y-offset.md} {elevation.blur.lg} {elevation.spread.xs}",
+      "$type": "shadow",
+      "$description": "Popovers and dropdowns"
+    },
+    "tooltip": {
+      "$value": "{elevation.x-offset.none} {elevation.y-offset.xs} {elevation.blur.sm} {elevation.spread.none}",
+      "$type": "shadow",
+      "$description": "Tooltips"
+    },
+    "drawer": {
+      "$value": "{elevation.x-offset.sm} {elevation.y-offset.xl} {elevation.blur.xl} {elevation.spread.sm}",
+      "$type": "shadow",
+      "$description": "Navigation drawers"
+    },
+    "dialog": {
+      "$value": "{elevation.x-offset.sm} {elevation.y-offset.xl} {elevation.blur.2xl} {elevation.spread.sm}",
+      "$type": "shadow",
+      "$description": "Dialogs"
+    },
+    "modal": {
+      "$value": "{elevation.x-offset.md} {elevation.y-offset.2xl} {elevation.blur.3xl} {elevation.spread.md}",
+      "$type": "shadow",
+      "$description": "Modals"
+    }
+  }
+}

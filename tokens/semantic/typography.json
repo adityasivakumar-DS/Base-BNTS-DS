@@ -1,0 +1,93 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "text": {
+    "display": {
+      "family":        { "$value": "{font.family.display}",    "$type": "fontFamily" },
+      "size":          { "$value": "{font.size.7xl}",          "$type": "dimension" },
+      "weight":        { "$value": "{font.weight.bold}",       "$type": "fontWeight" },
+      "lineheight":    { "$value": "{font.lineheight.tight}",  "$type": "number" },
+      "letterspacing": { "$value": "{font.letterspacing.tighter}", "$type": "dimension" },
+      "$description": "Display — hero headings and page titles"
+    },
+    "h1": {
+      "family":        { "$value": "{font.family.primary}",   "$type": "fontFamily" },
+      "size":          { "$value": "{font.size.4xl}",         "$type": "dimension" },
+      "weight":        { "$value": "{font.weight.bold}",      "$type": "fontWeight" },
+      "lineheight":    { "$value": "{font.lineheight.snug}",  "$type": "number" },
+      "letterspacing": { "$value": "{font.letterspacing.tight}", "$type": "dimension" },
+      "$description": "Heading 1"
+    },
+    "h2": {
+      "family":        { "$value": "{font.family.primary}",    "$type": "fontFamily" },
+      "size":          { "$value": "{font.size.3xl}",          "$type": "dimension" },
+      "weight":        { "$value": "{font.weight.semibold}",   "$type": "fontWeight" },
+      "lineheight":    { "$value": "{font.lineheight.compact}", "$type": "number" },
+      "letterspacing": { "$value": "{font.letterspacing.tight}", "$type": "dimension" },
+      "$description": "Heading 2"
+    },
+    "h3": {
+      "family":        { "$value": "{font.family.primary}",    "$type": "fontFamily" },
+      "size":          { "$value": "{font.size.2xl}",          "$type": "dimension" },
+      "weight":        { "$value": "{font.weight.semibold}",   "$type": "fontWeight" },
+      "lineheight":    { "$value": "{font.lineheight.compact}", "$type": "number" },
+      "letterspacing": { "$value": "{font.letterspacing.normal}", "$type": "dimension" },
+      "$description": "Heading 3"
+    },
+    "h4": {
+      "family":        { "$value": "{font.family.primary}",   "$type": "fontFamily" },
+      "size":          { "$value": "{font.size.xl}",          "$type": "dimension" },
+      "weight":        { "$value": "{font.weight.semibold}",  "$type": "fontWeight" },
+      "lineheight":    { "$value": "{font.lineheight.normal}", "$type": "number" },
+      "letterspacing": { "$value": "{font.letterspacing.normal}", "$type": "dimension" },
+      "$description": "Heading 4"
+    },
+    "body-lg": {
+      "family":        { "$value": "{font.family.primary}",    "$type": "fontFamily" },
+      "size":          { "$value": "{font.size.lg}",           "$type": "dimension" },
+      "weight":        { "$value": "{font.weight.regular}",    "$type": "fontWeight" },
+      "lineheight":    { "$value": "{font.lineheight.relaxed}", "$type": "number" },
+      "letterspacing": { "$value": "{font.letterspacing.normal}", "$type": "dimension" },
+      "$description": "Body large"
+    },
+    "body-md": {
+      "family":        { "$value": "{font.family.primary}",    "$type": "fontFamily" },
+      "size":          { "$value": "{font.size.md}",           "$type": "dimension" },
+      "weight":        { "$value": "{font.weight.regular}",    "$type": "fontWeight" },
+      "lineheight":    { "$value": "{font.lineheight.relaxed}", "$type": "number" },
+      "letterspacing": { "$value": "{font.letterspacing.normal}", "$type": "dimension" },
+      "$description": "Body default"
+    },
+    "body-sm": {
+      "family":        { "$value": "{font.family.primary}",    "$type": "fontFamily" },
+      "size":          { "$value": "{font.size.sm}",           "$type": "dimension" },
+      "weight":        { "$value": "{font.weight.regular}",    "$type": "fontWeight" },
+      "lineheight":    { "$value": "{font.lineheight.relaxed}", "$type": "number" },
+      "letterspacing": { "$value": "{font.letterspacing.normal}", "$type": "dimension" },
+      "$description": "Body small"
+    },
+    "label": {
+      "family":        { "$value": "{font.family.primary}",  "$type": "fontFamily" },
+      "size":          { "$value": "{font.size.sm}",         "$type": "dimension" },
+      "weight":        { "$value": "{font.weight.medium}",   "$type": "fontWeight" },
+      "lineheight":    { "$value": "{font.lineheight.normal}", "$type": "number" },
+      "letterspacing": { "$value": "{font.letterspacing.wide}", "$type": "dimension" },
+      "$description": "Form labels and captions"
+    },
+    "caption": {
+      "family":        { "$value": "{font.family.primary}",  "$type": "fontFamily" },
+      "size":          { "$value": "{font.size.xs}",         "$type": "dimension" },
+      "weight":        { "$value": "{font.weight.regular}",  "$type": "fontWeight" },
+      "lineheight":    { "$value": "{font.lineheight.normal}", "$type": "number" },
+      "letterspacing": { "$value": "{font.letterspacing.normal}", "$type": "dimension" },
+      "$description": "Captions and helper text"
+    },
+    "code": {
+      "family":        { "$value": "{font.family.monospace}", "$type": "fontFamily" },
+      "size":          { "$value": "{font.size.sm}",         "$type": "dimension" },
+      "weight":        { "$value": "{font.weight.regular}",  "$type": "fontWeight" },
+      "lineheight":    { "$value": "{font.lineheight.relaxed}", "$type": "number" },
+      "letterspacing": { "$value": "{font.letterspacing.normal}", "$type": "dimension" },
+      "$description": "Code and technical content"
+    }
+  }
+}

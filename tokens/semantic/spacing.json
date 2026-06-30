@@ -1,0 +1,21 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "space": {
+    "component": {
+      "padding-xs":  { "$value": "{spacing.xs}",  "$type": "dimension", "$description": "Compact component inner spacing — SM buttons, dense inputs" },
+      "padding-sm":  { "$value": "{spacing.sm}",  "$type": "dimension", "$description": "Small component inner spacing" },
+      "padding-md":  { "$value": "{spacing.md}",  "$type": "dimension", "$description": "Default component inner spacing" },
+      "padding-lg":  { "$value": "{spacing.lg}",  "$type": "dimension", "$description": "Spacious component inner spacing" },
+      "gap-xs":      { "$value": "{spacing.2xs}", "$type": "dimension", "$description": "Tight gap — icon + label" },
+      "gap-sm":      { "$value": "{spacing.xs}",  "$type": "dimension", "$description": "Small gap between inline elements" },
+      "gap-md":      { "$value": "{spacing.sm}",  "$type": "dimension", "$description": "Default gap between stacked items" },
+      "gap-lg":      { "$value": "{spacing.md}",  "$type": "dimension", "$description": "Large gap — card grids" }
+    },
+    "layout": {
+      "section-sm": { "$value": "{spacing.2xl}", "$type": "dimension", "$description": "Small section spacing" },
+      "section-md": { "$value": "{spacing.3xl}", "$type": "dimension", "$description": "Default section spacing" },
+      "section-lg": { "$value": "{spacing.4xl}", "$type": "dimension", "$description": "Large section spacing" },
+      "page":       { "$value": "{spacing.5xl}", "$type": "dimension", "$description": "Page-level spacing" }
+    }
+  }
+}

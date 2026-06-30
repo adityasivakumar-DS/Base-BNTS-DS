@@ -1,0 +1,63 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "font": {
+    "family": {
+      "primary":   { "$value": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", "$type": "fontFamily", "$description": "Default UI font" },
+      "secondary": { "$value": "'Inter', sans-serif", "$type": "fontFamily", "$description": "Secondary brand font" },
+      "display":   { "$value": "'Inter', sans-serif", "$type": "fontFamily", "$description": "Marketing and display font" },
+      "monospace": { "$value": "'JetBrains Mono', 'Fira Code', 'Courier New', monospace", "$type": "fontFamily", "$description": "Code and technical content" }
+    },
+    "weight": {
+      "thin":       { "$value": "100", "$type": "fontWeight", "$description": "Thin" },
+      "extralight": { "$value": "200", "$type": "fontWeight", "$description": "Extra Light" },
+      "light":      { "$value": "300", "$type": "fontWeight", "$description": "Light" },
+      "regular":    { "$value": "400", "$type": "fontWeight", "$description": "Default" },
+      "medium":     { "$value": "500", "$type": "fontWeight", "$description": "Medium" },
+      "semibold":   { "$value": "600", "$type": "fontWeight", "$description": "Semi Bold" },
+      "bold":       { "$value": "700", "$type": "fontWeight", "$description": "Bold" },
+      "extrabold":  { "$value": "800", "$type": "fontWeight", "$description": "Extra Bold" },
+      "black":      { "$value": "900", "$type": "fontWeight", "$description": "Black" }
+    },
+    "size": {
+      "2xs":  { "$value": "10px",  "$type": "dimension", "$description": "Extra Extra Small" },
+      "xs":   { "$value": "12px",  "$type": "dimension", "$description": "Extra Small" },
+      "sm":   { "$value": "14px",  "$type": "dimension", "$description": "Small" },
+      "md":   { "$value": "16px",  "$type": "dimension", "$description": "Base size" },
+      "lg":   { "$value": "18px",  "$type": "dimension", "$description": "Large" },
+      "xl":   { "$value": "20px",  "$type": "dimension", "$description": "Extra Large" },
+      "2xl":  { "$value": "24px",  "$type": "dimension", "$description": "Double Extra Large" },
+      "3xl":  { "$value": "30px",  "$type": "dimension", "$description": "Triple Extra Large" },
+      "4xl":  { "$value": "36px",  "$type": "dimension", "$description": "Hero Small" },
+      "5xl":  { "$value": "48px",  "$type": "dimension", "$description": "Hero Medium" },
+      "6xl":  { "$value": "60px",  "$type": "dimension", "$description": "Hero Large" },
+      "7xl":  { "$value": "72px",  "$type": "dimension", "$description": "Display H1" },
+      "8xl":  { "$value": "96px",  "$type": "dimension", "$description": "Display XL" },
+      "9xl":  { "$value": "120px", "$type": "dimension", "$description": "Display XXL" },
+      "10xl": { "$value": "144px", "$type": "dimension", "$description": "Display Hero" }
+    },
+    "lineheight": {
+      "tight":    { "$value": "1",   "$type": "number", "$description": "Display" },
+      "snug":     { "$value": "1.1", "$type": "number", "$description": "Large heading" },
+      "compact":  { "$value": "1.2", "$type": "number", "$description": "Heading" },
+      "normal":   { "$value": "1.4", "$type": "number", "$description": "Title" },
+      "relaxed":  { "$value": "1.5", "$type": "number", "$description": "Body (default)" },
+      "loose":    { "$value": "1.6", "$type": "number", "$description": "Reading" },
+      "spacious": { "$value": "1.8", "$type": "number", "$description": "Long-form reading" }
+    },
+    "letterspacing": {
+      "tighter": { "$value": "-0.02em", "$type": "dimension", "$description": "Display" },
+      "tight":   { "$value": "-0.01em", "$type": "dimension", "$description": "Heading" },
+      "normal":  { "$value": "0em",     "$type": "dimension", "$description": "Default" },
+      "wide":    { "$value": "0.02em",  "$type": "dimension", "$description": "Labels" },
+      "wider":   { "$value": "0.05em",  "$type": "dimension", "$description": "Buttons" }
+    },
+    "paragraphspacing": {
+      "none": { "$value": "0px",  "$type": "dimension", "$description": "No spacing" },
+      "xs":   { "$value": "4px",  "$type": "dimension", "$description": "Compact" },
+      "sm":   { "$value": "8px",  "$type": "dimension", "$description": "Small" },
+      "md":   { "$value": "12px", "$type": "dimension", "$description": "Default" },
+      "lg":   { "$value": "16px", "$type": "dimension", "$description": "Comfortable" },
+      "xl":   { "$value": "24px", "$type": "dimension", "$description": "Long-form reading" }
+    }
+  }
+}
