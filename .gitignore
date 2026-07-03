@@ -2,3 +2,7 @@ node_modules/
 build/
 *.log
 .DS_Store
+
+# Step 9 brand generator output — every brand belongs in its own repo, never in this one.
+generated-brands/*
+!generated-brands/.gitkeep

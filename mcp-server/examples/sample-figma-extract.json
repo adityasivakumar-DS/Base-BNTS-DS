@@ -1,0 +1,27 @@
+{
+  "sourceFiles": ["https://www.figma.com/file/EXAMPLE/Acme-Brand-Kit"],
+  "colors": [
+    { "name": "Brand/Primary", "value": "#0f9d58" },
+    { "name": "Neutral/Gray", "value": "#6b7280" },
+    { "name": "Feedback/Error", "value": "#d92d20" },
+    { "name": "Feedback/Warning", "value": "#f79009" },
+    { "name": "Feedback/Info", "value": "#1570ef" },
+    { "name": "Weird Sticker Color", "value": "#ff69b4" }
+  ],
+  "radii": [
+    { "name": "Radius/SM", "value": 4 },
+    { "name": "Radius/MD", "value": 10 },
+    { "name": "Radius/LG", "value": 16 }
+  ],
+  "spacing": [
+    { "name": "Space/XS", "value": 8 },
+    { "name": "Space/SM", "value": 12 },
+    { "name": "Space/MD", "value": 20 },
+    { "name": "Space/LG", "value": 32 }
+  ],
+  "typography": [
+    { "name": "Heading/Display", "fontFamily": "'Sora', sans-serif" },
+    { "name": "Body/Default", "fontFamily": "'Inter', sans-serif" },
+    { "name": "Code/Mono", "fontFamily": "'IBM Plex Mono', monospace" }
+  ]
+}

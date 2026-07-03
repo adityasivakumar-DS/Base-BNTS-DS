@@ -1,0 +1,15 @@
+{
+  "name": "base-bnts-ds-mcp-server",
+  "version": "1.0.0",
+  "description": "AI doorway (MCP server) for Base BNTS DS — exposes base tokens, component manifests, and mapping rules, and hosts the Figma-driven brand generator (Playbook Step 9).",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/smoke.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.8"
+  }
+}

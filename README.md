@@ -72,6 +72,21 @@ Changing a value in `tokens/base/base.json` (or its core/semantic dependencies) 
 | Button (primary, secondary, ghost, destructive × SM/MD/LG + icon-only) | ✅ |
 | More components — see playbook Step 5 | Planned |
 
+## Brand generator + AI doorway (Playbook Step 9)
+
+`mcp-server/` hosts two things, live in this repo:
+
+- **The AI doorway** — an MCP server exposing this repo's base tokens, component
+  manifests, and Figma-mapping rules to any MCP-capable AI tool.
+- **The brand generator** — tools on that same server that turn an *approved* mapping of
+  a designer's Figma styles into a new, standalone brand design system, scaffolded into
+  `generated-brands/<slug>/` (gitignored — brands belong in their own repo, not this one).
+
+See `mcp-server/README.md` for setup, the tool list, and the design decision on what
+actually changes per brand (core tier values only — components and semantic/base tiers
+are copied unchanged). Run `cd mcp-server && npm install && npm test` for an end-to-end
+smoke test against a sample Figma extract.
+
 ## Governance
 
 - **Code is canonical.** Figma reads from it, not the other way around.
