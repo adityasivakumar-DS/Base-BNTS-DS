@@ -82,7 +82,7 @@
 
 /* Calendar popup */
 .ds-date-picker__calendar {
-  background-color: var(--ds-surface-overlay, var(--ds-surface-page));
+  background-color: var(--ds-surface-panel, var(--ds-surface-page));
   border: var(--ds-border-default-width) solid var(--ds-border-default-color);
   border-radius: var(--ds-action-primary-radius);
   padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);

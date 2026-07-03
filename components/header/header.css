@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: var(--ds-surface-overlay, var(--ds-surface-page));
+  background: var(--ds-surface-panel, var(--ds-surface-page));
   border-bottom: var(--ds-border-default-width) solid var(--ds-border-default-color);
   padding: var(--ds-action-primary-padding-y-md) var(--ds-action-primary-padding-x-md);
   gap: var(--ds-action-primary-padding-x-md);
