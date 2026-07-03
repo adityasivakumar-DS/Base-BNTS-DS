@@ -1,0 +1,19 @@
+{
+  "name": "base-bnts-ds-tooling",
+  "version": "1.0.0",
+  "description": "Step 9 tooling for the Bounteous base design system: the AI doorway (MCP server) and the brand generator (Figma -> base params -> new brand repo).",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "brand-gen": "./brand-generator/cli.js"
+  },
+  "scripts": {
+    "mcp": "node mcp-server/server.js",
+    "generate": "node brand-generator/cli.js",
+    "test": "node brand-generator/lib/selftest.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.23.8"
+  }
+}

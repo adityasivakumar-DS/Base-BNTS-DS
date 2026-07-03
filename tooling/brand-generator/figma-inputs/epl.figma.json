@@ -1,0 +1,44 @@
+{
+  "brandName": "EPL",
+  "brandSlug": "epl",
+  "source": {
+    "tool": "figma",
+    "files": ["https://github.com/Tamilarasantk20/EPL-Repo-AI-DS"],
+    "note": "Normalized design profile standing in for a Figma export. In the live Step 10 flow this is produced by extract.fromFigmaVariableDefs() over the Figma MCP's get_variable_defs output."
+  },
+  "color": {
+    "brand": "#37003c",
+    "neutral": {
+      "0": "#ffffff",
+      "50": "#f6f5f8",
+      "100": "#ececf0",
+      "200": "#d9d8e0",
+      "300": "#bcbac6",
+      "400": "#9793a5",
+      "500": "#726d82",
+      "600": "#565165",
+      "700": "#3f3a4d",
+      "800": "#2b2736",
+      "900": "#1a1722",
+      "950": "#0e0c14",
+      "1000": "#000000"
+    },
+    "success": "#00a650",
+    "error": "#e90052",
+    "warning": "#ffb800",
+    "info": "#04f5ff"
+  },
+  "typography": {
+    "fontFamilyPrimary": "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    "fontFamilyDisplay": "'Poppins', sans-serif",
+    "fontFamilySecondary": "'Poppins', sans-serif"
+  },
+  "radius": {
+    "2xs": "3px",
+    "xs": "5px",
+    "sm": "7px",
+    "md": "10px",
+    "lg": "14px",
+    "xl": "20px"
+  }
+}

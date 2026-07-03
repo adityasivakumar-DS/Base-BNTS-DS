@@ -1,0 +1,52 @@
+{
+  "$description": "How a designer's Figma styles are auto-mapped onto the base design system's CORE tier. A brand only overrides core primitives; semantic, base, and components are inherited from the base unchanged. The MCP doorway serves this file so any AI tool maps a brand the same way.",
+  "version": "1.0.0",
+  "principles": [
+    "A brand is a new set of CORE values against the same base. Never rewrite semantic/base/components.",
+    "Prefer a value read from Figma over a value invented by the tool. Flag anything derived.",
+    "If Figma gives one seed colour for a ramp, derive the ramp but mark every derived tone 'review'.",
+    "Never ship a brand whose action colour fails WCAG AA against its text — warn and require sign-off."
+  ],
+  "color": {
+    "ramps": {
+      "color.brand": {
+        "from": ["color.brand", "color.primary"],
+        "kind": "ramp",
+        "seedTone": "500",
+        "required": true,
+        "note": "The brand's signature colour. Full ramp preferred; single seed is derived."
+      },
+      "color.neutral": {
+        "from": ["color.neutral", "color.grey", "color.gray"],
+        "kind": "ramp",
+        "seedTone": "500",
+        "required": false,
+        "note": "Greys for text, borders, surfaces. Falls back to base neutrals if absent."
+      },
+      "color.green": { "from": ["color.success", "color.positive"], "kind": "ramp", "seedTone": "500", "required": false },
+      "color.red": { "from": ["color.error", "color.danger", "color.negative"], "kind": "ramp", "seedTone": "500", "required": false },
+      "color.orange": { "from": ["color.warning", "color.caution"], "kind": "ramp", "seedTone": "500", "required": false },
+      "color.blue": { "from": ["color.info", "color.accent"], "kind": "ramp", "seedTone": "500", "required": false }
+    }
+  },
+  "typography": {
+    "font.family.primary": { "from": ["typography.fontFamilyPrimary", "typography.body"], "kind": "value" },
+    "font.family.secondary": { "from": ["typography.fontFamilySecondary"], "kind": "value" },
+    "font.family.display": { "from": ["typography.fontFamilyDisplay", "typography.heading"], "kind": "value" },
+    "font.size": { "from": ["typography.sizes"], "kind": "scale", "note": "Size ramp by name (xs..10xl). Missing steps inherit base." }
+  },
+  "radius": {
+    "radius": { "from": ["radius"], "kind": "scale", "note": "Named radii (none..full). A single value is applied to 'md' and scaled." }
+  },
+  "spacing": {
+    "spacing": { "from": ["spacing"], "kind": "scale", "note": "Named spacing steps. Missing steps inherit base." }
+  },
+  "elevation": {
+    "elevation": { "from": ["elevation"], "kind": "passthrough", "note": "Rarely brand-specific; inherit base unless Figma defines shadows." }
+  },
+  "confidence": {
+    "high": "Read directly from a named Figma variable/style at the expected role.",
+    "derived": "Computed by the tool (e.g. a ramp built from one seed). Designer must confirm.",
+    "inherited": "Not present in the Figma file; kept from the base system default."
+  }
+}

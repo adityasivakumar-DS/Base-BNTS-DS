@@ -79,6 +79,14 @@ Changing a value in `tokens/base/base.json` (or its core/semantic dependencies) 
 - **Brands live in their own repos.** Generated in Phase 2. Never edit the base.
 - A bad contrast value should fail CI before it ships (CI config: TBD Step 7).
 
+## Generating a brand (Step 9)
+
+The brand generator and the AI doorway (MCP server) live in [`tooling/`](tooling/README.md).
+A brand is a new **core** tier mapped from a designer's Figma file; the generator
+copies `semantic`, `base`, and `components` unchanged and writes the brand into its
+own repo. See `tooling/README.md` for the doorway and the extract → map → review →
+generate flow.
+
 ## Foundations source
 
 Derived from `Foundations_Base_Repo_DS_V1.xlsx` and `Components_Base_Repo_DS_V1.xlsx` — the locked parameter list that defines every knob in this system.
