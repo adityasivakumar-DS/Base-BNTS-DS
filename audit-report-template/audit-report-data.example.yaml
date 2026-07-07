@@ -1,0 +1,308 @@
+# Worked example — transcribed from audit-report-source-template.md.
+# This is the exact data behind master-template.html's built-in example
+# (Northern Trail Outfitters). Copy this file per client, keep the key
+# names and structure identical, and change the values.
+#
+# Keys here map 1:1 onto the report's underlying fields — see
+# HOW-TO-GENERATE-REPORT.md for the full mapping table.
+
+client: Northern Trail Outfitters
+report_date: June 29, 2026
+overall: 75
+overall_status: Good
+critical_count: 2
+high_count: 3
+medium_count: 5
+verdict: >-
+  A concise executive readout of platform health, access risk, license
+  efficiency, and modernization priorities.
+hero_takeaway: >-
+  The platform is well-architected; the fastest value comes from tightening
+  admin access and reclaiming unused licenses first. Both critical findings
+  trace to a single root cause.
+
+story:
+  where_we_are_body: >-
+    An overall score of 75 (Good) masks a sharply uneven platform: a strong
+    engineering foundation sits alongside loose access and license controls
+    that have not kept pace.
+  whats_at_risk_body: >-
+    Both Critical findings trace to one root cause — 2 of 2 active users
+    hold full admin access (100%). 51 permission set licenses sit unused
+    and a key Apex trigger is in a failed state.
+  whats_working_body: >-
+    Design and Governance both score 100, Automation 85, and Code 70. API
+    versions are current and the org has avoided legacy workflow sprawl.
+  where_were_headed_body: >-
+    Treat this as a risk-reduction and value-recovery initiative: fix
+    access and the failed trigger first, then reclaim licenses, then
+    institutionalize the gains.
+
+pillars:
+  - name: Usage & Adoption
+    short: Usage
+    score: 60
+    status: Fair
+    key_stat: 100.0% admin ratio across active users
+    takeaway: >-
+      Held back almost entirely by a 100% admin ratio — both active users
+      carry admin or View All access — while 6 profiles and 20 permission
+      sets carry zero assignments.
+    metrics:
+      - value: "2"
+        label: Active users
+        description: A small, focused footprint with no inactive users holding licenses.
+        tone: info
+      - value: "2 / 2"
+        label: Admin-level users
+        description: Every active user holds admin or View All access.
+        tone: bad
+      - value: "6"
+        label: Unassigned profiles
+        description: Custom profiles with no user assignments.
+        tone: warn
+      - value: "20"
+        label: Unassigned permission sets
+        description: Entitlement clutter that obscures who needs what.
+        tone: warn
+    actions:
+      - Right-size admin access to under 5%
+      - Delete 6 unassigned profiles
+      - Remove 20 unassigned permission sets
+      - Consolidate access via permission sets
+
+  - name: License & Cost
+    short: Licensing
+    score: 65
+    status: Fair
+    key_stat: 51 unused permission set licenses
+    takeaway: >-
+      51 permission set licenses sit at 0% utilization and one package
+      license is unused, against core license utilization of just 50%.
+      This is recoverable contract spend, not a capability gap.
+    metrics:
+      - value: "50%"
+        label: Core license utilization
+        description: Only 2 of 4 Salesforce licenses are in use.
+        tone: warn
+      - value: "51"
+        label: PSLs at 0% use
+        description: Permission set licenses provisioned but never used.
+        tone: bad
+      - value: "1"
+        label: Unused package license
+        description: Provisioned package capability with no meaningful usage.
+        tone: warn
+      - value: "0 / 201"
+        label: Einstein requests used
+        description: Provisioned Einstein capacity with no consumption.
+        tone: info
+    actions:
+      - Deprovision 51 zero-use PSLs
+      - Reclaim 1 unused package license
+      - Right-size unused cloud features
+      - Track optimization to renewal
+
+  - name: Design & Architecture
+    short: Architecture
+    score: 100
+    status: Excellent
+    key_stat: 0 structural findings
+    takeaway: >-
+      The data model extracted cleanly with no structural findings.
+      Architecture is not the constraint — it is a stable foundation the
+      access and license layers above it have not yet matched.
+    metrics:
+      - value: "0"
+        label: Structural findings
+        description: No design or architecture risks raised in this assessment.
+        tone: good
+      - value: "0"
+        label: Custom objects flagged
+        description: Object footprint is well within healthy complexity thresholds.
+        tone: good
+    actions:
+      - Preserve current object-model strengths
+      - Document integration dependencies
+      - Maintain a design review cadence
+      - Avoid unnecessary customization
+
+  - name: Maintenance & Governance
+    short: Governance
+    score: 100
+    status: Excellent
+    key_stat: APIs current at v62–v66
+    takeaway: >-
+      API versions are current across components with no
+      deprecated-version findings — a codebase kept up to date rather
+      than allowed to drift. A periodic review cadence will keep this
+      pillar from decaying.
+    metrics:
+      - value: v62–v66
+        label: API version range
+        description: All components sit on current, supported API versions.
+        tone: good
+      - value: "0"
+        label: Components below v56
+        description: Nothing falls outside active compatibility guidance.
+        tone: good
+      - value: "0"
+        label: Stale sandboxes
+        description: No sandboxes flagged as overdue for refresh.
+        tone: good
+    actions:
+      - Maintain periodic API-version reviews
+      - Activate standard duplicate rules
+      - Keep a sandbox refresh cadence
+      - Monitor configuration cleanliness
+
+  - name: Security & Access Policy
+    short: Security
+    score: 45
+    status: Poor
+    key_stat: 100% of users hold admin access
+    takeaway: >-
+      The platform's weakest dimension, with an unambiguous cause: every
+      active user holds admin or elevated access, all vested in System
+      Administrator. Unassigned entitlements widen the attack surface
+      further.
+    metrics:
+      - value: "100%"
+        label: Admin access ratio
+        description: Benchmark is under 5%. Every account is a full-org key.
+        tone: bad
+      - value: "6"
+        label: Unassigned profiles
+        description: Standing access nobody uses — an avoidable attack surface.
+        tone: warn
+      - value: "20"
+        label: Unassigned permission sets
+        description: Permissions sprawl that should be removed.
+        tone: warn
+    actions:
+      - Move users to least-privilege permission sets
+      - Reserve System Administrator for break-glass
+      - Delete 6 unassigned profiles
+      - Remove 20 unassigned permission sets
+
+  - name: Code & Technical Quality
+    short: Code
+    score: 70
+    status: Good
+    key_stat: 1 failed Apex trigger
+    takeaway: >-
+      Code quality is solid but blocked by one acute issue —
+      OpportunityTrigger is in an invalid state, which can block
+      deployments and break opportunity automation.
+    metrics:
+      - value: "1"
+        label: Invalid Apex trigger
+        description: OpportunityTrigger is failed and blocks deployments.
+        tone: bad
+      - value: "9"
+        label: Apex classes
+        description: All classes sit on a current API version (v62).
+        tone: info
+      - value: "0"
+        label: Components below v56
+        description: The broader codebase is current and supportable.
+        tone: good
+    actions:
+      - Fix or disable the invalid OpportunityTrigger
+      - Add a deployment-time validation gate
+      - Maintain API-version currency
+      - Add test coverage around triggers
+
+  - name: Automation & Modernization
+    short: Automation
+    score: 85
+    status: Excellent
+    key_stat: No legacy workflow sprawl
+    takeaway: >-
+      The automation stack is modern and largely healthy; the same
+      invalid trigger surfaces here because it sits in the execution
+      path. The org has avoided legacy workflow sprawl, so the focus is
+      narrow.
+    metrics:
+      - value: "1"
+        label: Invalid trigger (high)
+        description: The lone automation defect, flagged to fix immediately.
+        tone: bad
+      - value: "0"
+        label: Legacy Process Builders
+        description: No retired Process Builder automations remain.
+        tone: good
+      - value: "0"
+        label: Legacy Workflow Rules
+        description: The org has avoided retired workflow-rule debt entirely.
+        tone: good
+      - value: "1"
+        label: Workflow field update left
+        description: The last legacy automation to migrate to Flow.
+        tone: warn
+    actions:
+      - Restore the invalid OpportunityTrigger
+      - Migrate the last workflow field update to Flow
+      - Maintain a flow-first approach
+      - Add regression tests for opportunity automation
+
+risks:
+  - severity: Critical
+    title: Admin Access Sprawl
+    evidence: >-
+      2 of 2 active users hold admin or View All access, so any
+      compromised account can expose or corrupt the entire org.
+    action: >-
+      Within 30 days, move both users to purpose-built permission sets;
+      target an admin ratio under 5%.
+  - severity: Critical
+    title: No Least-Privilege Model
+    evidence: >-
+      With all control vested in System Administrator, the org cannot
+      demonstrate access controls to auditors or contain a credential
+      compromise.
+    action: >-
+      Replace System Administrator assignments with scoped permission
+      sets per job function.
+  - severity: High
+    title: 51 Idle Permission Set Licenses
+    evidence: >-
+      51 PSLs sit at 0% utilization, inflating contract cost with no
+      operational return ahead of renewal.
+    action: >-
+      Audit and deprovision the 51 zero-use PSLs this quarter; feed the
+      count into renewal talks.
+  - severity: High
+    title: Failed OpportunityTrigger
+    evidence: >-
+      The trigger is in an invalid state, which can block deployments
+      and silently break opportunity automation.
+    action: >-
+      Fix or disable the trigger immediately; add a deployment-time
+      validation gate.
+  - severity: High
+    title: Core Licenses at 50% Utilization
+    evidence: >-
+      Only 2 of 4 Salesforce licenses are in use, with one package
+      license fully idle.
+    action: >-
+      Right-size the license mix ahead of renewal and track utilization
+      quarterly.
+
+decisions:
+  - title: Approve Phase 1 Mobilization
+    body: >-
+      Authorize admin least-privilege work, access cleanup, and the
+      immediate fix of the failed OpportunityTrigger.
+  - title: Confirm License-Recovery Scope
+    body: >-
+      Validate which of the 51 idle PSLs and the unused package license
+      to deprovision ahead of renewal.
+  - title: Assign Access-Governance Ownership
+    body: >-
+      Name an executive owner for least-privilege design, access
+      reviews, and break-glass admin policy.
+  - title: Fund Phase 2 Planning
+    body: >-
+      Prepare the governance-and-cleanup wave once access controls and
+      the trigger fix are stable.
