@@ -175,7 +175,7 @@ Metric tone: **good** / **warn** / **bad** / **info** (drives the metric's accen
 3.
 4.
 
-## 4. Top Risks (exactly 5, most severe first)
+## 4. Top Five Risks (exactly 5, most severe first)
 
 | severity (Critical/High/Medium) | title | evidence | action |
 |---|---|---|---|
