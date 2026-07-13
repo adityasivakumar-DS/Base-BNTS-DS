@@ -89,6 +89,20 @@ object, and re-encodes it the same way, so this never comes up.
 | Risks table | `risks[].*` | Risks section, ordered as given |
 | Decisions | `decisions[].*` | Decisions section |
 
+## Layout notes
+
+- **Responsive.** The report adapts at 1024px (nav collapses, headings/scores
+  scale down) and 640px (nav links become a horizontal swipe strip, the
+  Scorecard bars table and Risks rows reflow to stacked cards, all grids
+  drop to a single column). Breakpoints live in a `<style>` block in the
+  template's `<helmet>`, keyed to `rpt-*` classes on the relevant elements.
+- **Decisions carousel.** The Decisions section shows 2 cards at a time
+  (1 on mobile) in a horizontally-scrolling, snap-aligned track, with
+  prev/next arrow buttons. It's plain CSS scroll + native `scrollBy()` — no
+  extra component state, so it composes fine with any number of decisions
+  (though the heading text still says "Four," per the fixed-count note
+  below).
+
 ## Known limitations (v1)
 
 - **Fixed counts.** The page headings — "One Score, Seven Pillars", "Five
