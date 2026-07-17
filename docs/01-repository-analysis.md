@@ -12,7 +12,7 @@ Base BNTS DS is a **headless, token-driven design system**. It ships:
 
 - A **three-tier design token graph** authored as W3C Design Tokens Community Group (DTCG) JSON.
 - A **Style Dictionary** build that compiles those tokens into layered CSS custom properties and a nested JSON export.
-- A library of **30 headless components**, each expressed as a plain CSS file plus a static HTML demo. Components read exclusively from CSS custom properties and contain no hardcoded visual values.
+- A library of **32 headless components**, each expressed as a plain CSS file plus a static HTML demo. Components read exclusively from CSS custom properties and contain no hardcoded visual values.
 
 The stated governance model is that **code is canonical** — the repository is the single source of truth from which brands and (per its README) Figma are generated, not the reverse. No brand-specific values are stored in this repo; it holds one organisation-level set of chosen values that can be re-themed by changing tokens and rebuilding.
 
@@ -191,7 +191,7 @@ Variant and size modifiers are composed on the same element (e.g. `class="ds-but
 
 ### 5.1 Inventory
 
-The `components/` directory contains **30 components**. Each is a self-contained directory with exactly two files — `<name>.css` (headless styles) and `<name>.html` (standalone demo). Grouped by role:
+The `components/` directory contains **32 components**. Each is a self-contained directory with exactly two files — `<name>.css` (headless styles) and `<name>.html` (standalone demo). Grouped by role:
 
 | Group | Components |
 |---|---|
@@ -225,7 +225,7 @@ Component demos range from compact single-file examples (e.g. `textarea.html` �
 
 ### 5.5 Component status per README
 
-The README's component table marks **Button** as complete (`✅`, listing primary/secondary/ghost/destructive × SM/MD/LG + icon-only) and lists "More components — see playbook Step 5" as *Planned*. The repository on disk, however, contains 30 component directories as listed in §5.1 — i.e. the codebase is ahead of the status table in the README.
+The README's component table marks **Button** as complete (`✅`, listing primary/secondary/ghost/destructive × SM/MD/LG + icon-only) and lists "More components — see playbook Step 5" as *Planned*. The repository on disk, however, contains 32 component directories as listed in §5.1 — i.e. the codebase is ahead of the status table in the README.
 
 ---
 
@@ -466,7 +466,7 @@ The end-to-end workflow is: **edit token JSON → `npm run build` → CSS variab
 - **Color system:** 14 palettes × 13 tones; brand base `#2a52e0`.
 - **Foundations:** border, color, elevation, motion, opacity, radius, spacing, typography.
 - **Build:** Style Dictionary v4 compiles tokens to three layered `:root` CSS files (`outputReferences` on for semantic/base) plus a nested JSON export; `build/` is not committed.
-- **Components:** 30, each a `.css` + `.html` pair; CSS is BEM-namespaced (`ds-`), consumes only `--ds-*` variables, and manages state via pseudo-classes and ARIA attributes.
+- **Components:** 32, each a `.css` + `.html` pair; CSS is BEM-namespaced (`ds-`), consumes only `--ds-*` variables, and manages state via pseudo-classes and ARIA attributes.
 - **Accessibility:** token-driven `:focus-visible` rings, native semantic elements, ARIA on composite widgets, `min-height` hit targets.
 - **Theming:** single `:root` brand, re-themed by editing tokens and rebuilding; multi-brand and dark mode are described as future phases and are not present at this ref.
 - **Notable exceptions observed (not recommendations):** a `ds-btn` vs `ds-button` class mismatch in `modal.html`; some hardcoded shadow/rgba literals and rem sizes in component CSS; several referenced CSS variables not emitted by the current token set (guarded by fallbacks); `opacity` present in core only.
