@@ -110,15 +110,24 @@ object, and re-encodes it the same way, so this never comes up.
     actions now show the first 5 (in a 2-column split) with a
     "View All Actions" link when there are more — clicking it opens a modal
     listing the rest. Metrics also moved from a 2-column to a 4-column row.
-  - **By Severity**: tabs become Critical/High/Medium/Low (Critical selected
-    by default), and the panel's left side becomes a vertical list of the 7
-    pillars. Selecting a pillar shows every risk whose `pillar` field matches
-    the selected pillar name *and* whose `severity` matches the active tab,
-    each as a title + evidence summary, plus one "Recommended Action" button
-    that opens that pillar's full action list in the same modal used above.
-    A pillar with no matching risk shows a plain "No `<severity>`-severity
+  - **By Severity**: tabs become Critical/High/Medium/Low, each labeled with
+    a live count (e.g. "High · 03") of how many of the 5 risks sit at that
+    severity; Critical is selected by default. The panel's left side becomes
+    a vertical list of the 7 pillars, each also showing a live count of its
+    matching risks *for the active severity tab* (so the counts next to the
+    pillar names change as you switch severity tabs). Selecting a pillar
+    shows every risk whose `pillar` field matches that pillar *and* whose
+    `severity` matches the active tab, each as a numbered title + evidence
+    row with its own small "Action" button that opens that pillar's full
+    action list in the same modal used above (every row for a given pillar
+    opens the same list — actions are authored per pillar, not per risk). A
+    pillar with no matching risk shows a plain "No `<severity>`-severity
     findings for this pillar" message — this is a normal/expected state, not
     a bug, for any severity a client's risks don't happen to use.
+- **Nav link spacing** is 32px between Scorecard/Risks/Pillars/Decisions
+  (bumped up from the initial 24px) — set on `.rpt-nav-links` in the
+  template's inline style, unaffected by the responsive breakpoints, which
+  keep their own tighter spacing on narrow screens.
 
 ## Known limitations (v1)
 
