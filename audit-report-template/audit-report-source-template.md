@@ -13,11 +13,24 @@ Field names in `snake_case` match the keys in `audit-report-data.example.yaml`
 - Exactly **7** pillars, with these exact names and in this exact order (they are the audit framework, not per-client content)
 - Exactly **5** risks, ordered most severe first
 - Exactly **4** decisions
-- Each pillar: 2–4 metrics, and ideally 4 priority actions (even numbers lay out cleanly in the 2-column grid)
+- Each pillar: 2–4 metrics, and any number of priority actions — the first 5
+  show inline, the rest appear behind a "View All Actions" link (see below)
 
 This is a v1 constraint of the template — the page headings ("Seven Pillars",
-"Five Risks", "Four Decisions") are hand-written prose tied to these counts.
+"Five Risks", "Key Decisions") are hand-written prose tied to these counts.
 Changing a count means also editing that heading text in the HTML (see the guide).
+
+**Deep Dives has two view modes**, toggled by the reader with a "By Severity"
+switch — you don't author these separately, they're both generated from the
+data above:
+- **By Pillar** (default): the 7 pillars as tabs, each showing its score,
+  metrics, and priority actions (first 5, "View All Actions" for the rest).
+- **By Severity**: Critical/High/Medium/Low tabs, with the 7 pillars as a
+  left-hand list. Selecting a pillar shows whichever of the 5 risks (below)
+  are tagged with that pillar + severity, each with a "Recommended Action"
+  button that opens that pillar's full action list in a modal. A pillar with
+  no risk at the selected severity shows a plain "No findings" message —
+  this is expected, not an error.
 
 ---
 
@@ -51,7 +64,7 @@ Changing a count means also editing that heading text in the HTML (see the guide
 
 For each pillar, fill in: score, status, one-line key stat (shown on the
 Scorecard row/tile), a takeaway paragraph (shown in the pillar deep-dive), 2–4
-metrics, and priority actions.
+metrics, and priority actions (any number — see "Deep Dives" note above).
 
 Status labels: **Excellent** (85–100) / **Good** (70–84) / **Fair** (50–69) / **Poor** (0–49).
 Metric tone: **good** / **warn** / **bad** / **info** (drives the metric's accent color).
@@ -177,13 +190,16 @@ Metric tone: **good** / **warn** / **bad** / **info** (drives the metric's accen
 
 ## 4. Top Five Risks (exactly 5, most severe first)
 
-| severity (Critical/High/Medium) | title | evidence | action |
-|---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
+`pillar` must exactly match one of the 7 pillar names above — it drives the
+"By Severity" view's pillar-to-risk matching (see the Deep Dives note above).
+
+| severity (Critical/High/Medium/Low) | pillar | title | evidence | action |
+|---|---|---|---|---|
+| | | | | |
+| | | | | |
+| | | | | |
+| | | | | |
+| | | | | |
 
 ## 5. Decisions / Next Steps (exactly 4)
 

@@ -55,6 +55,7 @@ def to_component_data(d: dict) -> dict:
     def risk(r):
         return {
             "sev": r["severity"],
+            "pillar": r["pillar"],
             "title": r["title"],
             "evidence": r["evidence"],
             "action": r["action"],
@@ -103,6 +104,12 @@ def validate(d: dict) -> None:
         n = len(p.get("metrics", []))
         if not (2 <= n <= 4):
             errors.append(f"pillar {i + 1} ({p.get('name')}): expected 2-4 metrics, got {n}")
+    pillar_names = {p.get("name") for p in d.get("pillars", [])}
+    for i, r in enumerate(d.get("risks", [])):
+        if r.get("severity") not in ("Critical", "High", "Medium", "Low"):
+            errors.append(f"risk {i + 1} ({r.get('title')}): severity must be one of Critical/High/Medium/Low, got {r.get('severity')!r}")
+        if r.get("pillar") not in pillar_names:
+            errors.append(f"risk {i + 1} ({r.get('title')}): pillar {r.get('pillar')!r} does not match any pillar name")
     if errors:
         raise SystemExit("Data validation failed:\n" + "\n".join(f"  - {e}" for e in errors))
 

@@ -85,8 +85,8 @@ object, and re-encodes it the same way, so this never comes up.
 | `verdict` | `verdict` | Hero subhead |
 | `hero_takeaway` | `hero_takeaway` | Hero closing line |
 | `where_we_are_body` etc. | `story.where_we_are_body` etc. | Executive Summary card bodies (titles/icons/colors are fixed by design) |
-| Pillar `score`, `status`, `key_stat`, `takeaway`, metrics table, actions | `pillars[].*` | Scorecard row/tile, Pillar deep-dive |
-| Risks table | `risks[].*` | Risks section, ordered as given |
+| Pillar `score`, `status`, `key_stat`, `takeaway`, metrics table, actions | `pillars[].*` | Scorecard row/tile, Pillar deep-dive (first 5 actions inline, rest via "View All Actions") |
+| Risks table (incl. `pillar`) | `risks[].*` | Risks section, ordered as given; `pillar` + `severity` also drive the Deep Dives "By Severity" view |
 | Decisions | `decisions[].*` | Decisions section |
 
 ## Layout notes
@@ -96,27 +96,47 @@ object, and re-encodes it the same way, so this never comes up.
   Scorecard bars table and Risks rows reflow to stacked cards, all grids
   drop to a single column). Breakpoints live in a `<style>` block in the
   template's `<helmet>`, keyed to `rpt-*` classes on the relevant elements.
+  Nav links (Scorecard/Risks/Pillars/Decisions) sit in the true center of the
+  bar via a `1fr auto 1fr` grid, so they stay centered regardless of how wide
+  the client logo or the date badge are.
 - **Decisions carousel.** The Decisions section shows 2 cards at a time
   (1 on mobile) in a horizontally-scrolling, snap-aligned track, with
   prev/next arrow buttons. It's plain CSS scroll + native `scrollBy()` — no
-  extra component state, so it composes fine with any number of decisions
-  (though the heading text still says "Four," per the fixed-count note
-  below).
+  extra component state, so it composes fine with any number of decisions.
+- **Deep Dives has two view modes**, switched with the "By Severity" toggle
+  in the section header (component state, not a data field — nothing to
+  author for this beyond the pillar/risk data itself):
+  - **By Pillar** (default): unchanged pillar-tab layout, except priority
+    actions now show the first 5 (in a 2-column split) with a
+    "View All Actions" link when there are more — clicking it opens a modal
+    listing the rest. Metrics also moved from a 2-column to a 4-column row.
+  - **By Severity**: tabs become Critical/High/Medium/Low (Critical selected
+    by default), and the panel's left side becomes a vertical list of the 7
+    pillars. Selecting a pillar shows every risk whose `pillar` field matches
+    the selected pillar name *and* whose `severity` matches the active tab,
+    each as a title + evidence summary, plus one "Recommended Action" button
+    that opens that pillar's full action list in the same modal used above.
+    A pillar with no matching risk shows a plain "No `<severity>`-severity
+    findings for this pillar" message — this is a normal/expected state, not
+    a bug, for any severity a client's risks don't happen to use.
 
 ## Known limitations (v1)
 
 - **Fixed counts.** The page headings — "One Score, Seven Pillars", "Five
-  Risks, Ranked", "Four Decisions to Begin" — are hand-written prose tied to
-  those exact counts. If a client's assessment genuinely needs a different
-  number of risks or decisions, that heading text has to be edited directly
-  in `master-template.html` (search for the phrase in the decoded template,
-  same JSON-string caveat as above applies) — the script does not do this.
+  Risks, Ranked" — are hand-written prose tied to those exact counts. If a
+  client's assessment genuinely needs a different number of pillars or
+  risks, that heading text has to be edited directly in `master-template.html`
+  (search for the phrase in the decoded template, same JSON-string caveat as
+  above applies) — the script does not do this. "Key Decisions to Begin" is
+  not count-specific, so the number of decisions can change freely.
 - **Client logo** is a manual step in the report builder tool (see above),
   not part of the data file.
 - **Pillar names/order are fixed** — they represent the audit framework
   itself (Usage & Adoption, License & Cost, Design & Architecture,
   Maintenance & Governance, Security & Access Policy, Code & Technical
-  Quality, Automation & Modernization), not client-specific content.
+  Quality, Automation & Modernization), not client-specific content. Each
+  risk's `pillar` field must match one of these names exactly (validated by
+  the script) since it drives the "By Severity" view.
 - The remaining section subheadings (e.g. "Ordered by severity, most
   critical first.") were deliberately written generically so they hold for
   any client — no per-client editing needed there.

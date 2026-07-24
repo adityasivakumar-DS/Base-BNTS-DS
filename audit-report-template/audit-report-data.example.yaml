@@ -184,6 +184,9 @@ pillars:
       - Reserve System Administrator for break-glass
       - Delete 6 unassigned profiles
       - Remove 20 unassigned permission sets
+      - Enable login IP allowlisting for admin roles
+      - Require MFA for all System Administrator sessions
+      - Set up quarterly access-certification reviews
 
   - name: Code & Technical Quality
     short: Code
@@ -248,6 +251,7 @@ pillars:
 
 risks:
   - severity: Critical
+    pillar: Usage & Adoption
     title: Admin Access Sprawl
     evidence: >-
       2 of 2 active users hold admin or View All access, so any
@@ -256,6 +260,7 @@ risks:
       Within 30 days, move both users to purpose-built permission sets;
       target an admin ratio under 5%.
   - severity: Critical
+    pillar: Security & Access Policy
     title: No Least-Privilege Model
     evidence: >-
       With all control vested in System Administrator, the org cannot
@@ -265,6 +270,7 @@ risks:
       Replace System Administrator assignments with scoped permission
       sets per job function.
   - severity: High
+    pillar: License & Cost
     title: 51 Idle Permission Set Licenses
     evidence: >-
       51 PSLs sit at 0% utilization, inflating contract cost with no
@@ -273,6 +279,7 @@ risks:
       Audit and deprovision the 51 zero-use PSLs this quarter; feed the
       count into renewal talks.
   - severity: High
+    pillar: Code & Technical Quality
     title: Failed OpportunityTrigger
     evidence: >-
       The trigger is in an invalid state, which can block deployments
@@ -281,6 +288,7 @@ risks:
       Fix or disable the trigger immediately; add a deployment-time
       validation gate.
   - severity: High
+    pillar: License & Cost
     title: Core Licenses at 50% Utilization
     evidence: >-
       Only 2 of 4 Salesforce licenses are in use, with one package
