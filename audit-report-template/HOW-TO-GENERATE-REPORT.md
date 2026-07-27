@@ -103,13 +103,17 @@ object, and re-encodes it the same way, so this never comes up.
   (1 on mobile) in a horizontally-scrolling, snap-aligned track, with
   prev/next arrow buttons. It's plain CSS scroll + native `scrollBy()` — no
   extra component state, so it composes fine with any number of decisions.
-- **Deep Dives has two view modes**, switched with the "By Severity" toggle
-  in the section header (component state, not a data field — nothing to
-  author for this beyond the pillar/risk data itself):
-  - **By Pillar** (default): unchanged pillar-tab layout, except priority
-    actions now show the first 5 (in a 2-column split) with a
-    "View All Actions" link when there are more — clicking it opens a modal
-    listing the rest. Metrics also moved from a 2-column to a 4-column row.
+- **Deep Dives has two view modes**, switched with a "By Pillar" / "By
+  Severity" labeled toggle in the section header (component state, not a
+  data field — nothing to author for this beyond the pillar/risk data
+  itself). Whichever mode is active has its label bold and dark; the other
+  is muted gray, and the switch itself fills purple when "By Severity" is on.
+  - **By Pillar** (default): pillar-tab layout as before, but the metrics
+    row (previously each pillar's `metrics` values) is now 4 cards showing
+    that pillar's own live risk count per severity (Critical/High/Medium/
+    Low) — the same counts the "By Severity" view uses, just sliced by
+    pillar instead of by severity. Priority actions still show the first 5
+    (2-column split) with "View All Actions" for the rest via modal.
   - **By Severity**: tabs become Critical/High/Medium/Low, each labeled with
     a live count (e.g. "High · 03") of how many of the 5 risks sit at that
     severity; Critical is selected by default. The panel's left side becomes
@@ -146,6 +150,11 @@ object, and re-encodes it the same way, so this never comes up.
   Quality, Automation & Modernization), not client-specific content. Each
   risk's `pillar` field must match one of these names exactly (validated by
   the script) since it drives the "By Severity" view.
+- **`pillars[].metrics` is still part of the data model and still
+  validated** (2–4 entries required), but as of the severity-count redesign
+  it is no longer rendered anywhere in Deep Dives — the metrics row now
+  shows risk counts by severity instead. Keep authoring it for now (in case
+  a future revision resurfaces it elsewhere); it's just not visible today.
 - The remaining section subheadings (e.g. "Ordered by severity, most
   critical first.") were deliberately written generically so they hold for
   any client — no per-client editing needed there.
