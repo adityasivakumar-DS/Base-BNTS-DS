@@ -91,21 +91,6 @@
       "950":  { "$value": "#7d1a1a", "$type": "color" },
       "1000": { "$value": "#000000", "$type": "color" }
     },
-    "brown": {
-      "0":    { "$value": "#ffffff", "$type": "color" },
-      "50":   { "$value": "#fdf4ec", "$type": "color" },
-      "100":  { "$value": "#fae3cc", "$type": "color" },
-      "200":  { "$value": "#f5c49a", "$type": "color" },
-      "300":  { "$value": "#eda16b", "$type": "color" },
-      "400":  { "$value": "#df7f3f", "$type": "color" },
-      "500":  { "$value": "#c96a22", "$type": "color" },
-      "600":  { "$value": "#a8551a", "$type": "color" },
-      "700":  { "$value": "#884213", "$type": "color" },
-      "800":  { "$value": "#68310d", "$type": "color" },
-      "900":  { "$value": "#4a2208", "$type": "color" },
-      "950":  { "$value": "#2c1504", "$type": "color" },
-      "1000": { "$value": "#000000", "$type": "color" }
-    },
     "white": {
       "0": { "$value": "#ffffff", "$type": "color", "$description": "Pure white" }
     },
