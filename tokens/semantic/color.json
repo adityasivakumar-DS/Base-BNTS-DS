@@ -41,8 +41,8 @@
     "feedback": {
       "success":  { "$value": "{color.green.500}",  "$type": "color", "$description": "Positive / success" },
       "success-subtle": { "$value": "{color.green.50}", "$type": "color", "$description": "Success tinted background" },
-      "warning":  { "$value": "{color.orange.500}", "$type": "color", "$description": "Caution / warning" },
-      "warning-subtle": { "$value": "{color.orange.50}", "$type": "color", "$description": "Warning tinted background" },
+      "warning":  { "$value": "{color.yellow.600}", "$type": "color", "$description": "Caution / warning" },
+      "warning-subtle": { "$value": "{color.yellow.50}", "$type": "color", "$description": "Warning tinted background" },
       "error":    { "$value": "{color.red.500}",    "$type": "color", "$description": "Error / destructive" },
       "error-subtle": { "$value": "{color.red.50}", "$type": "color", "$description": "Error tinted background" },
       "info":     { "$value": "{color.blue.500}",   "$type": "color", "$description": "Informational message" },
@@ -54,7 +54,7 @@
     "link": {
       "default": { "$value": "{color.blue.600}",  "$type": "color", "$description": "Hyperlink default" },
       "hover":   { "$value": "{color.blue.700}",  "$type": "color", "$description": "Hyperlink hovered" },
-      "visited": { "$value": "{color.purple.600}", "$type": "color", "$description": "Hyperlink visited" }
+      "visited": { "$value": "{color.neutral.700}", "$type": "color", "$description": "Hyperlink visited" }
     },
     "disabled": {
       "surface": { "$value": "{color.neutral.100}", "$type": "color", "$description": "Disabled component surface" },
